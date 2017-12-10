@@ -1,1 +1,27 @@
-/home/muhammed/.gitconfig
+[alias]
+# pretty log
+	l=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
+# pretty log full message
+	ll=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(dim red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	s=status
+	a=add
+	aa=add -A
+	c=commit -m
+# commit and push
+	cc="!f() { git commit -m \"$1\"; git push origin master; }; f"
+
+	d=difftool
+# diff a commit against previous
+	dd="!f() { git difftool \"$1^!\"; }; f"
+	r=reset --hard origin/master
+	p=pull origin master
+	pp=push origin master
+# checks out a branch, creates if not exist
+	b="!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"
+[user]
+	email = nohorjo@gmail.com
+	name = Muhammed Haque
+[credential]
+	helper = cache --timeout=43200
+[diff]
+	tool = meld

@@ -1,1 +1,2 @@
-/home/muhammed/.vimrc
+set number
+
