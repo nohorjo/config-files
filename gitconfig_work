@@ -1,10 +1,17 @@
 [user]
 	name = Muhammed Haque
-	email = nohorjo@gmail.com
+	email = muhammed.haque@bond.co.uk
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\muhammed.haque\\Documents\\gitignore_global.txt
+[difftool "beyondcompare"]
+	cmd = 'C:/Program Files (x86)/Beyond Compare 2/BC2.exe' $LOCAL $REMOTE
+[diff]
+	tool = beyondcompare
 [credential]
-	helper = cache --timeout=43200
-#[diff]
-#	tool = meld
+	helper = manager
+[pull]
+	rebase = true
 [alias]
 	a=add
 	aa=add -A
