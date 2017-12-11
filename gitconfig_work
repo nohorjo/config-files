@@ -19,7 +19,7 @@
 	b="!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"
 	c=commit -m
 # commit and push
-	cc="!f() { git commit -m \"$1\"; git pp }; f"
+	cc="!f() { git commit -m \"$1\"; git pp; }; f"
 	co=checkout
 	d=difftool
 # diff a commit against previous

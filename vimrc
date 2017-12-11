@@ -16,6 +16,7 @@ inoremap <<CR> <<CR>><Left>
 map <Enter> o<ESC>
 map <Tab> :tab
 map <C-f> :find **/
+map <Leader>q :qa!<CR>
 
 "resize splits
 nnoremap  <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
