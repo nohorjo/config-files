@@ -5,13 +5,19 @@ set cursorline
 "auto indent
 set autoindent
 set cindent
+"tab size
+set tabstop=3
 
+"disable autoindent when for pasting with F2
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 "auto close brackets, if return is pressed
-inoremap {<CR> {<CR>}<Left>
-inoremap (<CR> (<CR>)<Left>
-inoremap [<CR> [<CR>]<Left>
-inoremap <<CR> <<CR>><Left>
+inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
+"inoremap (<CR> (<CR>)<Left><CR><UP><TAB>
+inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
+inoremap <<CR> <<CR>><Left><CR><UP><TAB>
 
 map <Enter> o<ESC>
 map <Tab> :tab
