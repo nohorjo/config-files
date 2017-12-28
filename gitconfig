@@ -8,15 +8,16 @@
 [alias]
 	a=add
 	aa=add -A
+	ac="!f() { git aa; git cc $1; }; f"
 # checks out a branch, creates if not exist
-	b="!f() { git checkout $1 2>/dev/null || git checkout -b $1; }; f"
+	b="!f() { git co $1 2>/dev/null || git co -b $1; }; f"
 	c=commit -m
 # commit and push
-	cc="!f() { git commit -m \"$1\"; git pp; }; f"
+	cc="!f() { git c \"$1\"; git pp; }; f"
 	co=checkout
 	d=difftool
 # diff a commit against previous
-	dd="!f() { git difftool \"$1^!\"; }; f"
+	dd="!f() { git d \"$1^!\"; }; f"
 # pretty log
 	l=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s' -15
 	ll=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
