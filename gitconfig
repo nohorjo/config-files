@@ -8,7 +8,7 @@
 [alias]
 	a=add
 	aa=add -A
-	ac="!f() { git aa; git cc $1; }; f"
+	ac="!f() { git aa; git cc \"$1\"; }; f"
 # checks out a branch, creates if not exist
 	b="!f() { git co $1 2>/dev/null || git co -b $1; }; f"
 	c=commit -m
