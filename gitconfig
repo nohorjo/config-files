@@ -1,14 +1,22 @@
 [user]
 	name = Muhammed Haque
 	email = nohorjo@gmail.com
+
+	
+	
+	
+	
+[diff]
+	tool = meld
 [credential]
 	helper = cache --timeout=43200
-#[diff]
-#	tool = meld
+	
+	
 [alias]
 	a=add
 	aa=add -A
 	ac="!f() { git aa; git cc \"$1\"; }; f"
+	as="!f() { git aa; git s; }; f"
 # checks out a branch, creates if not exist
 	b="!f() { git co $1 2>/dev/null || git co -b $1; }; f"
 	c=commit -m
@@ -27,5 +35,6 @@
 	pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
 	r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
 	s=status
+	sd="!f() { git s; git d; }; f"
 	st=stash
 	sp=stash pop
