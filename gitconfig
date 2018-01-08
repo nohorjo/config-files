@@ -26,6 +26,8 @@
 	d=difftool
 # diff a commit against previous
 	dd="!f() { git d \"$1^!\"; }; f"
+# diff names only
+	dn="!f() { git diff --name-only \"$1^!\"; }; f"
 # pretty log
 	l=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s' -15
 	ll=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
