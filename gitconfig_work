@@ -10,8 +10,6 @@
 	tool = beyondcompare
 [credential]
 	helper = manager
-[pull]
-	rebase = true
 [alias]
 	a=add
 	aa=add -A
