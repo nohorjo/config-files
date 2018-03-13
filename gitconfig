@@ -9,16 +9,14 @@
 [diff]
 	tool = meld
 [credential]
-	helper = cache --timeout=43200
-	
-	
+	helper = cache --timeout=43200	
 [alias]
 	a=add
 	aa=add -A
 	ac="!f() { git aa; git cc \"$1\"; }; f"
 	as="!f() { git aa; git s; }; f"
 # checks out a branch, creates if not exist
-	b="!f() { git co $1 2>/dev/null || git co -b $1; }; f"
+	b="!f() { git co $1 2>/dev/null || git co -b $1 && git branch; }; f"
 	c=commit -m
 # commit and push
 	cc="!f() { git c \"$1\"; git pp; }; f"
@@ -28,15 +26,18 @@
 	dd="!f() { git d \"$1^!\"; }; f"
 # diff names only
 	dn="!f() { git diff --name-only \"$1^!\"; }; f"
+	f=fetch --all
 # pretty log
-	l=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s' -15
-	ll=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
+	l=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s' -15
+	ll=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
 # pretty log full message
-	la=log --pretty=format:'%C(blink blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(dim red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	la=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(dim red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	m=merge
 	p="!f(){ git pull origin $(git symbolic-ref --short HEAD); }; f"
 	pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
 	r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
 	s=status
+	sb="!f() { git st; git b $1; }; f"
 	sd="!f() { git s; git d; }; f"
 	st=stash
 	sp=stash pop
