@@ -21,6 +21,7 @@
 # commit and push
 	cc="!f() { git c \"$1\"; git pp; }; f"
 	co=checkout
+	cp=cherry-pick
 	d=difftool
 # diff a commit against previous
 	dd="!f() { git d \"$1^!\"; }; f"
