@@ -17,6 +17,7 @@
 	as="!f() { git aa; git s; }; f"
 # checks out a branch, creates if not exist
 	b="!f() { git co $1 2>/dev/null || git co -b $1 && git branch; }; f"
+	bd="!f() { git branch -D $1; git push -d origin $1; }; f"
 	c=commit -m
 # commit and push
 	cc="!f() { git c \"$1\"; git pp; }; f"
