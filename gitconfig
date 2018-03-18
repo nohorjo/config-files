@@ -40,7 +40,7 @@
 	pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
 	r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
 	s=status
-	sb="!f() { git st; git b $1; }; f"
 	sd="!f() { git s; git d; }; f"
 	st=stash
+	stb="!f() { git st; git b $1; }; f"
 	sp=stash pop
