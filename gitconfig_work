@@ -35,6 +35,7 @@
 # pretty log full message
 	la=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(dim red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
 	m=merge
+	mm=m master
 	p="!f(){ git pull origin $(git symbolic-ref --short HEAD); }; f"
 	pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
 	r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
