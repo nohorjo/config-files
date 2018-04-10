@@ -1,8 +1,6 @@
 [user]
 	name = Muhammed Haque
 	email = m.haque@livelinktechnology.net
-[credential]
-	helper = manager	
 [alias]
 	a=add
 	aa=add -A
