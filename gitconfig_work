@@ -1,6 +1,20 @@
 [user]
 	name = Muhammed Haque
 	email = m.haque@livelinktechnology.net
+[diff]
+   tool = meld
+[difftool]
+   prompt = false
+[difftool "meld"]
+   trustExitCode = true
+   cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+   tool = meld
+[mergetool]
+   prompt = false
+[mergetool "meld"]
+   trustExitCode = true
+   cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 [alias]
 	a=add
 	aa=add -A
