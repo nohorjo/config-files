@@ -25,15 +25,17 @@
 # diff a commit against previous
 	dd="!f() { git d \"$1^!\"; }; f"
 # diff a file
-	df="!f() { git d $2^:$1 $2:$1; }; f"	
+	df="!f() { git d -y $2^:$1 $2:$1; }; f"	
 # diff names only
 	dn="!f() { git diff --name-only \"$1^!\"; }; f"
 	f=fetch --all --prune
 # pretty log
-	l=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s' -15
-	ll=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
+	l=!git ll -15
+# log for one file
+	lf=!git ll --follow
 # pretty log full message
-	la=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(dim yellow)%h%Creset %C(dim red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	la=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	ll=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
 	m=merge
 	mm=merge master
 	ms=merge staging
