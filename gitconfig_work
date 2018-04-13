@@ -1,20 +1,13 @@
 [user]
 	name = Muhammed Haque
 	email = m.haque@livelinktechnology.net
-[diff]
-   tool = meld
-[difftool]
-   prompt = true
+
+
 [difftool "meld"]
-   trustExitCode = true
-   cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
-[merge]
-   tool = meld
-[mergetool]
-   prompt = true
-[mergetool "meld"]
-   trustExitCode = true
-   cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+    trustExitCode = true
+    cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = meld
 [alias]
 	a=add
 	aa=add -A
@@ -31,6 +24,8 @@
 	d=difftool
 # diff a commit against previous
 	dd="!f() { git d \"$1^!\"; }; f"
+# diff a file
+	df="!f() { git d $2^:$1 $2:$1; }; f"	
 # diff names only
 	dn="!f() { git diff --name-only \"$1^!\"; }; f"
 	f=fetch --all --prune
