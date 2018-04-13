@@ -3,11 +3,11 @@
 	email = m.haque@livelinktechnology.net
 
 
-[difftool "meld"]
+[difftool "diffmerge"]
     trustExitCode = true
-    cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+    cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [diff]
-    tool = meld
+    tool = diffmerge
 [alias]
 	a=add
 	aa=add -A
