@@ -13,6 +13,8 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 colorscheme dracula
 
+set laststatus=2
+set statusline+=%m 
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
@@ -24,9 +26,11 @@ inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
 inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
 inoremap <<CR> <<CR>><Left><CR><UP><TAB>
 
+inoremap <Leader><Space> <C-x><C-o>
+
 map <Enter> o<ESC>
 map <S-Tab> :tab
-map <C-f> :find **/
+map <C-f> :find ./**/
 map <Leader>q :qa!<CR>
 
 "resize splits
@@ -38,6 +42,9 @@ nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
 "move line up or down
 nnoremap <C-S-DOWN> ddp
 nnoremap <C-S-UP> ddkP
+
+"save session
+autocmd VimLeave * :silent :mksession!
 
 "jsctags
 autocmd BufWritePost *.js :silent :exe '! nohup find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; 2>&1 | sed /^$/d | sort > tags & ' | redraw!
@@ -56,7 +63,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
