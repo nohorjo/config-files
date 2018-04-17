@@ -1,5 +1,5 @@
 "show line numbers
-set number
+set number relativenumber
 "highlight current line
 set cursorline
 "auto indent
@@ -7,6 +7,9 @@ set autoindent
 set cindent
 "tab size
 set tabstop=3
+
+filetype plugin on
+syntax on
 
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
@@ -40,6 +43,7 @@ execute pathogen#infect()
 "NERDTree
 nnoremap <Leader>z :NERDTree<CR>
 "autocmd vimenter * NERDTree
+let NERDTreeShowLineNumbers=1
 
 "enable project specific .vimrc
 set exrc
