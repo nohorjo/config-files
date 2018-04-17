@@ -10,6 +10,7 @@ set tabstop=3
 
 filetype plugin on
 syntax on
+set omnifunc=syntaxcomplete#Complete
 
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
