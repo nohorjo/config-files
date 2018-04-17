@@ -11,6 +11,7 @@ set tabstop=3
 filetype plugin on
 syntax on
 set omnifunc=syntaxcomplete#Complete
+colorscheme dracula
 
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
@@ -38,6 +39,9 @@ nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <C-S-DOWN> ddp
 nnoremap <C-S-UP> ddkP
 
+"jsctags
+autocmd BufWritePost *.js :exe '! find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; | sed '/^$/d' | sort > tags'
+ 
 "pathogen
 execute pathogen#infect()
 
@@ -45,6 +49,16 @@ execute pathogen#infect()
 nnoremap <Leader>z :NERDTree<CR>
 "autocmd vimenter * NERDTree
 let NERDTreeShowLineNumbers=1
+
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "enable project specific .vimrc
 set exrc
