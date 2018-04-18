@@ -33,6 +33,10 @@ map <S-Tab> :tab
 map <C-f> :find ./**/
 map <Leader>q :qa!<CR>
 
+map <S-f> :grep 
+nmap <silent> <C-N> :cn<CR>zv
+nmap <silent> <C-P> :cp<CR>zv
+
 "resize splits
 nnoremap  <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap  <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
@@ -44,7 +48,7 @@ nnoremap <C-S-DOWN> ddp
 nnoremap <C-S-UP> ddkP
 
 "save session
-autocmd VimLeave * :silent :mksession!
+autocmd TextChanged,TextChangedI * :silent :mksession!
 
 "jsctags
 autocmd BufWritePost *.js :silent :exe '! nohup find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; 2>&1 | sed /^$/d | sort > tags & ' | redraw!
