@@ -38,8 +38,8 @@
 # log for one file
 	lf=!git ll --follow
 # pretty log full message
-	la=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
-	ll=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
+	la=log --graph --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
+	ll=log --graph --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
 	m=merge
 	mm=merge master
 	ms=merge staging
