@@ -14,7 +14,9 @@ set omnifunc=syntaxcomplete#Complete
 colorscheme dracula
 
 set laststatus=2
-set statusline+=%m 
+set statusline+=%m
+set statusline+=%t
+set statusline+=\ %P
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
@@ -26,7 +28,8 @@ inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
 inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
 inoremap <<CR> <<CR>><Left><CR><UP><TAB>
 
-inoremap <Leader><Space> <C-x><C-o>
+"inoremap <Leader><Space> <C-x><C-o>
+inoremap <Leader><Leader><Space> <C-x><C-o>
 
 map <Enter> o<ESC>
 map <S-Tab> :tab
@@ -62,7 +65,7 @@ nnoremap <Leader>z :NERDTree<CR>
 let NERDTreeShowLineNumbers=1
 
 "syntastic
-set statusline+=%#warningmsg#
+set statusline+=\ %#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
