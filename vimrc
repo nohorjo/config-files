@@ -24,7 +24,7 @@ augroup ActiveWindow
 augroup END
 
 set laststatus=2
-set statusline+=%m
+set statusline=%m
 set statusline+=%t
 set statusline+=\ %P
 "disable autoindent when for pasting with F2
