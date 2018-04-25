@@ -6,7 +6,7 @@ set cursorline
 set autoindent
 set cindent
 "tab size
-set tabstop=3
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 filetype plugin on
 syntax on
