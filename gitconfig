@@ -12,7 +12,7 @@
 	a=add
 	aa=add -A
 	ac="!f() { if [[ $# -eq 1 ]]; then git aa; else git a ${@:2}; fi; git cc \"$1\"; }; f"
-	as="!f() { git aa; git s; }; f"
+	as="!f() { if [[ $# -eq 0 ]]; then git aa; else git a $*; fi; git s; }; f"
 # checks out a branch, creates if not exist
 	b="!f() { git co $1 2>/dev/null || git co -b $1; git branch -a --color=always | nl | tail -r; }; f"
 	bd="!f() { git branch -D $1; git push origin --delete $1; }; f"
@@ -29,7 +29,7 @@
 # diff a commit against previous
 	dd="!f() { git d \"$1^!\"; }; f"
 # diff a file
-	df="!f() { git d -y $2^:$1 $2:$1; }; f"	
+	df="!f() { git d -y $2^:$1 $2:$1; }; f"
 # diff names only
 	dn="!f() { git diff --name-only \"$1^!\"; }; f"
 	f=fetch --all --prune
