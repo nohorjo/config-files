@@ -25,7 +25,7 @@ augroup END
 
 set laststatus=2
 set statusline=%m
-set statusline+=%t
+set statusline+=%f
 set statusline+=\ %P
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
@@ -56,11 +56,11 @@ nnoremap  <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap  <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
 
-nnoremap <Leader>i <C-w><UP>
-nnoremap <Leader>k <C-w><DOWN>
-nnoremap <Leader>j <C-w><LEFT>
+"switch windows
+nnoremap <Leader>k <C-w><UP>
+nnoremap <Leader>j <C-w><DOWN>
+nnoremap <Leader>h <C-w><LEFT>
 nnoremap <Leader>l <C-w><RIGHT>
-
 
 "move line up or down
 nnoremap <C-S-DOWN> ddp
