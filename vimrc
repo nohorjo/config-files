@@ -23,6 +23,13 @@ augroup ActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
+"insert style
+augroup Insert
+    autocmd!
+    autocmd InsertEnter * hi CursorLine cterm=underline
+    autocmd InsertLeave * hi CursorLine cterm=none
+augroup END
+
 set laststatus=2
 set statusline=%m
 set statusline+=%f
