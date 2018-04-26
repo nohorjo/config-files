@@ -56,6 +56,12 @@ nnoremap  <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap  <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
 
+nnoremap <Leader>i <C-w><UP>
+nnoremap <Leader>k <C-w><DOWN>
+nnoremap <Leader>j <C-w><LEFT>
+nnoremap <Leader>l <C-w><RIGHT>
+
+
 "move line up or down
 nnoremap <C-S-DOWN> ddp
 nnoremap <C-S-UP> ddkP
