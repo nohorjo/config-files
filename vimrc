@@ -19,8 +19,8 @@ augroup ActiveWindow
     autocmd!
     autocmd WinEnter * set relativenumber
     autocmd WinLeave * set norelativenumber
-	 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	 autocmd WinLeave * setlocal nocursorline
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
 augroup END
 
 set laststatus=2
