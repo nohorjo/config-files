@@ -63,6 +63,8 @@ nnoremap  <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap  <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
 
+nnoremap  <Leader>Q :only<CR>
+
 "switch windows
 nnoremap <Leader>k <C-w><UP>
 nnoremap <Leader>j <C-w><DOWN>
