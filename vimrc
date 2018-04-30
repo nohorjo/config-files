@@ -11,7 +11,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 filetype plugin on
 syntax on
 set omnifunc=syntaxcomplete#Complete
-colorscheme dracula
+colorscheme hydrangea
 hi StatusLine ctermbg=DarkRed
 
 "make active window obvious
