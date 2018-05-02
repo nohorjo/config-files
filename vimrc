@@ -63,10 +63,14 @@ nmap <silent> <C-N> :cn<CR>zv
 nmap <silent> <C-P> :cp<CR>zv
 
 "resize splits
-nnoremap  <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap  <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-nnoremap  <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap  <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
+noremap <Leader><UP>    <C-w>+
+noremap <Leader><DOWN>  <C-w>-
+noremap <Leader><RIGHT>  <C-w>>
+noremap <Leader><LEFT>  <C-w><
 
 nnoremap  <Leader>Q :only<CR>
 
@@ -75,6 +79,9 @@ nnoremap <Leader>k <C-w><UP>
 nnoremap <Leader>j <C-w><DOWN>
 nnoremap <Leader>h <C-w><LEFT>
 nnoremap <Leader>l <C-w><RIGHT>
+nnoremap <Leader>t <C-w>t
+nnoremap <Leader>b <C-w>b
+nnoremap <Leader>= <C-w>=
 
 "move line up or down
 nnoremap <C-S-DOWN> ddp
