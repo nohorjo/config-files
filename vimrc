@@ -19,13 +19,15 @@ else
 "make active window obvious
     augroup ActiveWindow
         autocmd!
-        autocmd WinEnter * set relativenumber
-        autocmd WinLeave * set norelativenumber
+        autocmd WinEnter,TabEnter * set relativenumber
+        autocmd WinLeave,TabLeave * set norelativenumber
         autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
 endif
+
 hi StatusLine ctermbg=DarkRed
+hi CursorLine cterm=bold ctermbg=16
 
 "insert style
 augroup Insert
