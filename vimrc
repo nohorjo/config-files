@@ -28,6 +28,8 @@ endif
 
 hi StatusLine ctermbg=DarkRed
 hi CursorLine cterm=bold ctermbg=16
+hi SpellBad cterm=bold ctermbg=88 ctermfg=206
+hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 
 "insert style
 augroup Insert
