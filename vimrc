@@ -1,5 +1,3 @@
-"show line numbers
-set number relativenumber
 "highlight current line
 set cursorline
 "auto indent
@@ -14,19 +12,20 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 if &diff
     colorscheme khaki
+     set number norelativenumber
 else
     colorscheme hydrangea
+    set number relativenumber
+"make active window obvious
+    augroup ActiveWindow
+        autocmd!
+        autocmd WinEnter * set relativenumber
+        autocmd WinLeave * set norelativenumber
+        autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        autocmd WinLeave * setlocal nocursorline
+    augroup END
 endif
 hi StatusLine ctermbg=DarkRed
-
-"make active window obvious
-augroup ActiveWindow
-    autocmd!
-    autocmd WinEnter * set relativenumber
-    autocmd WinLeave * set norelativenumber
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
 
 "insert style
 augroup Insert
