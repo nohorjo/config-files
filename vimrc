@@ -31,6 +31,10 @@ hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
+syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
+syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
+hi Oddlines ctermbg=236
+hi Evenlines ctermbg=235
 
 "insert style
 augroup Insert
