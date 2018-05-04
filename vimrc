@@ -40,7 +40,8 @@ augroup END
 
 set laststatus=2
 set statusline=%m
-set statusline+=%f
+set statusline+=<%{winnr()}>
+set statusline+=\ %f
 set statusline+=\ %P
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
@@ -60,6 +61,7 @@ map <Enter> o<ESC>
 map <S-Tab> :tab
 map <C-f> :find ./**/
 map <Leader>q :qa!<CR>
+nnoremap  <Leader>Q :only<CR>
 
 map <S-f> :grep 
 nmap <silent> <C-N> :cn<CR>zv
@@ -74,8 +76,7 @@ noremap <Leader><UP>    <C-w>+
 noremap <Leader><DOWN>  <C-w>-
 noremap <Leader><RIGHT>  <C-w>>
 noremap <Leader><LEFT>  <C-w><
-
-nnoremap  <Leader>Q :only<CR>
+nnoremap <Leader>= <C-w>=
 
 "switch windows
 nnoremap <Leader>k <C-w><UP>
@@ -84,7 +85,7 @@ nnoremap <Leader>h <C-w><LEFT>
 nnoremap <Leader>l <C-w><RIGHT>
 nnoremap <Leader>t <C-w>t
 nnoremap <Leader>b <C-w>b
-nnoremap <Leader>= <C-w>=
+nnoremap <Leader>; <C-w>w
 
 "move line up or down
 nnoremap <C-S-DOWN> ddp
