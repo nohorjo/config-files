@@ -74,7 +74,7 @@ nnoremap Q :sh<CR>
 nnoremap * *N
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
-noremap <S-f> :grep 
+noremap <S-f> :grep -r
 nnoremap <silent> <C-N> :cn<CR>zv
 nnoremap <silent> <C-P> :cp<CR>zv
 nnoremap n nzz
