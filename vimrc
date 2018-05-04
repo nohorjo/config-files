@@ -68,8 +68,10 @@ noremap <Enter> <UP>o<ESC><DOWN>
 noremap <S-Tab> :tab
 noremap <C-f> :find ./**/
 noremap <Leader>q :qa!<CR>
-nnoremap  <Leader>Q :only<CR>
+nnoremap <Leader>Q :only<CR>
+nnoremap Q :sh<CR>
 
+nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 noremap <S-f> :grep 
 nnoremap <silent> <C-N> :cn<CR>zv
 nnoremap <silent> <C-P> :cp<CR>zv
@@ -97,8 +99,8 @@ nnoremap <Leader>b <C-w>b
 nnoremap <Leader>; <C-w>w
 
 "move line up or down
-nnoremap <C-S-DOWN> ddp
-nnoremap <C-S-UP> ddkP
+nnoremap <C-j> ddp
+nnoremap <C-k> ddkP
 
 "save session
 autocmd TextChanged,TextChangedI * :silent :mksession!
