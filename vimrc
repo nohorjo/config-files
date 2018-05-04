@@ -30,6 +30,7 @@ hi StatusLine ctermbg=DarkRed
 hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
+hi Search ctermbg=229
 
 "insert style
 augroup Insert
@@ -70,6 +71,7 @@ noremap <C-f> :find ./**/
 noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
+nnoremap * *N
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 noremap <S-f> :grep 
