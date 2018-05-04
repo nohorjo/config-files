@@ -50,14 +50,20 @@ set showmode
 
 "auto close brackets, if return is pressed
 inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
-"inoremap (<CR> (<CR>)<Left><CR><UP><TAB>
 inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
-inoremap <<CR> <<CR>><Left><CR><UP><TAB>
 
-"inoremap <Leader><Space> <C-x><C-o>
+"surround
+vmap s" di""<ESC><LEFT>p
+vmap s' di''<ESC><LEFT>p
+vmap s` di``<ESC><LEFT>p
+vmap s( di()<ESC><LEFT>p
+vmap s[ di[]<ESC><LEFT>p
+vmap s{ di{}<ESC><LEFT>p
+vmap s< di<><ESC><LEFT>p
+
 inoremap <Leader><Leader><Space> <C-x><C-o>
 
-map <Enter> o<ESC>
+map <Enter> <UP>o<ESC><DOWN>
 map <S-Tab> :tab
 map <C-f> :find ./**/
 map <Leader>q :qa!<CR>
