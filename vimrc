@@ -60,6 +60,13 @@ vnoremap s[ di[]<ESC><LEFT>p
 vnoremap s{ di{}<ESC><LEFT>p
 vnoremap s< di<><ESC><LEFT>p
 vnoremap sd da<BS><BS><ESC>p
+vnoremap sc" da<BS><BS>""<LEFT><ESC>p
+vnoremap sc' da<BS><BS>''<LEFT><ESC>p
+vnoremap sc` da<BS><BS>``<LEFT><ESC>p
+vnoremap sc( da<BS><BS>()<LEFT><ESC>p
+vnoremap sc[ da<BS><BS>[]<LEFT><ESC>p
+vnoremap sc{ da<BS><BS>{}<LEFT><ESC>p
+vnoremap sc< da<BS><BS><><LEFT><ESC>p
 
 inoremap <Leader><Leader><Space> <C-x><C-o>
 
