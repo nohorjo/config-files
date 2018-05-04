@@ -40,10 +40,8 @@ augroup Insert
 augroup END
 
 set laststatus=2
-set statusline=%m
-set statusline+=<%{winnr()}>
-set statusline+=\ %f
-set statusline+=\ %P
+set statusline=%m<%{winnr()}>\ %f\ %P:%c
+
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
