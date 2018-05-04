@@ -53,25 +53,27 @@ inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
 inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
 
 "surround
-vmap s" di""<ESC><LEFT>p
-vmap s' di''<ESC><LEFT>p
-vmap s` di``<ESC><LEFT>p
-vmap s( di()<ESC><LEFT>p
-vmap s[ di[]<ESC><LEFT>p
-vmap s{ di{}<ESC><LEFT>p
-vmap s< di<><ESC><LEFT>p
+vnoremap s" di""<ESC><LEFT>p
+vnoremap s' di''<ESC><LEFT>p
+vnoremap s` di``<ESC><LEFT>p
+vnoremap s( di()<ESC><LEFT>p
+vnoremap s[ di[]<ESC><LEFT>p
+vnoremap s{ di{}<ESC><LEFT>p
+vnoremap s< di<><ESC><LEFT>p
 
 inoremap <Leader><Leader><Space> <C-x><C-o>
 
-map <Enter> <UP>o<ESC><DOWN>
-map <S-Tab> :tab
-map <C-f> :find ./**/
-map <Leader>q :qa!<CR>
+noremap <Enter> <UP>o<ESC><DOWN>
+noremap <S-Tab> :tab
+noremap <C-f> :find ./**/
+noremap <Leader>q :qa!<CR>
 nnoremap  <Leader>Q :only<CR>
 
-map <S-f> :grep 
-nmap <silent> <C-N> :cn<CR>zv
-nmap <silent> <C-P> :cp<CR>zv
+noremap <S-f> :grep 
+nnoremap <silent> <C-N> :cn<CR>zv
+nnoremap <silent> <C-P> :cp<CR>zv
+nnoremap n nzz
+nnoremap N Nzz
 
 "resize splits
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
