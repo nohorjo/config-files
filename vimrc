@@ -60,6 +60,7 @@ vnoremap s( di()<ESC><LEFT>p
 vnoremap s[ di[]<ESC><LEFT>p
 vnoremap s{ di{}<ESC><LEFT>p
 vnoremap s< di<><ESC><LEFT>p
+vnoremap sd da<BS><BS><ESC>p
 
 inoremap <Leader><Leader><Space> <C-x><C-o>
 
