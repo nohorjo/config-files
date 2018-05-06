@@ -3,11 +3,8 @@
 	email = nohorjo@gmail.com
 [credential]
 	helper = cache --timeout=43200	
-
-
-
 [diff]
-	tool = meld
+	tool = vimdiff
 [alias]
 	a=add
 	aa=add -A

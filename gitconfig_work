@@ -3,17 +3,14 @@
 	email = m.haque@livelinktechnology.net
 
 
-[difftool "diffmerge"]
-    trustExitCode = true
-    cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [diff]
-    tool = diffmerge
+    tool = vimdiff
 [alias]
 	a=add
 	aa=add -A
-	ac="!f() { if [[ $# -eq 1 ]]; then git aa; else git a ${@:2}; fi; git cc \"$1\"; }; f"
-	acc="!f() { if [[ $# -eq 1 ]]; then git aa; else git a ${@:2}; fi; git c \"$1\"; }; f"
-	as="!f() { if [[ $# -eq 0 ]]; then git aa; else git a $*; fi; git s; }; f"
+	ac="!f() { if [ $# -eq 1 ]; then git aa; else git a ${@:2}; fi; git cc \"$1\"; }; f"
+	acc="!f() { if [ $# -eq 1 ]; then git aa; else git a ${@:2}; fi; git c \"$1\"; }; f"
+	as="!f() { if [ $# -eq 0 ]; then git aa; else git a $*; fi; git s; }; f"
 # checks out a branch, creates if not exist
 	b="!f() { git co $1 2>/dev/null || git co -b $1; git branch -a --color=always | nl | tail -r; }; f"
 	bd="!f() { git branch -D $1; git push origin --delete $1; }; f"
