@@ -118,6 +118,8 @@ autocmd TextChanged,TextChangedI * :silent :mksession!
 
 "jsctags
 autocmd BufWritePost *.js :silent :exe '! nohup find . -type f -iregex ".*\.js$" -not -path "./node_modules/*" -exec jsctags {} -f \; 2>&1 | sed /^$/d | sort > tags & ' | redraw!
+
+autocmd BufNewFile,BufRead *.ts   set syntax=javascript
  
 "pathogen
 execute pathogen#infect()
