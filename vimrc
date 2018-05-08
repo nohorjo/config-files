@@ -12,7 +12,8 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 if &diff
     colorscheme khaki
-     set number norelativenumber
+    set number norelativenumber
+    set noro
 else
     colorscheme hydrangea
     set number relativenumber
