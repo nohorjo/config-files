@@ -44,6 +44,12 @@ augroup Insert
     autocmd InsertLeave * hi CursorLine cterm=none
 augroup END
 
+augroup autoquickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
+
 set laststatus=2
 set statusline=%m<%{winnr()}>\ %f\ %P:%c
 
