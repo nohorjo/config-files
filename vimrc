@@ -27,7 +27,8 @@ else
     augroup END
 endif
 
-hi StatusLine ctermbg=DarkRed
+hi StatusLineNC ctermbg=254
+hi StatusLine ctermbg=1
 hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
