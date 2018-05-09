@@ -90,6 +90,8 @@ nnoremap Q :sh<CR>
 nnoremap * *N
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
+nmap <C-h> yiw<C-g><C-r>0/
+vmap <C-h> y<C-g><C-r>0/
 noremap <S-f> :grep -r
 nnoremap <silent> <C-N> :cn<CR>zv
 nnoremap <silent> <C-P> :cp<CR>zv
