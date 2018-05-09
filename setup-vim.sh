@@ -14,3 +14,6 @@ git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcomm
 
 echo "autocmd BufNewFile,BufRead *.ts setf typescript" > ~/.vim/filetype.vim
 echo "autocmd BufNewFile,BufRead *.ts set syntax=javascript" >> ~/.vim/filetype.vim
+
+npm install -g jshint
+npm install -g tslint
