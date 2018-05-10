@@ -89,6 +89,10 @@ inoremap <Leader><Leader><Space> <C-x><C-o>
 
 noremap <Enter> <UP>o<ESC><DOWN>
 noremap <S-Tab> :tab
+noremap <S-Tab><UP> :tabnew<CR>
+noremap <S-Tab><DOWN> :tabc<CR>
+noremap <S-Tab><LEFT> :tabp<CR>
+noremap <S-Tab><RIGHT> :tabn<CR>
 noremap <C-f> :find ./**/
 noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
