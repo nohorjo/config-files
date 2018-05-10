@@ -33,7 +33,7 @@ hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
 autocmd WinEnter,BufEnter,TabEnter * call Zebra()
-function Zebra()
+function! Zebra()
     silent! syn clear Oddlines
     silent! syn clear EvenLines
     syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
@@ -95,6 +95,7 @@ noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
 nnoremap * *N
+inoremap <Leader>:w <C-o>:w<CR>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g><C-r>0/
@@ -140,7 +141,6 @@ execute pathogen#infect()
 
 "NERDTree
 nnoremap <Leader>z :NERDTree<CR>
-"autocmd vimenter * NERDTree
 let NERDTreeShowLineNumbers=1
 
 let g:syntastic_always_populate_loc_list = 1
