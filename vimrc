@@ -24,6 +24,15 @@ else
         autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
+    autocmd WinEnter,BufEnter,TabEnter * call Zebra()
+    function! Zebra()
+        silent! syn clear Oddlines
+        silent! syn clear EvenLines
+        syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
+        syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
+        hi Oddlines ctermbg=236
+        hi Evenlines ctermbg=235
+    endfunction
 endif
 
 hi StatusLineNC ctermbg=254
@@ -32,15 +41,6 @@ hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
-autocmd WinEnter,BufEnter,TabEnter * call Zebra()
-function! Zebra()
-    silent! syn clear Oddlines
-    silent! syn clear EvenLines
-    syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
-    syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
-    hi Oddlines ctermbg=236
-    hi Evenlines ctermbg=235
-endfunction
 
 "insert style
 augroup Insert
