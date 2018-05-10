@@ -9,7 +9,6 @@ set hlsearch
 
 filetype plugin on
 syntax on
-set omnifunc=syntaxcomplete#Complete
 if &diff
     colorscheme khaki
     set number norelativenumber
@@ -84,8 +83,6 @@ vnoremap sc( da<BS><BS>()<LEFT><ESC>p
 vnoremap sc[ da<BS><BS>[]<LEFT><ESC>p
 vnoremap sc{ da<BS><BS>{}<LEFT><ESC>p
 vnoremap sc< da<BS><BS><><LEFT><ESC>p
-
-inoremap <Leader><Leader><Space> <C-x><C-o>
 
 noremap <Enter> <UP>o<ESC><DOWN>
 noremap <S-Tab> :tab
