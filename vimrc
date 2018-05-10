@@ -95,7 +95,7 @@ noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
 nnoremap * *N
-inoremap <Leader>:w <C-o>:w<CR>
+inoremap <Leader>w <C-o>:w<CR>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g><C-r>0/
