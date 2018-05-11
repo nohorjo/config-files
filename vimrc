@@ -94,7 +94,7 @@ noremap <C-f> :find ./**/
 noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
-nnoremap * *N
+nnoremap * *N:%s///gn<CR>
 inoremap <Leader>w <C-o>:w<CR>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
