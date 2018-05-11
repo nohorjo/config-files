@@ -126,6 +126,9 @@ nnoremap <Leader>t <C-w>t
 nnoremap <Leader>b <C-w>b
 nnoremap <Leader>; <C-w>w
 
+"continue page in another split
+nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
+
 "move line up or down
 nnoremap <C-j> ddp
 nnoremap <C-k> ddkP
