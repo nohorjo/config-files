@@ -33,6 +33,8 @@ else
         hi Oddlines ctermbg=236
         hi Evenlines ctermbg=235
     endfunction
+"save session
+	autocmd TextChanged,TextChangedI * :silent :mksession!
 endif
 
 hi StatusLineNC ctermbg=254
@@ -132,9 +134,6 @@ nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
 "move line up or down
 nnoremap <C-j> ddp
 nnoremap <C-k> ddkP
-
-"save session
-autocmd TextChanged,TextChangedI * :silent :mksession!
 
 "pathogen
 execute pathogen#infect()
