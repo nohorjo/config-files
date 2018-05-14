@@ -35,6 +35,16 @@ else
     endfunction
 "save session
 	autocmd TextChanged,TextChangedI * :silent :mksession!
+    augroup MixFoldModes
+		au BufReadPre * setlocal foldmethod=indent
+		au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+	augroup END
+	augroup autoquickfix
+		autocmd!
+		autocmd QuickFixCmdPost [^l]* cwindow
+		autocmd QuickFixCmdPost l*    lwindow
+	augroup END
+
 endif
 
 hi StatusLineNC ctermbg=254
@@ -49,12 +59,6 @@ augroup Insert
     autocmd!
     autocmd InsertEnter * hi CursorLine cterm=underline
     autocmd InsertLeave * hi CursorLine cterm=none
-augroup END
-
-augroup autoquickfix
-    autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l*    lwindow
 augroup END
 
 set laststatus=2
