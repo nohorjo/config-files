@@ -34,17 +34,12 @@ else
         hi Evenlines ctermbg=235
     endfunction
 "save session
-	autocmd TextChanged,TextChangedI * :silent :mksession!
-    augroup MixFoldModes
-		au BufReadPre * setlocal foldmethod=indent
-		au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-	augroup END
+	autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
 	augroup autoquickfix
 		autocmd!
 		autocmd QuickFixCmdPost [^l]* cwindow
 		autocmd QuickFixCmdPost l*    lwindow
 	augroup END
-
 endif
 
 hi StatusLineNC ctermbg=254
