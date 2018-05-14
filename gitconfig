@@ -5,6 +5,8 @@
 	helper = cache --timeout=43200	
 [diff]
 	tool = vimdiff
+[merge]
+    tool = vimdiff
 [alias]
 	a=add
 	aa=add -A

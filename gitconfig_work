@@ -1,9 +1,11 @@
 [user]
 	name = Muhammed Haque
 	email = m.haque@livelinktechnology.net
-
-
+[core]
+	editor = /usr/bin/vim
 [diff]
+    tool = vimdiff
+[merge]
     tool = vimdiff
 [alias]
 	a=add
