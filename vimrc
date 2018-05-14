@@ -105,8 +105,8 @@ vmap <C-h> y<C-g><C-r>0/
 noremap <S-f><S-f> :grep -r 
 nnoremap <silent> <C-N> :cn<CR>zvzz
 nnoremap <silent> <C-P> :cp<CR>zvzz
-nnoremap n nzozz
-nnoremap N Nzozz
+nnoremap n nzz
+nnoremap N Nzz
 
 "resize splits
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
