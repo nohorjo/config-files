@@ -40,6 +40,7 @@ else
 		autocmd QuickFixCmdPost [^l]* cwindow
 		autocmd QuickFixCmdPost l*    lwindow
 	augroup END
+    set foldcolumn=3
 endif
 
 hi StatusLineNC ctermbg=254
@@ -104,8 +105,8 @@ vmap <C-h> y<C-g><C-r>0/
 noremap <S-f><S-f> :grep -r 
 nnoremap <silent> <C-N> :cn<CR>zvzz
 nnoremap <silent> <C-P> :cp<CR>zvzz
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzozz
+nnoremap N Nzozz
 
 "resize splits
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
