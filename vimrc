@@ -97,6 +97,7 @@ noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
 nnoremap * *N:%s///gn<CR>
+nnoremap <Space> i <ESC><RIGHT>
 inoremap <Leader>w <C-o>:w<CR>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
