@@ -101,7 +101,8 @@ nnoremap <Space> i <ESC><RIGHT>
 inoremap <Leader>w <C-o>:w<CR>
 inoremap , ,<Space>
 inoremap ,<Space> ,<Space>
-
+inoremap ,<CR> ,<CR>
+    
 "auto xml
 inoremap <Space><Tab> <ESC>bdei<<C-r>"></<C-r>"><ESC>F<i
 inoremap <Space>. <ESC>f>a
