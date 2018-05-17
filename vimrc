@@ -99,7 +99,11 @@ nnoremap Q :sh<CR>
 nnoremap * *N:%s///gn<CR>
 nnoremap <Space> i <ESC><RIGHT>
 inoremap <Leader>w <C-o>:w<CR>
-inoremap , , 
+inoremap , ,<Space>
+
+"auto xml
+inoremap <Space><Tab> <ESC>bdei<<C-r>"></<C-r>"><ESC>F<i
+inoremap <Space>. <ESC>f>a
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g><C-r>0/
