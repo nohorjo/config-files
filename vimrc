@@ -100,6 +100,7 @@ nnoremap * *N:%s///gn<CR>
 nnoremap <Space> i <ESC><RIGHT>
 inoremap <Leader>w <C-o>:w<CR>
 inoremap , ,<Space>
+inoremap ,<Space> ,<Space>
 
 "auto xml
 inoremap <Space><Tab> <ESC>bdei<<C-r>"></<C-r>"><ESC>F<i
