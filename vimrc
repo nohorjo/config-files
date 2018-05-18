@@ -49,6 +49,7 @@ hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
+hi link Boolean Statement
 
 "insert style
 augroup Insert
@@ -104,7 +105,6 @@ inoremap <Leader>w <C-o>:w<CR>
 inoremap , ,<Space>
 inoremap ,<Space> ,<Space>
 inoremap ,<CR> ,<CR>
-
     
 "auto xml
 inoremap <Space><Tab> <ESC>bdei<<C-r>"></<C-r>"><ESC>F<i
