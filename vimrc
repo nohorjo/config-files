@@ -54,7 +54,6 @@ hi link Boolean Statement
 "insert style
 augroup Insert
     autocmd!
-    autocmd InsertEnter * so ~/.vimrc
     autocmd InsertEnter * hi CursorLine cterm=underline
     autocmd InsertLeave * hi CursorLine cterm=none
 augroup END
