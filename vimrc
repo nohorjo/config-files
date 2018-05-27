@@ -146,6 +146,12 @@ nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
 nnoremap <C-j> ddp
 nnoremap <C-k> ddkP
 
+augroup filetype
+    autocmd BufNewFile,BufRead *.ts setf typescript
+    autocmd BufNewFile,BufRead *.ts set syntax=javascript
+    autocmd BufNewFile,BufRead *.html hi Error None
+augroup END
+
 "pathogen
 execute pathogen#infect()
 

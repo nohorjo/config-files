@@ -10,6 +10,7 @@ curl -LSso colors/hydrangea.vim https://github.com/yuttie/hydrangea-vim/raw/mast
 npm install -g \
         jshint \
         tslint \
+        typescript \
         js-beautify
 
 cd bundle
@@ -18,10 +19,6 @@ git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/maksimr/vim-jsbeautify.git
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
-
-cd ..
-echo "autocmd BufNewFile,BufRead *.ts setf typescript" > filetype.vim
-echo "autocmd BufNewFile,BufRead *.ts set syntax=javascript" >> filetype.vim
 
 popd
 
