@@ -49,6 +49,7 @@ hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
+hi TODO cterm=underline ctermbg=201 ctermfg=159
 hi link Boolean Statement
 
 "insert style
@@ -147,9 +148,11 @@ nnoremap <C-j> ddp
 nnoremap <C-k> ddkP
 
 augroup filetype
+    autocmd!
     autocmd BufNewFile,BufRead *.ts setf typescript
     autocmd BufNewFile,BufRead *.ts set syntax=javascript
     autocmd BufNewFile,BufRead *.html hi Error None
+    autocmd BufNewFile,BufRead vimrc hi Error None
 augroup END
 
 "pathogen
