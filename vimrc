@@ -16,6 +16,7 @@ if &diff
 else
     colorscheme hydrangea
     set number relativenumber
+    hi CursorLine cterm=bold ctermbg=16
 "make active window obvious
     augroup ActiveWindow
         autocmd!
@@ -45,7 +46,6 @@ endif
 
 hi StatusLineNC ctermbg=254
 hi StatusLine ctermbg=1
-hi CursorLine cterm=bold ctermbg=16
 hi SpellBad cterm=bold ctermbg=88 ctermfg=206
 hi SpellCap cterm=bold ctermbg=130 ctermfg=226
 hi Search ctermbg=229
