@@ -11,6 +11,7 @@ filetype plugin on
 syntax on
 if &diff
     colorscheme khaki
+    hi CursorLine cterm=reverse
     set number norelativenumber
     set noro
 else
