@@ -68,8 +68,8 @@ set pastetoggle=<F2>
 set showmode
 
 "auto close brackets, if return is pressed
-inoremap {<CR> {<CR>}<Left><CR><UP><TAB>
-inoremap [<CR> [<CR>]<Left><CR><UP><TAB>
+inoremap {<CR> {<C-o>D<CR>}<Left><CR><UP><TAB><C-r>"
+inoremap [<CR> [<C-o>D<CR>]<Left><CR><UP><TAB><C-r>"
 
 "surround
 vnoremap s" di""<ESC><LEFT>p
