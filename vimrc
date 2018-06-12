@@ -10,6 +10,7 @@ filetype plugin on
 syntax on
 if &diff
     colorscheme khaki
+    hi CursorLine ctermbg=233 ctermfg=228
     set number norelativenumber
     set noro
 else
