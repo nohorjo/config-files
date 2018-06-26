@@ -102,6 +102,7 @@ inoremap <Leader>w <C-o>:w<CR>
 inoremap , ,<Space>
 inoremap ,<Space> ,<Space>
 inoremap ,<CR> ,<CR>
+inoremap ,<LEFT> ,
     
 "auto xml
 inoremap <Space><Tab> <ESC>bdei <<C-r>"></<C-r>"><ESC>F<i
