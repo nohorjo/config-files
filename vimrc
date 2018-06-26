@@ -67,10 +67,6 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-"auto close brackets, if return is pressed
-inoremap {<CR> { <C-o>D<CR>}<Left><CR><UP><TAB><ESC>ps
-inoremap [<CR> [ <C-o>D<CR>]<Left><CR><UP><TAB><ESC>ps
-
 "surround
 vnoremap s" di""<ESC><LEFT>p
 vnoremap s' di''<ESC><LEFT>p
