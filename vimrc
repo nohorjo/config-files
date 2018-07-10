@@ -16,6 +16,7 @@ if &diff
     noremap ]x /<<<<<<<<ENTER>
     noremap dgl :diffg LO<ENTER>
     noremap dgr :diffg RE<ENTER>
+    noremap dd dd
 else
     colorscheme hydrangea
     set number relativenumber
