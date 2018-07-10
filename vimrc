@@ -13,6 +13,9 @@ if &diff
     hi CursorLine ctermbg=233 ctermfg=228
     set number norelativenumber
     set noro
+    noremap ]x /<<<<<<<<ENTER>
+    noremap dgl :diffg LO<ENTER>
+    noremap dgr :diffg RE<ENTER>
 else
     colorscheme hydrangea
     set number relativenumber
