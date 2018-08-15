@@ -27,6 +27,7 @@
     co=checkout
     cp=cherry-pick
     d=difftool
+    dc=!git d --cached
 # diff a commit against previous
     dd="!f() { git d \"$1^\" \"$1\"; }; f"
 # diff a file
