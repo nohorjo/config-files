@@ -103,11 +103,6 @@ nnoremap <Space> i <ESC><RIGHT>
 nnoremap z{ [{zf%
 
 inoremap <Leader>w <C-o>:w<CR>
-inoremap , ,<Space>
-inoremap ,<Space> ,<Space>
-inoremap ,<CR> ,<CR>
-inoremap ,<LEFT> ,
-inoremap ,<ESC> ,<ESC>
     
 "auto xml
 inoremap <Space><Tab> <ESC>bdei <<C-r>"></<C-r>"><ESC>F<i
