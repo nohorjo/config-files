@@ -109,7 +109,7 @@ inoremap <Space><Tab> <ESC>bdei <<C-r>"></<C-r>"><ESC>F<i
 inoremap <Space>. <ESC>f>a
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
-nmap <C-h> yiw<C-g><C-r>0/
+nmap <C-h> yiw<C-g>\<<C-r>0\>/
 vmap <C-h> y<C-g><C-r>0/
 noremap <S-f><S-f> :grep -r 
 nnoremap <silent> <C-N> :cn<CR>zvzz
