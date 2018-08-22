@@ -39,12 +39,18 @@ else
         hi Evenlines ctermbg=235
     endfunction
 "save session
-	autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
-	augroup autoquickfix
-		autocmd!
-		autocmd QuickFixCmdPost [^l]* cwindow
-		autocmd QuickFixCmdPost l*    lwindow
-	augroup END
+    autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
+    augroup autoquickfix
+            autocmd!
+            autocmd QuickFixCmdPost [^l]* cwindow
+            autocmd QuickFixCmdPost l*    lwindow
+    augroup END
+" save view
+    augroup AutoSaveFolds
+        autocmd!
+        autocmd BufWinLeave * mkview
+        autocmd BufWinEnter * silent loadview
+    augroup END
     set foldcolumn=3
 endif
 
