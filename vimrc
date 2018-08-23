@@ -48,8 +48,8 @@ else
 " save view
     augroup AutoSaveFolds
         autocmd!
-        autocmd BufWinLeave * mkview
-        autocmd BufWinEnter * silent loadview
+        autocmd BufWinLeave *.* mkview
+        autocmd BufWinEnter *.* silent loadview
     augroup END
     set foldcolumn=3
 endif
