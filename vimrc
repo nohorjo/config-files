@@ -111,7 +111,7 @@ nnoremap z{ [{zf%
 inoremap <Leader>w <C-o>:w<CR>
     
 "auto xml
-inoremap <Space><Tab> <ESC>bdei <<C-r>"></<C-r>"><ESC>F<i
+inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
 inoremap <Space>. <ESC>f>a
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
