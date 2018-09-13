@@ -179,6 +179,9 @@ autocmd FileType jsx vnoremap <buffer> <Leader>ff :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<cr>
 
+"console.log
+autocmd FileType javascript,typescript noremap <buffer> co oconsole.log('');<ESC>2hi
+
 "enable project specific .vimrc
 set exrc
 set secure
