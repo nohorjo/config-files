@@ -51,6 +51,8 @@
     r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
     s=status
     sd="!f() { git s; git d; }; f"
+    sl=stash list
+    ss=stash show -p
     st=stash
     stb="!f() { git st; git b $1; }; f"
     sp=stash pop
