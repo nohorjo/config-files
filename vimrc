@@ -182,6 +182,13 @@ autocmd FileType css vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<cr>
 "console.log
 autocmd FileType javascript,typescript noremap <buffer> co oconsole.log('');<ESC>2hi
 
+"gpg encrypt/decrypt files
+augroup gpg
+    autocmd BufWritePost *.gpg !gpg -c --batch --yes -o %.tmp %; mv %.tmp %
+    autocmd BufReadPost *.gpg %!gpg -d -q --pinentry-mode loopback %
+    autocmd BufReadPost *.gpg set noswf
+augroup END
+
 "enable project specific .vimrc
 set exrc
 set secure
