@@ -15,7 +15,10 @@
     as="!f() { if [ $# -eq 0 ]; then git aa; else git a $*; fi; git s; }; f"
 # checks out a branch, creates if not exist
     b="!f() { git co $1 2>/dev/null || git co -b $1; git branch -a --color=always | nl | tail -r; }; f"
+    bbg="!f() { git b $(git bg $1); }; f"
     bd="!f() { git branch -D $1; git push origin --delete $1; }; f"
+    bdg="!f() { git bd $(git bg $1); }; f"
+    bg="!f() { git branch | grep $1; }; f"
     bm=!git b master
 # switch to nth last branch, as shown by git b
     bn="!f() { git b $(git branch -a --color=never | head -n${1} | tail -n1); }; f"
