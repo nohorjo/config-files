@@ -189,6 +189,8 @@ augroup gpg
     autocmd BufReadPost *.gpg set noswf
 augroup END
 
+nnoremap gg ggzz
+
 "enable project specific .vimrc
 set exrc
 set secure
