@@ -156,6 +156,7 @@ augroup filetype
     autocmd BufNewFile,BufRead *.ts set syntax=javascript
     autocmd BufNewFile,BufRead *.html hi Error None
     autocmd BufNewFile,BufRead vimrc hi Error None
+    autocmd BufNewFile,BufRead *.java hi Error None
 augroup END
 
 "pathogen
