@@ -49,7 +49,7 @@ else
     augroup AutoSaveFolds
         autocmd!
         autocmd BufWinLeave *.* mkview
-        autocmd BufWinEnter *.* silent loadview
+        autocmd BufWinEnter *[^*.txt.gpg] silent loadview
     augroup END
     set foldcolumn=3
 endif
@@ -157,6 +157,8 @@ augroup filetype
     autocmd BufNewFile,BufRead *.html hi Error None
     autocmd BufNewFile,BufRead vimrc hi Error None
     autocmd BufNewFile,BufRead *.java hi Error None
+
+    autocmd BufNewFile,BufRead *.txt.gpg setf txtgpg
 augroup END
 
 "pathogen
@@ -188,6 +190,7 @@ augroup gpg
     autocmd BufWritePost *.gpg !gpg -c --batch --yes -o %.tmp %; mv %.tmp %
     autocmd BufReadPost *.gpg %!gpg -d -q --pinentry-mode loopback %
     autocmd BufReadPost *.gpg set noswf
+    autocmd FileType txtgpg set foldmethod=marker
 augroup END
 
 nnoremap gg ggzz
