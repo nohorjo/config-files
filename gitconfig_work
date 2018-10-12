@@ -51,6 +51,7 @@
     mt=mergetool
     p="!f(){ git pull origin $(git symbolic-ref --short HEAD); }; f"
     pa="!f(){ git branch -r | grep -v '\\->' | while read remote; do git b ${remote#origin/}; git p; done; }; f"
+    pf="!f(){ git push --force origin $(git symbolic-ref --short HEAD); }; f"
     pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
     r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
     rh=reset --hard @
