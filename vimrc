@@ -9,8 +9,7 @@ set hlsearch
 filetype plugin on
 syntax on
 if &diff
-    colorscheme khaki
-    hi CursorLine ctermbg=233 ctermfg=228
+    colorscheme khaki-mod
     set number norelativenumber
     set noro
     noremap ]x /<<<<<<<<ENTER>
@@ -18,9 +17,8 @@ if &diff
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
 else
-    colorscheme hydrangea
+    colorscheme hydrangea-mod
     set number relativenumber
-    hi CursorLine cterm=bold ctermbg=16
 "make active window obvious
     augroup ActiveWindow
         autocmd!
@@ -35,8 +33,6 @@ else
         silent! syn clear EvenLines
         syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
         syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
-        hi Oddlines ctermbg=236
-        hi Evenlines ctermbg=235
     endfunction
 "save session
     autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
@@ -53,21 +49,6 @@ else
     augroup END
     set foldcolumn=3
 endif
-
-hi StatusLineNC ctermbg=254
-hi StatusLine ctermbg=1
-hi SpellBad cterm=bold ctermbg=88 ctermfg=206
-hi SpellCap cterm=bold ctermbg=130 ctermfg=226
-hi Search ctermbg=229
-hi TODO cterm=underline ctermbg=201 ctermfg=159
-hi link Boolean Statement
-
-"insert style
-augroup Insert
-    autocmd!
-    autocmd InsertEnter * hi CursorLine cterm=underline
-    autocmd InsertLeave * hi CursorLine cterm=none
-augroup END
 
 set laststatus=2
 set statusline=%m<%{winnr()}>\ %f\ %P:%c
@@ -112,7 +93,6 @@ inoremap <Leader>w <C-o>:w<CR>
     
 "auto xml
 inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
-inoremap <Space>. <ESC>f>a
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g>\<<C-r>0\>/
@@ -135,20 +115,10 @@ noremap <Leader><LEFT>  <C-w><
 nnoremap <Leader>= <C-w>=
 
 "switch windows
-nnoremap <Leader>k <C-w><UP>
-nnoremap <Leader>j <C-w><DOWN>
-nnoremap <Leader>h <C-w><LEFT>
-nnoremap <Leader>l <C-w><RIGHT>
-nnoremap <Leader>t <C-w>t
-nnoremap <Leader>b <C-w>b
 nnoremap <Leader>; <C-w>w
 
 "continue page in another split
 nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
-
-"move line up or down
-nnoremap <C-j> ddp
-nnoremap <C-k> ddkP
 
 augroup filetype
     autocmd!

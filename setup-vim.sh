@@ -2,6 +2,8 @@
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
 
+cp colours/*.vim ~/.vim/colors/
+
 pushd ~/.vim
 curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
 curl -LSso colors/khaki.vim https://github.com/vim-scripts/khaki.vim/raw/master/colors/khaki.vim
