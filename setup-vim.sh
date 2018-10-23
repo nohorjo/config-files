@@ -1,8 +1,10 @@
 #!/bin/bash
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin
 
 cp colours/*.vim ~/.vim/colors/
+cp ftplugin/*.vim ~/.vim/ftplugin/
+cp filetype.vim ~/.vim/
 
 pushd ~/.vim
 curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim

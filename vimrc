@@ -108,10 +108,10 @@ nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
-noremap <Leader><UP>    <C-w>+
-noremap <Leader><DOWN>  <C-w>-
-noremap <Leader><RIGHT>  <C-w>>
-noremap <Leader><LEFT>  <C-w><
+noremap <Leader><UP> <C-w>+
+noremap <Leader><DOWN> <C-w>-
+noremap <Leader><RIGHT> <C-w>>
+noremap <Leader><LEFT> <C-w><
 nnoremap <Leader>= <C-w>=
 
 "switch windows
@@ -120,17 +120,6 @@ nnoremap <Leader>; <C-w>w
 "continue page in another split
 nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
 
-augroup filetype
-    autocmd!
-    autocmd BufNewFile,BufRead *.ts setf typescript
-    autocmd BufNewFile,BufRead *.ts set syntax=javascript
-    autocmd BufNewFile,BufRead *.html hi Error None
-    autocmd BufNewFile,BufRead vimrc hi Error None
-    autocmd BufNewFile,BufRead *.java hi Error None
-
-    autocmd BufNewFile,BufRead *.txt.gpg setf txtgpg
-augroup END
-
 "pathogen
 execute pathogen#infect()
 
@@ -138,30 +127,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_typescript_checkers = ['tslint']
-
-"jsbeautify
-autocmd FileType javascript,typescript noremap <buffer>  <Leader>ff :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <Leader>ff :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <Leader>ff :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <Leader>ff :call CSSBeautify()<cr>
-autocmd FileType javascript,typescript vnoremap <buffer>  <Leader>ff :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <Leader>ff :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <Leader>ff :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<cr>
-
-"console.log
-autocmd FileType javascript,typescript noremap <buffer> co oconsole.log('');<ESC>2hi
-
-"gpg encrypt/decrypt files
-augroup gpg
-    autocmd BufWritePost *.gpg !gpg -c --batch --yes -o %.tmp %; mv %.tmp %
-    autocmd BufReadPost *.gpg %!gpg -d -q --pinentry-mode loopback %
-    autocmd BufReadPost *.gpg set noswf
-    autocmd FileType txtgpg set foldmethod=marker
-augroup END
 
 nnoremap gg ggzz
 
