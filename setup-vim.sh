@@ -24,6 +24,8 @@ git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/maksimr/vim-jsbeautify.git
 git clone https://github.com/pangloss/vim-javascript.git
 git clone https://github.com/mxw/vim-jsx.git
+git clone https://github.com/easymotion/vim-easymotion.git
+git clone https://github.com/plasticboy/vim-markdown.git
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 
 popd
