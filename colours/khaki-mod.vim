@@ -47,7 +47,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "khaki"
+let g:colors_name = "khaki-mod"
 
 if !has("gui_running")
     hi Normal           cterm=NONE      ctermfg=58      ctermbg=187

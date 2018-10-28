@@ -47,7 +47,7 @@ else
         autocmd BufWinLeave *.* mkview
         autocmd BufWinEnter *[^*.txt.gpg] silent loadview
     augroup END
-    set foldcolumn=3
+    set foldcolumn=2
 endif
 
 set laststatus=2
