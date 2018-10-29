@@ -16,7 +16,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "abstract"
+let g:colors_name = "abstract-mod"
 
 hi Cursor ctermfg=236 ctermbg=15 cterm=NONE guifg=#2E2F31 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=241 cterm=NONE guifg=NONE guibg=#2E2F31 gui=NONE
@@ -147,3 +147,6 @@ hi vimHiGuiFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
 
 execute "set background=dark"
 "-------------------
+
+"MODS
+hi Search ctermbg=34

@@ -34,7 +34,7 @@ let s:darkregular = [ 'badwolf',
 \'valloric',
 \'vimbrains',
 \'evening' ]
-let s:blackregular = [ 'abstract', 
+let s:blackregular = [ 'abstract-mod', 
 \'antares',
 \'bleh',
 \'CandyPaper',

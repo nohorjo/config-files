@@ -17,7 +17,7 @@ if &diff
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
 else
-    colorscheme abstract
+    colorscheme abstract-mod
     set number relativenumber
 "make active window obvious
     augroup ActiveWindow
