@@ -97,7 +97,7 @@ inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g>\<<C-r>0\>/
 vmap <C-h> y<C-g><C-r>0/
-noremap <S-f><S-f> :grep -r 
+noremap <S-f><S-f> :grep --exclude "*.orig" -r 
 nnoremap <silent> <C-N> :cn<CR>zvzz
 nnoremap <silent> <C-P> :cp<CR>zvzz
 nnoremap n nzz
