@@ -130,6 +130,9 @@ let g:syntastic_check_on_wq = 0
 
 nnoremap gg ggzz
 
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 "enable project specific .vimrc
 set exrc
 set secure
