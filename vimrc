@@ -9,7 +9,7 @@ set hlsearch
 filetype plugin on
 syntax on
 if &diff
-    colorscheme khaki-mod
+    colorscheme typewriter
     set number norelativenumber
     set noro
     noremap ]x /<<<<<<<<ENTER>
@@ -17,7 +17,7 @@ if &diff
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
 else
-    colorscheme hydrangea-mod
+    colorscheme abstract
     set number relativenumber
 "make active window obvious
     augroup ActiveWindow
