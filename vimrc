@@ -96,7 +96,7 @@ inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g>\<<C-r>0\>/
-vmap <C-h> y<C-g><C-r>0/
+vmap <C-h> y<C-g><C-r>0
 noremap <S-f><S-f> :grep --exclude "*.orig" -r 
 nnoremap <silent> <C-N> :cn<CR>zvzz
 nnoremap <silent> <C-P> :cp<CR>zvzz
@@ -130,8 +130,19 @@ let g:syntastic_check_on_wq = 0
 
 nnoremap gg ggzz
 
+"easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+map w <Plug>(easymotion-w)
+map W <Plug>(easymotion-W)
+map e <Plug>(easymotion-e)
+map E <Plug>(easymotion-E)
+map b <Plug>(easymotion-b)
+map B <Plug>(easymotion-B)
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 
 "enable project specific .vimrc
 set exrc
