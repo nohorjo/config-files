@@ -59,18 +59,16 @@ let s:lightregular = [
 \'soda',
 \'Tomorrow',
 \'unicon']
-let s:darkdiff = [ 'monochrome',
-\'elda',
+let s:darkdiff = [ 'elda',
 \'orbital',
 \'phosphor',
 \'tone',
-\'typewriter-night',
 \'zazen' ]
 let s:fancyregular = [ 'eva',
 \'dracula',
 \'cobalt2',
 \'night-owl' ]
-let s:lightdiff = [ 'typewriter' ]
+let s:lightdiff = [ 'khaki-mod' ]
 
 let s:mycolors = s:lightregular + s:lightdiff + s:fancyregular + s:darkregular + s:darkdiff + s:blackregular
 

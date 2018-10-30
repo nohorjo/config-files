@@ -9,7 +9,7 @@ set hlsearch
 filetype plugin on
 syntax on
 if &diff
-    colorscheme typewriter
+    colorscheme elda
     set number norelativenumber
     set noro
     noremap ]x /<<<<<<<<ENTER>
