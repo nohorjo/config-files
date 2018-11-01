@@ -148,4 +148,4 @@ map T <Plug>(easymotion-T)
 set exrc
 set secure
 
-
+hi link helpIgnore Normal
