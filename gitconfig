@@ -10,33 +10,84 @@
 [alias]
     a=add
     aa=add -A
-    ac="!f() { if [ $# -eq 1 ]; then git aa; else git a ${@:2}; fi; git cc \"$1\"; }; f"
-    acc="!f() { if [ $# -eq 1 ]; then git aa; else git a ${@:2}; fi; git c \"$1\"; }; f"
-    as="!f() { if [ $# -eq 0 ]; then git aa; else git a $*; fi; git s; }; f"
+    ac="!f() { \
+            if [ $# -eq 1 ]; \
+            then \
+                git aa; \
+            else \
+                git a ${@:2}; \
+            fi; \
+            git cc \"$1\"; \
+        }; f"
+    acc="!f() { \
+            if [ $# -eq 1 ]; \
+            then \
+                git aa; \
+            else \
+                git a ${@:2}; \
+            fi; \
+            git c \"$1\"; \
+        }; f"
+    as="!f() { \
+            if [ $# -eq 0 ]; \
+            then \
+                git aa; \
+            else \
+                git a $*; \
+            fi; \
+            git s; \
+        }; f"
 # checks out a branch, creates if not exist
-    b="!f() { git co $1 2>/dev/null || git co -b $1; git branch -a --color=always | nl | tac; }; f"
-    bbg="!f() { git b $(git bg $1); }; f"
-    bd="!f() { git branch -D $1; git push origin --delete $1; }; f"
-    bdg="!f() { git bd $(git bg $1); }; f"
-    bg="!f() { git branch | grep $1; }; f"
+    b="!f() { \
+            git co $1 2>/dev/null \
+            || git co -b $1; \
+            git branch -a --color=always \
+            | nl \
+            | tac; \
+        }; f"
+    bbg="!f() { \
+            git b $(git bg $1); \
+        }; f"
+    bd="!f() { \
+            git branch -D $1; \
+            git push origin --delete $1; \
+        }; f"
+    bdg="!f() { \
+            git bd $(git bg $1); \
+        }; f"
+    bg="!f() { \
+            git branch \
+            | grep $1; \
+        }; f"
     bm=!git b master
 # switch to nth last branch, as shown by git b
-    bn="!f() { git b $(git branch -a --color=never | head -n${1} | tail -n1); }; f"
+    bn="!f() { \
+            git b $(git branch -a --color=never | head -n${1} | tail -n1); \
+        }; f"
     bs=!git b staging
     c=commit -m
 # commit and push
-    cc="!f() { git c \"$1\"; git pp; }; f"
+    cc="!f() { \
+            git c \"$1\"; \
+            git pp; \
+        }; f"
     cl=clean -f -d
     co=checkout
     cp=cherry-pick
     d=difftool
     dc=!git d --cached
 # diff a commit against previous
-    dd="!f() { git d \"$1^\" \"$1\"; }; f"
+    dd="!f() { \
+            git d \"$1^\" \"$1\"; \
+        }; f"
 # diff a file
-    df="!f() { git d -y $2^:$1 $2:$1; }; f"
+    df="!f() { \
+            git d -y $2^:$1 $2:$1; \
+        }; f"
 # diff names only
-    dn="!f() { git diff --name-only \"$1^!\"; }; f"
+    dn="!f() { \
+            git diff --name-only \"$1^!\"; \
+        }; f"
     f=fetch --all --prune
 # pretty log
     l=!git ll -15
@@ -49,16 +100,38 @@
     mm=merge master
     ms=merge staging
     mt=mergetool
-    p="!f(){ git pull origin $(git symbolic-ref --short HEAD); }; f"
-    pa="!f(){ git branch -r | grep -v '\\->' | while read remote; do git b ${remote#origin/}; git p; done; }; f"
-    pf="!f(){ git push --force origin $(git symbolic-ref --short HEAD); }; f"
-    pp="!f(){ git push origin $(git symbolic-ref --short HEAD); }; f"
-    r="!f(){ git reset --hard origin/$(git symbolic-ref --short HEAD); }; f"
+    p="!f(){ \
+            git pull origin $(git symbolic-ref --short HEAD); \
+        }; f"
+    pa="!f(){ \
+            git branch -r \
+            | grep -v '\\->' \
+            | while read remote; \
+            do \
+                git b ${remote#origin/}; \
+                git p; \
+            done; \
+        }; f"
+    pf="!f(){ \
+            git push --force origin $(git symbolic-ref --short HEAD); \
+        }; f"
+    pp="!f(){ \
+            git push origin $(git symbolic-ref --short HEAD); \
+        }; f"
+    r="!f(){ \
+            git reset --hard origin/$(git symbolic-ref --short HEAD); \
+        }; f"
     rh=reset --hard @
     s=status
-    sd="!f() { git s; git d; }; f"
+    sd="!f() { \
+            git s; \
+            git d; \
+        }; f"
     sl=stash list
     ss=stash show -p
     st=stash
-    stb="!f() { git st; git b $1; }; f"
+    stb="!f() { \
+            git st; \
+            git b $1; \
+        }; f"
     sp=stash pop
