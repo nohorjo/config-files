@@ -27,13 +27,6 @@ else
         autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
-    autocmd WinEnter,BufEnter,TabEnter * call Zebra()
-    function! Zebra()
-        silent! syn clear Oddlines
-        silent! syn clear EvenLines
-        syn match Oddlines "^.*$" contains=ALL nextgroup=Evenlines skipnl
-        syn match Evenlines "^.*$" contains=ALL nextgroup=Oddlines skipnl
-    endfunction
 "save session
     autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
     augroup autoquickfix
@@ -148,4 +141,3 @@ map T <Plug>(easymotion-T)
 set exrc
 set secure
 
-hi link helpIgnore Normal
