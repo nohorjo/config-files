@@ -96,7 +96,7 @@ nnoremap <silent> <C-P> :cp<CR>zvzz
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap gg ggzz
-nnoremap zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| setlocal foldlevel=99 \| endif"<CR>
+nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| setlocal foldlevel=99 \| endif"<CR>
 
 "resize splits
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
