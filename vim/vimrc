@@ -83,7 +83,8 @@ nnoremap <Space> i <ESC><RIGHT>
 nnoremap z{ [{zf%
 
 inoremap <Leader>w <C-o>:w<CR>
-    
+inoremap jk <ESC>
+
 "auto xml
 inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
 
