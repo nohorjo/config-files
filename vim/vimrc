@@ -115,7 +115,7 @@ nnoremap <Leader>= <C-w>=
 nnoremap <Leader>; <C-w>w
 
 "continue page in another split
-nnoremap <Leader>cv H<C-w>v:set scb<CR><C-w>wLzt5<C-y>:set scb<CR>
+nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
 "pathogen
 execute pathogen#infect()
