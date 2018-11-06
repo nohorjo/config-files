@@ -81,7 +81,7 @@ nnoremap Q :sh<CR>
 nnoremap * *N:%s///gn<CR>
 nnoremap <Space> i <ESC><RIGHT>
 nnoremap z{ [{zf%
-nnoremap <silent> /<CR> /;;;;;<CR>
+nnoremap <silent!> /<CR> /;;;;;<CR>
 
 inoremap <Leader>w <C-o>:w<CR>
 inoremap jk <ESC>
