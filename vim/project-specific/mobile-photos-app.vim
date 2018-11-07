@@ -10,7 +10,7 @@ function! ManualFolds()
             let lnum = line('.')
             normal j[{zf%n
         endwhile
-        execute "normal " . start . "ggzO0" . col . "l"
+        execute "silent! normal " . start . "ggzO0" . col . "l"
     endif
 endfunction
 
