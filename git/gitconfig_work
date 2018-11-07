@@ -75,6 +75,12 @@
     co=checkout
     cp=cherry-pick
     d=difftool
+# diff blame
+    db="!f() { \
+            local rev=$(git blame $1 -L $2,$2 | cut -d' ' -f1); \
+            echo $rev; \
+            git df $1 $rev; \
+        }; f"
     dc=!git d --cached
 # diff a commit against previous
     dd="!f() { \
