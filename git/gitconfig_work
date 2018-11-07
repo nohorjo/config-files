@@ -96,6 +96,7 @@
 # pretty log full message
     la=log --graph --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %<(15)%n%C(bold green)%s'
     ll=log --graph --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s'
+    lm=!git ll --author=$(git config user.email)
     m=merge
     mm=merge master
     ms=merge staging
