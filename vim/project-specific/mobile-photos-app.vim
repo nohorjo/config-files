@@ -20,4 +20,5 @@ if !&diff
         au!
         au InsertLeave *.js call ManualFolds()
     augroup END
+    nnoremap <Leader>z :call ManualFolds()<CR>
 endif
