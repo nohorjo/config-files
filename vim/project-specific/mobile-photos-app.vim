@@ -4,11 +4,14 @@ function! ManualFolds()
     if search('\<class\>.*{', 'n')
         let start = line('.')
         let col = col('.')
-        execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>zE"
+        execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         let lnum = line('.')
         while lnum <= line('.')
             let lnum = line('.')
-            normal j[{zf%n
+            if !foldlevel('.')
+                normal! j[{zf%
+            endif
+            normal! n
         endwhile
         execute "silent! normal " . start . "ggzO0" . col . "l"
     endif
