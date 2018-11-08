@@ -9,11 +9,9 @@ cp filetype.vim ~/.vim/
 
 pushd ~/.vim
 curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
-curl -LSso colors/khaki.vim https://github.com/vim-scripts/khaki.vim/raw/master/colors/khaki.vim
-curl -LSso colors/hydrangea.vim https://github.com/yuttie/hydrangea-vim/raw/master/colors/hydrangea.vim
 
 npm install -g \
-        jshint \
+        eslint babel-eslint \
         tslint \
         typescript \
         js-beautify
