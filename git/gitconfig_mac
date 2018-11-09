@@ -1,0 +1,10 @@
+[alias]
+# checks out a branch, creates if not exist
+    b="!f() { \
+            git co $1 2>/dev/null \
+            || git co -b $1; \
+            git branch -a --color=always \
+            | nl \
+            | tail -r; \
+        }; f"
+

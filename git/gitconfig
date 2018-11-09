@@ -1,8 +1,5 @@
 [user]
     name = Muhammed Haque
-    email = nohorjo@gmail.com
-[credential]
-    helper = cache --timeout=43200    
 [diff]
     tool = vimdiff
 [merge]
@@ -36,14 +33,6 @@
                 git a $*; \
             fi; \
             git s; \
-        }; f"
-# checks out a branch, creates if not exist
-    b="!f() { \
-            git co $1 2>/dev/null \
-            || git co -b $1; \
-            git branch -a --color=always \
-            | nl \
-            | tac; \
         }; f"
     bbg="!f() { \
             git b $(git bg $1); \
@@ -142,3 +131,6 @@
             git b $1; \
         }; f"
     sp=stash pop
+[include]
+    path=~/.gitconfig_platform
+    path=~/.gitconfig_type
