@@ -53,7 +53,6 @@
     bn="!f() { \
             git b $(git branch -a --color=never | head -n${1} | tail -n1); \
         }; f"
-    bs=!git b staging
     c=commit -m
 # commit and push
     cc="!f() { \

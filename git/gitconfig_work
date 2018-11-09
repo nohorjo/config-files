@@ -1,6 +1,7 @@
 [user]
     email = m.haque@livelinktechnology.net
-#[alias]
+[alias]
+    bs=!git b development
 #    c="!f () { \
 #            git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f2 | grep -o '\\w\\+-\\d\\+' | head -1)$*\"; \
 #        }; f"
