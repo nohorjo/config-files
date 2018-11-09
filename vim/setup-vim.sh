@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin
+ln -s $(pwd)/vimrc ~/.vimrc
 
 cp colours/*.vim ~/.vim/colors/
 cp ftplugin/*.vim ~/.vim/ftplugin/
