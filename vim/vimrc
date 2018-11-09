@@ -78,7 +78,7 @@ noremap <C-f> :find ./**/
 noremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 nnoremap Q :sh<CR>
-nnoremap * *N:%s///gn<CR>
+nnoremap * *<C-O>:%s///gn<CR>``
 nnoremap <Space> i <ESC><RIGHT>
 nnoremap z{ [{zf%
 nnoremap <silent!> /<CR> /;;;;;<CR>
