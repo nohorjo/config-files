@@ -114,10 +114,3 @@ hi TODO cterm=underline ctermbg=201 ctermfg=159
 
 hi link Boolean Statement
 
-"insert style
-augroup Insert
-    autocmd!
-    autocmd InsertEnter * hi CursorLine cterm=underline
-    autocmd InsertLeave * hi CursorLine cterm=none
-augroup END
-

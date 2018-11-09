@@ -27,8 +27,6 @@ else
         autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
-"save session
-    autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
     augroup autoquickfix
             autocmd!
             autocmd QuickFixCmdPost [^l]* cwindow
@@ -39,6 +37,14 @@ else
         autocmd!
         autocmd BufWinLeave *.* mkview
         autocmd BufWinEnter *[^*.txt.gpg] silent loadview
+    augroup END
+    augroup other
+        autocmd!
+"insert mode visible
+        autocmd InsertEnter * set nonumber norelativenumber
+        autocmd InsertLeave * set number relativenumber
+"save session
+        autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
     augroup END
     set foldcolumn=2
 endif
