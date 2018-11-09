@@ -4,6 +4,8 @@ function! ManualFolds()
     if search('\<class\>.*{', 'n')
         let start = line('.')
         let col = col('.')
+        normal! H
+        let top = line('.')
         execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         let lnum = line('.')
         while lnum <= line('.')
@@ -13,7 +15,7 @@ function! ManualFolds()
             endif
             normal! n
         endwhile
-        execute "silent! normal " . start . "ggzO0" . col . "l"
+        execute "silent! normal! " . top . "ggzt" . start . "ggzO0" . col . "l"
     endif
 endfunction
 
