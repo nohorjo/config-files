@@ -2,6 +2,6 @@
     email=nohorjo@gmail.com
 [alias]
     bs=!git b staging
-#    c="!f () { \
-#            git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1)$*\"; \
-#        }; f"
+    c="!f () { \
+            git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1) - $@\"; \
+        }; f"

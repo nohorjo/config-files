@@ -53,7 +53,6 @@
     bn="!f() { \
             git b $(git branch -a --color=never | head -n${1} | tail -n1); \
         }; f"
-    c=commit -m
 # commit and push
     cc="!f() { \
             git c \"$1\"; \
