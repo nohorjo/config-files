@@ -1,7 +1,8 @@
 #!/bin/bash
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin
 ln -s $(pwd)/vimrc ~/.vimrc
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin
 
 cp colours/*.vim ~/.vim/colors/
 cp ftplugin/*.vim ~/.vim/ftplugin/
@@ -10,12 +11,6 @@ cp filetype.vim ~/.vim/
 
 pushd ~/.vim
 curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-npm install -g \
-        eslint babel-eslint \
-        tslint \
-        typescript \
-        js-beautify
 
 cd bundle
 git clone https://github.com/scrooloose/nerdtree.git
@@ -29,4 +24,9 @@ git clone https://github.com/plasticboy/vim-markdown.git
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 
 popd
+
+npm install -g eslint babel-eslint
+npm install -g typescript
+npm install -g tslint
+npm install -g js-beautify
 
