@@ -16,7 +16,7 @@
             else \
                 git a $@; \
             fi; \
-            git c \"$message\"; \
+            git cc \"$message\"; \
         }; f"
     acc="!f() { \
             local message=\"$1\"; \
