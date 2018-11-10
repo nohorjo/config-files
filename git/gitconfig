@@ -8,22 +8,26 @@
     a=add
     aa=add -A
     ac="!f() { \
-            if [ $# -eq 1 ]; \
+            local message=\"$1\"; \
+            shift; \
+            if [ $# -eq 0 ]; \
             then \
                 git aa; \
             else \
-                git a ${@:2}; \
+                git a $@; \
             fi; \
-            git cc \"$1\"; \
+            git c \"$message\"; \
         }; f"
     acc="!f() { \
-            if [ $# -eq 1 ]; \
+            local message=\"$1\"; \
+            shift; \
+            if [ $# -eq 0 ]; \
             then \
                 git aa; \
             else \
-                git a ${@:2}; \
+                git a $@; \
             fi; \
-            git c \"$1\"; \
+            git c \"$message\"; \
         }; f"
     as="!f() { \
             if [ $# -eq 0 ]; \
