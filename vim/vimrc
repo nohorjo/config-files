@@ -159,6 +159,9 @@ function! EMUnmap()
 endfunction
 call EMMap()
 
+"enter in qf go to file
+autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'cc' . line('.')<CR>zz | endif
+
 "enable project specific .vimrc
 set exrc
 set secure
