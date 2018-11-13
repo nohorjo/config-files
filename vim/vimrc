@@ -92,9 +92,6 @@ nnoremap <silent!> /<CR> /;;;;;<CR>
 inoremap <Leader>w <C-o>:w<CR>
 inoremap jk <ESC>
 
-"auto xml
-inoremap <Space><Tab> <ESC>bce<<C-r>"></<C-r>"><ESC>F<i
-
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nmap <C-h> yiw<C-g>\<<C-r>0\>/
 vmap <C-h> y<C-g><C-r>0
