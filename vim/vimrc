@@ -57,23 +57,6 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-"surround
-vnoremap s" di""<ESC><LEFT>p
-vnoremap s' di''<ESC><LEFT>p
-vnoremap s` di``<ESC><LEFT>p
-vnoremap s( di()<ESC><LEFT>p
-vnoremap s[ di[]<ESC><LEFT>p
-vnoremap s{ di{}<ESC><LEFT>p
-vnoremap s< di<><ESC><LEFT>p
-vnoremap sd da<BS><BS><ESC>p
-vnoremap sc" da<BS><BS>""<LEFT><ESC>p
-vnoremap sc' da<BS><BS>''<LEFT><ESC>p
-vnoremap sc` da<BS><BS>``<LEFT><ESC>p
-vnoremap sc( da<BS><BS>()<LEFT><ESC>p
-vnoremap sc[ da<BS><BS>[]<LEFT><ESC>p
-vnoremap sc{ da<BS><BS>{}<LEFT><ESC>p
-vnoremap sc< da<BS><BS><><LEFT><ESC>p
-
 noremap <Enter> <UP>o<ESC><DOWN>
 noremap <S-Tab> :tab
 noremap <S-Tab><UP> :tabnew<CR>
