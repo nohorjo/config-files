@@ -8,10 +8,11 @@ set hlsearch
 
 filetype plugin on
 syntax on
+
 if &diff
     colorscheme elda
     set number norelativenumber
-    set noro
+    set noreadonly
     noremap ]x /<<<<<<<<ENTER>
     noremap dgl :diffg LO<ENTER>
     noremap dgr :diffg RE<ENTER>
@@ -19,7 +20,7 @@ if &diff
 else
     colorscheme abstract-mod
     set number relativenumber
-"make active window obvious
+    "make active window obvious
     augroup ActiveWindow
         autocmd!
         autocmd WinEnter,TabEnter * set relativenumber
@@ -31,20 +32,21 @@ else
             autocmd!
             autocmd QuickFixCmdPost [^l]* cwindow
             autocmd QuickFixCmdPost l*    lwindow
+            autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'cc' . line('.')<CR>zz | endif
     augroup END
-" save view
-    augroup AutoSaveFolds
+    augroup SaveSessionView
         autocmd!
+        " save view
         autocmd BufWinLeave *.* mkview
         autocmd BufWinEnter *[^*.txt.gpg] silent loadview
+        "save session
+        autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
     augroup END
     augroup other
         autocmd!
-"insert mode visible
+        "insert mode visible
         autocmd InsertEnter * set nonumber norelativenumber
         autocmd InsertLeave * set number relativenumber
-"save session
-        autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
     augroup END
     set foldcolumn=2
 endif
@@ -57,44 +59,53 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-noremap <Enter> <UP>o<ESC><DOWN>
-noremap <S-Tab> :tab
-noremap <S-Tab><UP> :tabnew<CR>
-noremap <S-Tab><DOWN> :tabc<CR>
-noremap <S-Tab><LEFT> :tabp<CR>
-noremap <S-Tab><RIGHT> :tabn<CR>
-noremap <C-f> :find ./**/
-noremap <Leader>q :qa!<CR>
-nnoremap <Leader>Q :only<CR>
-nnoremap Q :sh<CR>
-nnoremap * *<C-O>:%s///gn<CR>``
+"tabs
+nnoremap <S-Tab> :tabe<Space>
+nnoremap <S-Tab><UP> :tabnew<CR>
+nnoremap <S-Tab><DOWN> :tabc<CR>
+nnoremap <S-Tab><LEFT> :tabp<CR>
+nnoremap <S-Tab><RIGHT> :tabn<CR>
+
+nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
-nnoremap z{ [{zf%
+
+nnoremap <C-f> :find ./**/
+nnoremap <S-f><S-f> :grep --exclude "*.orig" -Ir 
+
+nnoremap <Leader>q :qa!<CR>
+nnoremap <Leader>Q :only<CR>
+
+nnoremap Q :sh<CR>
+
+nnoremap * *<C-O>:%s///gn<CR>``
 nnoremap <silent> /<CR> /;;;;;<CR>
 
 inoremap <Leader>w <C-o>:w<CR>
 inoremap jk <ESC>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
-nmap <C-h> yiw<C-g>\<<C-r>0\>/
-vmap <C-h> y<C-g><C-r>0
-noremap <S-f><S-f> :grep --exclude "*.orig" -Ir 
+nnoremap <C-h> yiw:%s//gc<LEFT><LEFT><LEFT>\<<C-r>0\>/
+vnoremap <C-h> y:%s//gc<LEFT><LEFT><LEFT><C-r>0
+
 nnoremap <silent> <C-N> :cn<CR>zvzz
 nnoremap <silent> <C-P> :cp<CR>zvzz
+
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap gg ggzzzv
+
 nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| setlocal foldlevel=99 \| endif"<CR>
+nnoremap z{ [{zf%
 
 "resize splits
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
-noremap <Leader><UP> <C-w>+
-noremap <Leader><DOWN> <C-w>-
-noremap <Leader><RIGHT> <C-w>>
-noremap <Leader><LEFT> <C-w><
+nnoremap <Leader><UP> <C-w>+
+nnoremap <Leader><DOWN> <C-w>-
+nnoremap <Leader><RIGHT> <C-w>>
+nnoremap <Leader><LEFT> <C-w><
 nnoremap <Leader>= <C-w>=
 
 "switch windows
@@ -110,7 +121,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
 "easymotion
 function! EMMap()
@@ -138,9 +148,6 @@ function! EMUnmap()
     silent! unmap T
 endfunction
 call EMMap()
-
-"enter in qf go to file
-autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'cc' . line('.')<CR>zz | endif
 
 "autocomplete
 inoremap <S-Tab> <C-n>
