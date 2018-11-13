@@ -1,6 +1,3 @@
-vnoremap s d:call Surround()<CR>
-vnoremap sd da<BS><BS><ESC>p
-
 function! Surround()
     let char = nr2char(getchar())
     if char == '('
@@ -22,3 +19,7 @@ function! SurroundChange()
     call Surround()
 endfunction
 
+vnoremap s d:call Surround()<CR>
+vnoremap sd da<BS><BS><ESC>p
+
+nnoremap S :call SurroundChange()<CR>
