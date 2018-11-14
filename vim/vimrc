@@ -28,12 +28,6 @@ else
         autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
-    augroup autoquickfix
-            autocmd!
-            autocmd QuickFixCmdPost [^l]* cwindow
-            autocmd QuickFixCmdPost l*    lwindow
-            autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'cc' . line('.')<CR>zz | endif
-    augroup END
     augroup SaveSessionView
         autocmd!
         " save view
@@ -70,7 +64,7 @@ nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
 
 nnoremap <C-f> :find ./**/
-nnoremap <S-f><S-f> :grep --exclude "*.orig" -Ir 
+nnoremap <S-f><S-f> :grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir 
 
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
@@ -84,11 +78,8 @@ inoremap <Leader>w <C-o>:w<CR>
 inoremap jk <ESC>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
-nnoremap <C-h> yiw:%s//gc<LEFT><LEFT><LEFT>\<<C-r>0\>/
-vnoremap <C-h> y:%s//gc<LEFT><LEFT><LEFT><C-r>0
-
-nnoremap <silent> <C-N> :cn<CR>zvzz
-nnoremap <silent> <C-P> :cp<CR>zvzz
+nnoremap <C-h> yiw:%s//gc<LEFT><LEFT><LEFT>\(\<<C-r>0\>\)/
+vnoremap <C-h> y:%s//gc<LEFT><LEFT><LEFT>\(<C-r>0\)/
 
 nnoremap n nzz
 nnoremap N Nzz
