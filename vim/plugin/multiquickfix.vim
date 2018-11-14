@@ -1,4 +1,5 @@
 function! SaveQuickFixList(fname) 
+    let t:qfnum = 1
     call delete(a:fname)
     let list = getqflist() 
     for i in range(len(list)) 
