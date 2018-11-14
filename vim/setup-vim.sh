@@ -6,8 +6,10 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plug
 
 cp colours/*.vim ~/.vim/colors/
 cp ftplugin/*.vim ~/.vim/ftplugin/
-cp plugin/*.vim ~/.vim/plugin/
 cp filetype.vim ~/.vim/
+cp plugin/*.vim ~/.vim/plugin/
+
+rm ~/.vim/plugin/Session.vim
 
 pushd ~/.vim
 curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
