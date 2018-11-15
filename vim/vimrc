@@ -79,6 +79,7 @@ inoremap jk <ESC>
 
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nnoremap <C-h> yiw:%s//gc<LEFT><LEFT><LEFT>\(\<<C-r>0\>\)/
+nnoremap <C-h><C-h> yiw:s//g<LEFT><LEFT>\(\<<C-r>0\>\)/
 vnoremap <C-h> y:%s//gc<LEFT><LEFT><LEFT>\(<C-r>0\)/
 
 nnoremap n nzz
