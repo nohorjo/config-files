@@ -11,11 +11,11 @@ function! Surround()
     else
         let otherchar = char
     endif
-    execute "normal! i" . char . otherchar . "\<ESC>\<LEFT>p"
+    execute "normal! i" . char . "\<C-r>\"" . otherchar
 endfunction
 
-function! SurroundChange() 
-    execute 'normal! di' . nr2char(getchar()) . "\<LEFT>\"_x\"_x"
+function! SurroundChange()
+    execute 'normal! di' . nr2char(getchar()) . "h\"_2x"
     call Surround()
 endfunction
 
