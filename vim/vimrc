@@ -5,6 +5,7 @@ set autoindent
 "tab size
 set softtabstop=0 expandtab shiftwidth=4 smarttab
 set hlsearch
+set completeopt=longest,menuone
 
 filetype plugin on
 syntax on
