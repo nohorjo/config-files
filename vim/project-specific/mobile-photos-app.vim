@@ -22,10 +22,9 @@ function! ManualFolds()
         execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         let lnum = line('.')
         while lnum <= line('.')
-            normal! j
-            let lnum = line('.')
+            let lnum = line('.') + 1
             if !foldlevel('.')
-                normal! [{zf%
+                normal! j[{zf%
             endif
             normal! n
         endwhile
