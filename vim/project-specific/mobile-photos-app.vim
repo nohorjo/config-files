@@ -1,11 +1,24 @@
-
 function! ManualFolds() 
-    setlocal foldmethod=manual
-    if search('\<class\>.*{', 'n')
-        let start = line('.')
-        let col = col('.')
+    function! LinesFromTop()
+        let current = line('.')
         normal! H
         let top = line('.')
+        execute "silent! normal! " . current . "gg"
+        let lines = 0
+        while current > top
+            normal! k
+            let lines = lines + 1
+            let current = line('.')
+        endwhile
+        return lines
+    endfunction
+
+    setlocal foldmethod=manual
+
+    if search('\<class\>.*{', 'n')
+        let start = line('.')
+        let col = col('.') - 1
+        let screentop = LinesFromTop()
         execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         let lnum = line('.')
         while lnum <= line('.')
@@ -16,7 +29,7 @@ function! ManualFolds()
             endif
             normal! n
         endwhile
-        execute "silent! normal! " . top . "ggzt" . start . "ggzO0" . col . "l"
+        execute "silent! normal! " . start . "ggzO0" . col . "lzt" . screentop . "\<C-y>"
     endif
 endfunction
 
