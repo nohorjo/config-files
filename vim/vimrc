@@ -15,6 +15,7 @@ if &diff
     set number norelativenumber
     set noreadonly
     noremap ]x /<<<<<<<<ENTER>
+    noremap ]c ]czz
     noremap dgl :diffg LO<ENTER>
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
