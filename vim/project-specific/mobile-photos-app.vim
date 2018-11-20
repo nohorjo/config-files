@@ -29,6 +29,7 @@ function! ManualFolds()
             normal! n
         endwhile
         execute "silent! normal! " . start . "ggzO0" . col . "lzt" . screentop . "\<C-y>"
+        mkview!
     endif
 endfunction
 
