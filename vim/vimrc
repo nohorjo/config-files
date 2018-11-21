@@ -113,9 +113,9 @@ inoremap jk <ESC>
 inoremap <S-Tab> <C-n>
 inoremap <C-l> <C-x><C-l>
 inoremap <C-f> <C-x><C-f>
-inoremap <silent> <ENTER> <C-R>=pumvisible() ? "\<lt>C-y>" : "\<lt>CR>"<CR>
+inoremap <expr> <ENTER> pumvisible() ? "\<C-y>" : "\<CR>"
 "esc to quit popup or no op
-inoremap <silent> <ESC> <C-R>=pumvisible() ? "\<lt>C-e>" : ""<CR>
+inoremap <expr> <ESC> pumvisible() ? "\<C-e>" : ""
 "let arrows still work
 inoremap <ESC>i <ESC>a
 
