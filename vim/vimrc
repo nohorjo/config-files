@@ -108,6 +108,7 @@ nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowra
 
 inoremap <Leader>w <C-o>:w<CR>
 inoremap jk <ESC>
+inoremap kj <ESC>
 
 "autocomplete
 inoremap <S-Tab> <C-n>
