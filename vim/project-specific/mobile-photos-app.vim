@@ -39,7 +39,7 @@ if !&diff
         au!
         au InsertLeave *.js call ManualFolds()
     augroup END
-    nnoremap <Leader>z :call ManualFolds()<CR>
+    nnoremap <Leader>z zE:call ManualFolds()<CR>
 endif
 
 let @t='0w"nyt(j"cci{try{console.time(">>>>>n");}finally{console.timeEnd(">>>>>n");}zEkk"cP/    \\w*{'
