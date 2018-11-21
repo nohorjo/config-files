@@ -118,6 +118,8 @@ inoremap <expr> <ENTER> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <ESC> pumvisible() ? "\<C-e>" : ""
 "let arrows still work
 inoremap <ESC>i <ESC>a
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
