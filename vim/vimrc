@@ -113,6 +113,8 @@ inoremap jk <ESC>
 inoremap <S-Tab> <C-n>
 inoremap <C-l> <C-x><C-l>
 inoremap <C-f> <C-x><C-f>
+inoremap <silent> <Enter> <C-R>=pumvisible() ? "\<lt>C-y>" : "\<lt>CR>"<CR>
+inoremap <silent> <Esc> <C-R>=pumvisible() ? "\<lt>C-e>" : "\<lt>Esc>"<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
