@@ -70,7 +70,7 @@ augroup autoquickfix
     autocmd TabEnter * call LoadQuickFixList("." . tabpagenr() . ".cfile")
     autocmd TabClosed * call UpdateCfilesDelete(tabpagenr())
     autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zz | endif
-    autocmd VimEnter * execute "!rm  .*.cfile"
+    autocmd VimEnter * execute "!rm -f .*.cfile"
 augroup END
 
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
