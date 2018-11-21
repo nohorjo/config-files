@@ -23,17 +23,24 @@ function! LoadQuickFixList(fname)
         else
             let t:qfnum = 1
         endif
+    else
+        cclose
     endif
 endfunction
 
 function! UpdateCfilesDelete(start)
-    call delete ("." . a:start . ".cfile")
-    for page in range(a:start, tabpagenr('$'))
-        let toMove = "." . (page + 1) . ".cfile"
-        if filereadable(toMove)
-            silent execute "!mv " . toMove . " ." . page . ".cfile"
-        endif
-    endfor
+    let tabcount = tabpagenr('$')
+    if tabcount == start
+        call LoadQuickFixList("." . start . ".cfile")
+    else
+        call delete ("." . a:start . ".cfile")
+        for page in range(a:start, tabcount)
+            let toMove = "." . (page + 1) . ".cfile"
+            if filereadable(toMove)
+                silent execute "!mv " . toMove . " ." . page . ".cfile"
+            endif
+        endfor
+    endif
 endfunction
 
 function! UpdateCfilesAdd(start)
@@ -63,7 +70,7 @@ augroup autoquickfix
     autocmd TabEnter * call LoadQuickFixList("." . tabpagenr() . ".cfile")
     autocmd TabClosed * call UpdateCfilesDelete(tabpagenr())
     autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zz | endif
-    autocmd VimLeave * execute "!rm  .*.cfile"
+    autocmd VimEnter * execute "!rm  .*.cfile"
 augroup END
 
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
