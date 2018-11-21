@@ -30,7 +30,7 @@ endfunction
 
 function! UpdateCfilesDelete(start)
     let tabcount = tabpagenr('$')
-    if tabcount == start
+    if tabcount == a:start
         call LoadQuickFixList("." . start . ".cfile")
     else
         call delete ("." . a:start . ".cfile")
@@ -62,7 +62,7 @@ endfunction
 
 augroup autoquickfix
     autocmd!
-    autocmd QuickFixCmdPre * tabnew
+    autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
     autocmd QuickFixCmdPost * call SaveQuickFixList("." . tabpagenr() . ".cfile")
