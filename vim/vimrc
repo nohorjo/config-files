@@ -36,7 +36,7 @@ else
     augroup SaveSessionView
         autocmd!
         " save view
-        autocmd BufWinLeave *.* mkview
+        autocmd CursorMoved,CursorMovedI * mkview!
         autocmd BufWinEnter *[^*.txt.gpg] silent loadview
         "save session
         autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
@@ -113,8 +113,11 @@ inoremap jk <ESC>
 inoremap <S-Tab> <C-n>
 inoremap <C-l> <C-x><C-l>
 inoremap <C-f> <C-x><C-f>
-inoremap <silent> <Enter> <C-R>=pumvisible() ? "\<lt>C-y>" : "\<lt>CR>"<CR>
-inoremap <silent> <Esc> <C-R>=pumvisible() ? "\<lt>C-e>" : "\<lt>Esc>"<CR>
+inoremap <silent> <ENTER> <C-R>=pumvisible() ? "\<lt>C-y>" : "\<lt>CR>"<CR>
+"esc to quit popup or no op
+inoremap <silent> <ESC> <C-R>=pumvisible() ? "\<lt>C-e>" : ""<CR>
+"let arrows still work
+inoremap <ESC>i <ESC>a
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
