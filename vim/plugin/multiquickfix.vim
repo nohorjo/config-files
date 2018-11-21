@@ -62,7 +62,7 @@ endfunction
 
 augroup autoquickfix
     autocmd!
-    autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | endif
+    autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | else | execute "normal! \<C-w>L" | endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
     autocmd QuickFixCmdPost * call SaveQuickFixList("." . tabpagenr() . ".cfile")
