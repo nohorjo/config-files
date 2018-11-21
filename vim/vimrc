@@ -1,11 +1,13 @@
-"highlight current line
 set cursorline
-"auto indent
 set autoindent
-"tab size
 set softtabstop=0 expandtab shiftwidth=4 smarttab
 set hlsearch
 set completeopt=longest,menuone
+set laststatus=2
+set statusline=%m<%{winnr()}>\ %f\ %P:%c
+"enable project specific .vimrc
+set exrc
+set secure
 
 filetype plugin on
 syntax on
@@ -22,6 +24,7 @@ if &diff
 else
     colorscheme abstract-mod
     set number relativenumber
+    set foldcolumn=2
     "make active window obvious
     augroup ActiveWindow
         autocmd!
@@ -44,11 +47,7 @@ else
         autocmd InsertEnter * set nonumber norelativenumber
         autocmd InsertLeave * set number relativenumber
     augroup END
-    set foldcolumn=2
 endif
-
-set laststatus=2
-set statusline=%m<%{winnr()}>\ %f\ %P:%c
 
 "disable autoindent when for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
@@ -76,9 +75,7 @@ nnoremap Q :sh<CR>
 nnoremap * *<C-O>:%s///gn<CR>``
 nnoremap <silent> /<CR> /;;;;;<CR>
 
-inoremap <Leader>w <C-o>:w<CR>
-inoremap jk <ESC>
-
+"replacing words
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
 nnoremap <C-h> yiw:%s//gc<LEFT><LEFT><LEFT>\(\<<C-r>0\>\)/
 nnoremap <C-h><C-h> yiw:s//g<LEFT><LEFT>\(\<<C-r>0\>\)/
@@ -88,6 +85,7 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap gg ggzzzv
 
+"folds
 nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| setlocal foldlevel=99 \| endif"<CR>
 nnoremap z{ [{zf%
 
@@ -108,13 +106,21 @@ nnoremap <Leader>; <C-w>w
 "continue page in another split
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
-"pathogen
-execute pathogen#infect()
+inoremap <Leader>w <C-o>:w<CR>
+inoremap jk <ESC>
+
+"autocomplete
+inoremap <S-Tab> <C-n>
+inoremap <C-l> <C-x><C-l>
+inoremap <C-f> <C-x><C-f>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"pathogen
+execute pathogen#infect()
 
 "easymotion
 function! EMMap()
@@ -142,11 +148,4 @@ function! EMUnmap()
     silent! unmap T
 endfunction
 call EMMap()
-
-"autocomplete
-inoremap <S-Tab> <C-n>
-
-"enable project specific .vimrc
-set exrc
-set secure
 
