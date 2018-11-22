@@ -36,7 +36,7 @@ else
     augroup SaveSessionView
         autocmd!
         " save view
-        autocmd CursorMoved,CursorMovedI * mkview!
+        autocmd CursorMoved,CursorMovedI * silent! mkview!
         autocmd BufWinEnter *[^*.txt.gpg] silent loadview
         "save session
         autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
