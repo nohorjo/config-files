@@ -64,8 +64,11 @@ nnoremap <S-Tab><RIGHT> :tabn<CR>
 nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
 
+"searching
 nnoremap <C-f> :find ./**/
-nnoremap <S-f><S-f> :grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir 
+nnoremap FF :grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir 
+nnoremap Ff yiw:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir "\<<C-r>"\>" ./
+vnoremap Ff y:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -IrF '<C-r>"' ./
 
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
