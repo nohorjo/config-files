@@ -31,7 +31,7 @@ endfunction
 function! UpdateCfilesDelete(start)
     let tabcount = tabpagenr('$')
     if tabcount == a:start
-        call LoadQuickFixList("." . start . ".cfile")
+        call LoadQuickFixList("." . a:start . ".cfile")
     else
         call delete ("." . a:start . ".cfile")
         for page in range(a:start, tabcount)
