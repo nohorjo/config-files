@@ -95,6 +95,13 @@ nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| set
 nnoremap z{ [{zf%
 
 "resize splits
+function! LongestLine()
+    function! ByLength(a, b)
+        return strlen(a:b) - strlen(a:a)
+    endfunction
+    return strlen(sort(getline(0,"$"), "ByLength")[0])
+endfunction
+nnoremap <Leader>e :exe "vertical resize " . (&foldcolumn + &numberwidth + LongestLine() + 1)<CR>
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
