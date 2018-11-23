@@ -8,7 +8,7 @@ function! SnippetSuggestion(fs, base)
 endfunction
 
 function! AutoCU(typedchar)
-    if a:typedchar != ' '
+    if a:typedchar =~ '\\w'
         if pumvisible()
             call feedkeys("\<C-n>\<C-p>", "n")
         else
