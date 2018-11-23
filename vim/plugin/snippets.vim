@@ -8,7 +8,7 @@ function! SnippetSuggestion(fs, base)
 endfunction
 
 function! AutoCU(typedchar)
-    if a:typedchar =~ '\\w'
+    if a:typedchar =~? '[a-z]'
         if pumvisible()
             call feedkeys("\<C-n>\<C-p>", "n")
         else
@@ -21,5 +21,5 @@ set completefunc=SnippetSuggestion
 
 augroup AutoPopUp
     au!
-    au InsertCharPre * call AutoCU(v:char)
+    "au InsertCharPre * call AutoCU(v:char)
 augroup END
