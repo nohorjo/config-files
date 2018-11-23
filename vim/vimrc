@@ -15,6 +15,7 @@ syntax on
 
 if &diff
     colorscheme elda
+    set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
     noremap ]x /<<<<<<<<ENTER>
