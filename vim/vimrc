@@ -102,6 +102,7 @@ function! LongestLine()
     return strlen(sort(getline(0,"$"), "ByLength")[0])
 endfunction
 nnoremap <Leader>e :exe "vertical resize " . (&foldcolumn + &numberwidth + LongestLine() + 1)<CR>
+nnoremap <Leader>E :exe "vertical resize " . (&foldcolumn + &numberwidth + strlen(getline('.')) + 1)<CR>
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
