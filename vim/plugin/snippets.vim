@@ -21,5 +21,5 @@ set completefunc=SnippetSuggestion
 
 augroup AutoPopUp
     au!
-    "au InsertCharPre * call AutoCU(v:char)
+    au InsertCharPre * call AutoCU(v:char)
 augroup END
