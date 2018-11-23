@@ -140,7 +140,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
 
 "discard line
-inoremap <Leader><BS> <ESC>ddkA
+inoremap <Leader><BS> <ESC>d0kJ2xi
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
