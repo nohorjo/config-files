@@ -1,9 +1,5 @@
-augroup AutoPopUp
-    au!
-augroup END
-finish
-
 function! SnippetSuggestion(fs, base)
+    "TODO implement
     if a:fs
         return 0
     else
@@ -13,7 +9,11 @@ endfunction
 
 function! AutoCU(typedchar)
     if a:typedchar != ' '
-        call feedkeys("\<C-x>\<C-u>")
+        if pumvisible()
+            call feedkeys("\<C-n>\<C-p>", "n")
+        else
+            call feedkeys("\<C-n>\<C-n>\<C-p>", "n")
+        endif
     endif
 endfunction
 
