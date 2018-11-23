@@ -119,9 +119,11 @@ nnoremap <Leader>; <C-w>w
 "continue page in another split
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
+"writes
 inoremap <Leader>w <C-o>:w<CR>
 inoremap :w<CR> <ESC>:w<CR>
 
+"esc
 inoremap jk <ESC>
 inoremap kj <ESC>
 
@@ -135,6 +137,9 @@ inoremap <expr> <ESC> pumvisible() ? "\<C-e>" : ""
 inoremap <ESC>i <ESC>a
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
+
+"discard line
+inoremap <Leader><BS> <ESC>ddkA
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
