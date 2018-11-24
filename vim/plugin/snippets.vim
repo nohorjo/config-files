@@ -12,7 +12,7 @@ function! AutoCU(typedchar)
         if pumvisible()
             call feedkeys("\<C-n>\<C-p>", "n")
         else
-            call feedkeys("\<C-n>\<C-n>\<C-p>", "n")
+            call feedkeys("\<C-n>\<C-n>\<C-n>\<C-p>", "n")
         endif
     endif
 endfunction
