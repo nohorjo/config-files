@@ -7,6 +7,7 @@ set completeopt=longest,menuone
 set laststatus=2
 set statusline=%m<%{winnr()}>\ %f\ %P:%c
 set scrolloff=5
+set complete=.,w,u,b,i
 "enable project specific .vimrc
 set exrc
 set secure
