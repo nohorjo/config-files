@@ -1,3 +1,5 @@
+finish
+
 function! SnippetSuggestion(fs, base)
     "TODO implement
     if a:fs
