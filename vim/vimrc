@@ -70,6 +70,7 @@ nnoremap <Space> i <ESC><RIGHT>
 
 "searching
 nnoremap <C-f> :find ./**/
+nnoremap <C-f><C-f> yiw:find ./**/<C-r>"
 nnoremap FF :grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir 
 nnoremap Ff yiw:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir "\<<C-r>"\>" ./
 vnoremap Ff y:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -IrF '<C-r>"' ./
