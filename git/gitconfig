@@ -126,13 +126,22 @@
             git d; \
         }; f"
     sl=stash list
+    sp=stash pop
     ss=stash show -p
     st=stash
     stb="!f() { \
             git st; \
             git b $1; \
         }; f"
-    sp=stash pop
+# last working day logs for current user on all branches
+    su="!f() { \
+            if $[ $(date +%u) == 1 ]; \
+            then \
+                git lm --branches=* --since=\"3 day\"; \
+            else \
+                git lm --branches=* --since=\"1 day\"; \
+            fi; \
+        }; f"
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type
