@@ -8,6 +8,8 @@ set laststatus=2
 set statusline=%m<%{winnr()}>\ %f\ %P:%c
 set scrolloff=5
 set complete=.,w,u,b,i
+"no text break
+set fo-=t
 "enable project specific .vimrc
 set exrc
 set secure
@@ -98,13 +100,16 @@ nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| set
 nnoremap z{ [{zf%
 
 "resize splits
-function! LongestLine()
+function! LongestLine(where)
     function! ByLength(a, b)
         return strlen(a:b) - strlen(a:a)
     endfunction
-    return strlen(sort(getline(0,"$"), "ByLength")[0])
+    let start = a:where . "0"
+    let end = a:where . "$"
+    return strlen(sort(getline(start, end), "ByLength")[0])
 endfunction
-nnoremap <Leader>e :exe "vertical resize " . (&foldcolumn + &numberwidth + LongestLine() + 4)<CR>
+nnoremap <Leader>e :exe "vertical resize " . (&foldcolumn + &numberwidth + LongestLine('') + 4)<CR>
+nnoremap <Leader><Leader>e :exe "vertical resize " . (&foldcolumn + &numberwidth + LongestLine('w') + 4)<CR>
 nnoremap <Leader>E :exe "vertical resize " . (&foldcolumn + &numberwidth + strlen(getline('.')) + 4)<CR>
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
@@ -154,7 +159,7 @@ execute pathogen#infect()
 
 "easymotion
 function! EMMap()
-    map  / <Plug>(easymotion-sn)
+    map / <Plug>(easymotion-sn)
     map w <Plug>(easymotion-w)
     map W <Plug>(easymotion-W)
     map E <Plug>(easymotion-E)
