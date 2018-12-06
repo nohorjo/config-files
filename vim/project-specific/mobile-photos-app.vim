@@ -38,21 +38,15 @@ function! ManualFolds()
     endif
 endfunction
 
-function! ToggleFold()
-    if !exists("b:dofolds")
-        let b:dofolds = 0
-    else
-        let b:dofolds = !b:dofolds
-    endif
-endfunction
- 
 if !&diff
     augroup jsfold
         au!
         au InsertLeave *.js call ManualFolds()
     augroup END
-    nnoremap <Leader>z zE:call ManualFolds()<CR>:call ToggleFold()<CR>
-    nnoremap zE zE:call ToggleFold()<CR>
+    nnoremap <Leader>z zE:let b:dofolds = 1<CR>:call ManualFolds()<CR>
+    nnoremap zE zE:let b:dofolds = 0<CR>
 endif
 
 let @t='0w"nyt(j"cci{try{console.time(">>>>>n");}finally{console.timeEnd(">>>>>n");}zEkk"cP/    \\w*{'
+
+set makeprg=eslint\ -f\ unix\ common
