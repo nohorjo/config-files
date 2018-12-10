@@ -49,4 +49,31 @@ endif
 
 let @t='0w"nyt(j"cci{try{console.time(">>>>>n");}finally{console.timeEnd(">>>>>n");}zEkk"cP/    \\w*{'
 
+function! DisableTests()
+    let ws = &wrapscan
+    set nowrapscan
+
+    normal! mmgg
+    while 1
+        let l = line('.')
+        call search('^\s*test(')
+        if l == line('.')
+            break
+        endif
+        normal! O/*DISABLETESTj$%oDISABLETEST*/
+    endwhile
+
+    normal! `m/DISABLETESTddNdd`m
+
+    if ws
+        set wrapscan
+    endif
+endfunction
+
+function! EnableTests()
+    normal! mm
+    g/DISABLETEST/d
+    normal! `m
+endfunction
+
 set makeprg=eslint\ -f\ unix\ common
