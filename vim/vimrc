@@ -169,6 +169,7 @@ function! EMMap()
     map F <Plug>(easymotion-F)
     map t <Plug>(easymotion-t)
     map T <Plug>(easymotion-T)
+    let g:emmapped = 1
 endfunction
 function! EMUnmap()
     silent! unmap /
@@ -181,6 +182,13 @@ function! EMUnmap()
     silent! unmap F
     silent! unmap t
     silent! unmap T
+    let g:emmapped = 0
 endfunction
 call EMMap()
+augroup EMBuffs
+    autocmd!
+    autocmd BufEnter * if line('$') > 3000 | let emmapped_prev = g:emmapped | call EMUnmap() | let g:emmapped = emmapped_prev | endif
+    autocmd BufLeave * if g:emmapped | call EMMap() | endif
+augroup END
+    
 
