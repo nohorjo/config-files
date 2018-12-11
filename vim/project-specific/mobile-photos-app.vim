@@ -63,7 +63,7 @@ function! DisableTests()
         normal! O/*DISABLETESTj$%oDISABLETEST*/
     endwhile
 
-    normal! `m/DISABLETESTddNdd`m
+    normal! `m/DISABLETESTddNdd`mzz
 
     if ws
         set wrapscan
@@ -73,7 +73,7 @@ endfunction
 function! EnableTests()
     normal! mm
     g/DISABLETEST/d
-    normal! `m
+    normal! `mzz
 endfunction
 
 set makeprg=eslint\ -f\ unix\ common
