@@ -15,6 +15,11 @@ endfunction
 
 function! LoadQuickFixList(fname) 
     if filereadable(a:fname)
+        execute winnr("$") . "wincmd w"
+        if &buftype == 'quickfix'
+            execute (winnr("$") - 1) . "wincmd w"
+        endif
+
         let lines = readfile(a:fname) 
         let string = join(lines, "\n") 
         call setqflist(eval(string)) 
@@ -76,3 +81,4 @@ augroup END
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
 nnoremap <silent> <C-P> :cp<CR>zvzz:let t:qfnum = t:qfnum - 1<CR>
 
+cabbrev ccl ccl \| call delete("." . tabpagenr() ".cfile")
