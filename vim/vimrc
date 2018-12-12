@@ -73,9 +73,10 @@ nnoremap <Space> i <ESC><RIGHT>
 "searching
 nnoremap <C-f> :find ./**/
 nnoremap <C-f><C-f> yiw:find ./**/<C-r>"
-nnoremap FF :grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir 
-nnoremap Ff yiw:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -Ir "\<<C-r>"\>" ./
-vnoremap Ff y:grep --exclude "*.cfile" --exclude "*.orig" --exclude "Session.vim" -IrF '<C-r>"' ./
+let g:grepexcludes = '--exclude "' . join(["*.cfile", "*.orig", "Session.vim"], '" --exclude "') . '" --exclude-dir "' . join([".git"], '" --exclude-dir "') . '"'
+nnoremap FF :execute "grep " . g:grepexcludes . " -Ir "<LEFT>
+nnoremap Ff yiw:execute "grep " . g:grepexcludes . ' -Ir "\<<C-r>"\>"' . " ./"<LEFT>
+vnoremap Ff y:execute "grep " . g:grepexcludes . ' -IrF "<C-r>""' . " ./"<LEFT>
 
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
