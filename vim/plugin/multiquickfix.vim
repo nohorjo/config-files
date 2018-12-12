@@ -76,3 +76,4 @@ augroup END
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
 nnoremap <silent> <C-P> :cp<CR>zvzz:let t:qfnum = t:qfnum - 1<CR>
 
+cabbrev ccl ccl \| call delete("." . tabpagenr() ".cfile")
