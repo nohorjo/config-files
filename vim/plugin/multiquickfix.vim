@@ -15,6 +15,11 @@ endfunction
 
 function! LoadQuickFixList(fname) 
     if filereadable(a:fname)
+        execute winnr("$") . "wincmd w"
+        if &buftype == 'quickfix'
+            execute (winnr("$") - 1) . "wincmd w"
+        endif
+
         let lines = readfile(a:fname) 
         let string = join(lines, "\n") 
         call setqflist(eval(string)) 
