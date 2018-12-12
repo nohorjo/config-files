@@ -100,6 +100,27 @@ nnoremap <silent> zM :exe ":if &foldlevel \| setlocal foldlevel=0 \| else \| set
 nnoremap z{ [{zf%
 
 "resize splits
+function! LinesFrom(bottom)
+    let current = line('.')
+    if a:bottom
+        normal! L
+    else
+        normal! H
+    endif
+    let end = line('.')
+    execute "silent! normal! " . current . "gg"
+    let lines = 0
+    while (a:bottom && current < end ) || (!a:bottom && current > end)
+        if a:bottom
+            normal! j
+        else
+            normal! k
+        endif
+        let lines = lines + 1
+        let current = line('.')
+    endwhile
+    return lines + 1
+endfunction
 function! LongestLine(where)
     function! ByLength(a, b)
         return strlen(a:b) - strlen(a:a)
@@ -115,6 +136,8 @@ nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <Leader>w :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <Leader>s :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <Leader>r :exe "resize " . (LinesFrom(0) + &scrolloff)<CR>L
+nnoremap <Leader>R :exe "resize " . (LinesFrom(1) + &scrolloff)<CR>H
 nnoremap <Leader><UP> <C-w>+
 nnoremap <Leader><DOWN> <C-w>-
 nnoremap <Leader><RIGHT> <C-w>>
@@ -147,7 +170,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
 
 "discard line
-inoremap <Leader><BS> <ESC>d0kJ2xi
+"inoremap <Leader><BS> <ESC>d0kJ2xi
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
