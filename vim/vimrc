@@ -66,6 +66,7 @@ nnoremap <S-Tab><UP> :tabnew<CR>
 nnoremap <S-Tab><DOWN> :tabc<CR>
 nnoremap <S-Tab><LEFT> :tabp<CR>
 nnoremap <S-Tab><RIGHT> :tabn<CR>
+nnoremap <S-Tab>o :tabo<CR>
 
 nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
