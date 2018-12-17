@@ -27,6 +27,10 @@ if &diff
     noremap dgl :diffg LO<ENTER>
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
+    augroup UpdateDiff
+        autocmd!
+        autocmd TextChanged,TextChangedI * diffupdate
+    augroup END
 else
     colorscheme donbass
     set number relativenumber
