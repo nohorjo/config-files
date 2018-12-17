@@ -22,7 +22,7 @@ if &diff
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
-    noremap ]x /<<<<<<<<ENTER>
+    noremap ]x /<<<<<<<<ENTER>zt
     noremap ]c ]czz
     noremap dgl :diffg LO<ENTER>
     noremap dgr :diffg RE<ENTER>
