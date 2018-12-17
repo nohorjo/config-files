@@ -18,7 +18,7 @@ filetype plugin on
 syntax on
 
 if &diff
-    colorscheme elda
+    colorscheme eva
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
@@ -28,7 +28,7 @@ if &diff
     noremap dgr :diffg RE<ENTER>
     noremap dd dd
 else
-    colorscheme abstract-mod
+    colorscheme donbass
     set number relativenumber
     set foldcolumn=2
     "make active window obvious

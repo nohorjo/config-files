@@ -51,6 +51,7 @@ let s:blackregular = [ 'abstract-mod',
 \'vendetta',
 \'wasabi256',
 \'znake' ]
+
 let s:lightregular = [
 \'donbass',
 \'github',
