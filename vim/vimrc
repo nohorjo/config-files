@@ -26,8 +26,8 @@ if &diff
     nnoremap ]c ]czz
     nnoremap dgl :diffg LO<ENTER>
     nnoremap dgr :diffg RE<ENTER>
-    nnoremap dgm dd/=======<ENTER>V/>>>>>>><ENTER>d
-    nnoremap dgt V/=======<ENTER>d/>>>>>>><ENTER>dd
+    nnoremap dgm ddk/=======<ENTER>V/>>>>>>><ENTER>d
+    nnoremap dgt V/=======<ENTER>dk/>>>>>>><ENTER>dd
     nnoremap dd dd
     augroup UpdateDiff
         autocmd!
