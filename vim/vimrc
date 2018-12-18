@@ -22,11 +22,13 @@ if &diff
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
-    noremap ]x /<<<<<<<<ENTER>zt
-    noremap ]c ]czz
-    noremap dgl :diffg LO<ENTER>
-    noremap dgr :diffg RE<ENTER>
-    noremap dd dd
+    nnoremap ]x /<<<<<<<<ENTER>zt
+    nnoremap ]c ]czz
+    nnoremap dgl :diffg LO<ENTER>
+    nnoremap dgr :diffg RE<ENTER>
+    nnoremap dgm dd/=======<ENTER>V/>>>>>>><ENTER>d
+    nnoremap dgt V/=======<ENTER>d/>>>>>>><ENTER>dd
+    nnoremap dd dd
     augroup UpdateDiff
         autocmd!
         autocmd TextChanged,TextChangedI * diffupdate
