@@ -4,10 +4,14 @@ ln -s $(pwd)/vimrc ~/.vimrc
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin
 
-cp colours/*.vim ~/.vim/colors/
-cp ftplugin/*.vim ~/.vim/ftplugin/
-cp filetype.vim ~/.vim/
-cp plugin/*.vim ~/.vim/plugin/
+for f in \
+    colors/* \
+    ftplugin/* \
+    plugin/* \
+    filetype.vim
+do
+    ln -s $(pwd)/${f} ~/.vim/${f}
+done
 
 rm ~/.vim/plugin/Session.vim
 
