@@ -23,11 +23,13 @@ if &diff
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
-    noremap ]x /<<<<<<<<ENTER>zt
-    noremap ]c ]czz
-    noremap dgl :diffg LO<ENTER>
-    noremap dgr :diffg RE<ENTER>
-    noremap dd dd
+    nnoremap ]x /<<<<<<<<ENTER>zt
+    nnoremap ]c ]czz
+    nnoremap dgl :diffg LO<ENTER>
+    nnoremap dgr :diffg RE<ENTER>
+    nnoremap dgm ddk/=======<ENTER>V/>>>>>>><ENTER>d
+    nnoremap dgt V/=======<ENTER>dk/>>>>>>><ENTER>dd
+    nnoremap dd dd
     augroup UpdateDiff
         autocmd!
         autocmd TextChanged,TextChangedI * diffupdate
@@ -80,9 +82,17 @@ nnoremap <Space> i <ESC><RIGHT>
 nnoremap <C-f> :find ./**/
 nnoremap <C-f><C-f> yiw:find ./**/<C-r>"
 let g:grepexcludes = '--exclude "' . join(["*.cfile", "*.orig", "Session.vim"], '" --exclude "') . '" --exclude-dir "' . join([".git"], '" --exclude-dir "') . '"'
-nnoremap FF :execute "grep " . g:grepexcludes . " -Ir "<LEFT>
-nnoremap Ff yiw:execute "grep " . g:grepexcludes . ' -Ir "\<<C-r>"\>"' . " ./"<LEFT>
-vnoremap Ff y:execute "grep " . g:grepexcludes . ' -IrF "<C-r>""' . " ./"<LEFT>
+command! -nargs=+ -complete=file Grep call Grep(<f-args>)
+function! Grep(...)
+    let a = a:000
+    let opts = a[0]
+    let dir = a[-1]
+    let exp = join(a[1:-2], " ")
+    execute "grep " . g:grepexcludes . " -Ir" . opts . ' "' . exp . '" ' . dir
+endfunction
+nnoremap FF :Grep "" 
+nnoremap Ff yiw:Grep "" \<<C-r>"\> ./
+vnoremap Ff y:Grep F <C-r>" ./
 
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>

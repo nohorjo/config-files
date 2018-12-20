@@ -77,3 +77,7 @@ function! EnableTests()
 endfunction
 
 set makeprg=eslint\ -f\ unix\ common
+
+function! OpenTest()
+    execute "vs __tests__/" . substitute(expand('%'), "js$", "test.js", "")
+endfunction
