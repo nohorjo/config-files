@@ -9,5 +9,6 @@ alias npmi='rm -rf node_modules package-lock.json; npm install'
 
 alias rnra='react-native run-android'
 alias adbr='adb reverse tcp:8081 tcp:8081'
+alias adbl='adb logcat'
 
 export HISTCONTROL=ignoreboth:erasedups
