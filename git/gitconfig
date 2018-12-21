@@ -115,6 +115,7 @@
     pf="!f(){ \
             git push --force origin $(git symbolic-ref --short HEAD); \
         }; f"
+    pm=!git pull origin master
     pp="!f(){ \
             git push origin $(git symbolic-ref --short HEAD); \
         }; f"

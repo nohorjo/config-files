@@ -6,3 +6,4 @@
             git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f2 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
         }; f"
     ms=merge development
+    ps=!git pull origin development
