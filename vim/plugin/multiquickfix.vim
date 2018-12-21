@@ -70,8 +70,8 @@ augroup autoquickfix
     autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | else | execute "normal! \<C-w>L" | endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
-    autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call SaveQuickFixList("." . tabpagenr() . ".cfile") | endif
-    autocmd TabNew * call PrepareTab() | redraw!
+    autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call SaveQuickFixList("." . tabpagenr() . ".cfile") | endif | redraw!
+    autocmd TabNew * call PrepareTab()
     autocmd TabEnter * call LoadQuickFixList("." . tabpagenr() . ".cfile")
     autocmd TabClosed * call UpdateCfilesDelete(tabpagenr())
     autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zz | endif
