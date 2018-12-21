@@ -6,4 +6,4 @@
             git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1) - $@\"; \
         }; f"
     ms=merge staging
-    ps=!git pull origin staging
+    ps=pull origin staging

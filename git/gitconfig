@@ -31,6 +31,10 @@
             fi; \
             git c \"$message\"; \
         }; f"
+    acf="!f() { \
+        git acc \"$@\"; \
+        git pf; \
+    }; f"
     as="!f() { \
             if [ $# -eq 0 ]; \
             then \
@@ -115,7 +119,7 @@
     pf="!f(){ \
             git push --force origin $(git symbolic-ref --short HEAD); \
         }; f"
-    pm=!git pull origin master
+    pm=pull origin master
     pp="!f(){ \
             git push origin $(git symbolic-ref --short HEAD); \
         }; f"
@@ -145,6 +149,7 @@
                 git lm --branches=* --since=\"1 day\"; \
             fi; \
         }; f"
+    uc=reset @^
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type
