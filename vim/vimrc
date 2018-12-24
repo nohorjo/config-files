@@ -29,6 +29,7 @@ if &diff
     nnoremap dgr :diffg RE<ENTER>
     nnoremap dgm ddk/=======<ENTER>V/>>>>>>><ENTER>d
     nnoremap dgt V/=======<ENTER>dk/>>>>>>><ENTER>dd
+    nnoremap dl dd<C-w>wdd<C-w>w
     nnoremap dd dd
     augroup UpdateDiff
         autocmd!
