@@ -65,8 +65,7 @@ let s:darkdiff = [ 'elda',
 \'phosphor',
 \'tone',
 \'zazen' ]
-let s:fancyregular = [ 'eva',
-\'dracula',
+let s:fancyregular = [ 'dracula',
 \'cobalt2',
 \'night-owl' ]
 let s:lightdiff = [ 'khaki-mod' ]

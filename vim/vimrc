@@ -19,7 +19,7 @@ filetype plugin on
 syntax on
 
 if &diff
-    colorscheme eva
+    colorscheme dracula
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
