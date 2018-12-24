@@ -186,4 +186,5 @@ augroup EMBuffs
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
     
+command! New tabnew | tabonly
 
