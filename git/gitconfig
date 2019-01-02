@@ -71,6 +71,14 @@
     cl=clean -f -d
     co=checkout
     cp=cherry-pick
+# redo commit
+    cr="!f() {                                                                           \
+        message=$(git log -1 --pretty=%B);                                               \
+        git reset @^;                                                                    \
+        git aa;                                                                          \
+        git commit -m \"$message\";                                                      \
+        git pf;                                                                          \
+    }; f"
     d=difftool
 # diff blame
     db="!f() {                                                                           \
