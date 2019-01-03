@@ -76,7 +76,7 @@ function! EnableTests()
     normal! `mzz
 endfunction
 
-set makeprg=eslint\ -f\ unix\ common
+set makeprg=eslint\ -f\ unix\ common\ __tests__
 
 function! OpenTest()
     execute "vs __tests__/" . substitute(expand('%'), "js$", "test.js", "")
