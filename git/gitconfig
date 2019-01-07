@@ -142,6 +142,9 @@
             git d;                                                                       \
         }; f"
     sl=stash list
+    smi=submodule init
+    sms=submodule status
+    smu=submodule update
     sp=stash pop
     ss=stash show -p
     st=stash
