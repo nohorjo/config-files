@@ -47,10 +47,6 @@
     bbg="!f() {                                                                          \
             git b $(git bg $1);                                                          \
         }; f"
-    bd="!f() {                                                                           \
-            git branch -D $1;                                                            \
-            git push origin --delete $1;                                                 \
-        }; f"
     bdg="!f() {                                                                          \
             git bd $(git bg $1);                                                         \
         }; f"

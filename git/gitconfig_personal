@@ -1,6 +1,10 @@
 [user]
     email=nohorjo@gmail.com
 [alias]
+    bd="!f() {                                                                           \
+            git branch -D $1;                                                            \
+            git push origin --delete $1;                                                 \
+        }; f"
     bs=!git b staging
     c="!f () {                                                                      \
             git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1) - $@\"; \

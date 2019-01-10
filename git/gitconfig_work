@@ -2,6 +2,7 @@
     email = m.haque@livelinktechnology.net
 [alias]
     bs=!git b development
+    bd=branch -D
     c="!f () {                                                                                                      \
             git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f2 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
         }; f"
