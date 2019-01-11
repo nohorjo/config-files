@@ -1,9 +1,9 @@
 [user]
     email=nohorjo@gmail.com
 [alias]
-    bd="!f() {                                                                           \
-            git branch -D $1;                                                            \
-            git push origin --delete $1;                                                 \
+    bd="!f() {                                                                      \
+            git branch -D $1;                                                       \
+            git push origin --delete $1;                                            \
         }; f"
     bs=!git b staging
     c="!f () {                                                                      \
