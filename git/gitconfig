@@ -76,7 +76,7 @@
         git pf;                                                                          \
     }; f"
     d=difftool
-# diff blame
+# diff blame filename line
     db="!f() {                                                                           \
             local rev=$(git blame $1 -L $2,$2 | cut -d' ' -f1);                          \
             echo $rev;                                                                   \
@@ -89,7 +89,9 @@
         }; f"
 # diff a file
     df="!f() {                                                                           \
-            git d -y $2^:$1 $2:$1;                                                       \
+            prev=$(git rev-list $(git rev-list @ | tail -n 1)..$2^ $1 | head -n 1);      \
+            echo $prev;                                                                  \
+            git d -y $prev:$1 $2:$1;                                                     \
         }; f"
 # diff names only
     dn="!f() {                                                                           \
