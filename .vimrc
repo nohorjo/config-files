@@ -22,4 +22,5 @@ endfunction
 augroup LineConts
     autocmd!
     autocmd! BufWritePre,FileWritePre gitconfig* call s:ApplyLineContinuationSpacing()
+    autocmd! InsertLeave gitconfig* s/[ ]*\\/ \\/
 augroup END
