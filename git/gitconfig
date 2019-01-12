@@ -111,7 +111,7 @@
     ms=merge staging
     mt=mergetool
     p="!f(){                                                                                                                                \
-            [[ \"$1\" = \"\" ]] && branch=$(git symbolic-ref --short HEAD) || branch=$1;                                                    \
+            [ \"$1\" = \"\" ] && branch=$(git symbolic-ref --short HEAD) || branch=$1;                                                      \
             git pull origin $branch;                                                                                                        \
         }; f"
     pa="!f(){                                                                                                                               \
@@ -154,7 +154,7 @@
         }; f"
 # last working day logs for current user on all branches
     su="!f() {                                                                                                                              \
-            if [[ $(date +%u) -eq 1 ]];                                                                                                     \
+            if [ $(date +%u) -eq 1 ];                                                                                                       \
             then                                                                                                                            \
                 git lm --branches=* --since=\"3 day\";                                                                                      \
             else                                                                                                                            \
