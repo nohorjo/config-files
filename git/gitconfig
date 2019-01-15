@@ -44,6 +44,10 @@
             fi;                                                                                                                             \
             git s;                                                                                                                          \
         }; f"
+    asd="!f() {                                                                                                                             \
+            git as;                                                                                                                         \
+            git dc;                                                                                                                         \
+        }; f"
     bbg="!f() {                                                                                                                             \
             git b $(git bg $1);                                                                                                             \
         }; f"
