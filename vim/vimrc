@@ -190,3 +190,6 @@ augroup END
 command! New tabnew | tabonly
 
 runtime macros/matchit.vim
+
+nnoremap <Leader>{ di{i<CR><CR><ESC>k>>p
+vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
