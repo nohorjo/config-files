@@ -1,6 +1,9 @@
-function! s:SaveQuickFixList(fname) 
+function! s:SaveQuickFixList() 
     let t:qfnum = 1
-    call delete(a:fname)
+    let g:tabidgen = g:tabidgen + 1
+    let t:tabid = g:tabidgen
+    let fname = "." . t:tabid . ".cfile"
+    call delete(fname)
     let list = getqflist() 
     for i in range(len(list)) 
         if has_key(list[i], 'bufnr') 
@@ -10,17 +13,18 @@ function! s:SaveQuickFixList(fname)
     endfor 
     let string = string(list) 
     let lines = split(string, "\n") 
-    call writefile(lines, a:fname) 
+    call writefile(lines, fname) 
 endfunction 
 
-function! s:LoadQuickFixList(fname) 
-    if filereadable(a:fname)
+function! s:LoadQuickFixList() 
+    let fname = "." . t:tabid . ".cfile"
+    if filereadable(fname)
         execute winnr("$") . "wincmd w"
         if &buftype == 'quickfix'
             execute (winnr("$") - 1) . "wincmd w"
         endif
 
-        let lines = readfile(a:fname) 
+        let lines = readfile(fname) 
         let string = join(lines, "\n") 
         call setqflist(eval(string)) 
         if exists("t:qfnum") && t:qfnum > 1
@@ -33,52 +37,18 @@ function! s:LoadQuickFixList(fname)
     endif
 endfunction
 
-function! s:UpdateCfilesDelete(start)
-    let tabcount = tabpagenr('$')
-    if tabcount == a:start
-        call s:LoadQuickFixList("." . a:start . ".cfile")
-    else
-        call delete ("." . a:start . ".cfile")
-        for page in range(a:start, tabcount)
-            let toMove = "." . (page + 1) . ".cfile"
-            if filereadable(toMove)
-                silent execute "!mv " . toMove . " ." . page . ".cfile"
-            endif
-        endfor
-    endif
-endfunction
-
-function! s:UpdateCfilesAdd(start)
-    for page in reverse(range(a:start, tabpagenr('$')))
-        let toMove = "." . page . ".cfile"
-        if filereadable(toMove)
-            silent execute "!mv " . toMove . " ." . (page + 1) . ".cfile"
-        endif
-    endfor
-endfunction
-
-function! s:PrepareTab()
-    call s:UpdateCfilesAdd(tabpagenr())
-    call delete("." . tabpagenr() . ".cfile")
-    if !exists("t:qfnum")
-        let t:qfnum = 1
-    endif
-endfunction
-
 augroup autoquickfix
     autocmd!
     autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | else | execute "normal! \<C-w>L" | endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
-    autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call s:SaveQuickFixList("." . tabpagenr() . ".cfile") | endif | redraw!
-    autocmd TabNew * call s:PrepareTab()
-    autocmd TabEnter * call s:LoadQuickFixList("." . tabpagenr() . ".cfile")
-    autocmd TabClosed * call s:UpdateCfilesDelete(tabpagenr())
+    autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call s:SaveQuickFixList() | endif | redraw!
+    autocmd TabEnter * if exists('t:tabid') | call s:LoadQuickFixList() | endif
     autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zz | endif
-    autocmd VimEnter * silent !rm -f .*.cfile
+    autocmd VimEnter * let g:tabidgen = 0 | silent !rm -f .*.cfile 
 augroup END
 
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
 nnoremap <silent> <C-P> :cp<CR>zvzz:let t:qfnum = t:qfnum - 1<CR>
 
-cabbrev ccl ccl \| call delete("." . tabpagenr() . ".cfile")
+cabbrev ccl ccl \| call delete("." . t:tabid . ".cfile")
