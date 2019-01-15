@@ -189,3 +189,4 @@ augroup END
     
 command! New tabnew | tabonly
 
+runtime macros/matchit.vim
