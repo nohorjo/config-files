@@ -44,7 +44,7 @@ augroup autoquickfix
     autocmd QuickFixCmdPost l* lwindow
     autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call s:SaveQuickFixList() | endif | redraw!
     autocmd TabEnter * if exists('t:tabid') | call s:LoadQuickFixList() | endif
-    autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zz | endif
+    autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zzza | endif
     autocmd VimEnter * let g:tabidgen = 0 | silent !rm -f .*.cfile 
 augroup END
 
