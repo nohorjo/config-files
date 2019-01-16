@@ -8,7 +8,9 @@ function! s:LongestLine()
 endfunction
 
 function! s:ApplyLineContinuationSpacing()
-    normal! mmgg
+    normal! mm
+    %s/[ ]\+\\$/ \\/g
+    normal! gg
     let longest = s:LongestLine()
     while search('\\$', 'W')
         normal! xg_lD
@@ -22,5 +24,4 @@ endfunction
 augroup LineConts
     autocmd!
     autocmd! BufWritePre,FileWritePre gitconfig* call s:ApplyLineContinuationSpacing()
-    autocmd! InsertLeave gitconfig* silent! s/[ ]*\\/ \\/
 augroup END
