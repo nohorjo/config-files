@@ -93,9 +93,23 @@
         }; f"
 # diff a file
     df="!f() {                                                                                                                              \
+            git dfh $1 $2 n;                                                                                                                \
+        }; f"
+# keep diffing a file
+    dfh="!f() {                                                                                                                             \
             prev=$(git rev-list $(git rev-list @ | tail -n 1)..$2^ $1 | head -n 1);                                                         \
             echo $prev;                                                                                                                     \
             git d -y $prev:$1 $2:$1;                                                                                                        \
+            if [ \"$3\" = \"\" ];                                                                                                           \
+            then                                                                                                                            \
+                read -n1 -p 'press q to quit, or any other key to continue ' q;                                                             \
+                if [ \"$q\" != \"q\" ];                                                                                                     \
+                then                                                                                                                        \
+                    git dfh $1 $prev;                                                                                                       \
+                else                                                                                                                        \
+                    echo;                                                                                                                   \
+                fi;                                                                                                                         \
+            fi;                                                                                                                             \
         }; f"
 # diff names only
     dn="!f() {                                                                                                                              \
