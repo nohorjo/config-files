@@ -116,6 +116,10 @@
             git diff --name-only \"$1^!\";                                                                                                  \
         }; f"
     f=fetch --all --prune
+# grep files
+    g="!f() {                                                                                                                               \
+            git rev-list --all -- \"$2\"  | xargs git grep \"$1\";                                                                          \
+        }; f"
 # pretty log
     l=!git ll -15
 # log for one file
