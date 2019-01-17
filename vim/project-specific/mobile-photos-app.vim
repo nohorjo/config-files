@@ -20,11 +20,18 @@ function! ManualFolds()
 
     setlocal foldmethod=manual
 
-    if search('\<class\>.*{', 'n')
+    let isTest = expand('%') =~ '.test.js$'
+
+    if isTest || search('\<class\>.*{', 'n')
         let start = line('.')
         let col = col('.') - 1
         let screentop = LinesFromTop()
-        execute "normal! gg/\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
+        normal! gg
+        if isTest
+            execute "normal! /\\s*test(\<cr>"
+        else
+            execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
+        endif
         let lnum = line('.')
         while lnum <= line('.')
             let lnum = line('.') + 1
