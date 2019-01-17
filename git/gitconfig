@@ -157,6 +157,10 @@
     r="!f(){                                                                                                                                \
             git reset --hard origin/$(git symbolic-ref --short HEAD);                                                                       \
         }; f"
+    rcl="!f() {                                                                                                                             \
+            git r;                                                                                                                          \
+            git cl;                                                                                                                         \
+        }; f"
     rh=reset --hard @
     s=status
     sd="!f() {                                                                                                                              \
