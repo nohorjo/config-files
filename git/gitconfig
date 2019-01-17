@@ -89,7 +89,7 @@
     dc=!git d --cached
 # diff a commit against previous
     dd="!f() {                                                                                                                              \
-            git d \"$1^\" \"$1\";                                                                                                           \
+            git d \"$1^\" \"$1\" \"${@:2}\";                                                                                                \
         }; f"
 # diff a file
     df="!f() {                                                                                                                              \
