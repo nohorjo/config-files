@@ -32,14 +32,22 @@ function! ManualFolds()
         else
             execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         endif
-        let lnum = line('.')
-        while lnum <= line('.')
-            let lnum = line('.') + 1
-            if !foldlevel('.')
-                normal! j[{zf%
+        for pass in range(1,2)
+            let lnum = line('.')
+            while lnum <= line('.')
+                let lnum = line('.') + 1
+                if !foldlevel('.')
+                    normal! j[{zf%
+                endif
+                normal! n
+            endwhile
+            normal! gg
+            if isTest && pass == 1
+                execute "normal! /\\s*describe(\<cr>n"
+            else
+                break
             endif
-            normal! n
-        endwhile
+        endfor
         execute "silent! normal! " . start . "ggzO" . col . "|zt" . screentop . "\<C-y>"
         mkview!
     endif
