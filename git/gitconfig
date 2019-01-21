@@ -69,6 +69,9 @@
             git pp;                                                                                                                         \
         }; f"
     cl=clean -f -d
+    clo="!f() {                                                                                                                             \
+            find . -name \\*.orig | xargs rm;                                                                                               \
+        }; f"
     co=checkout
     cp=cherry-pick
 # redo commit
