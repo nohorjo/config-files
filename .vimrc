@@ -9,7 +9,7 @@ endfunction
 
 function! s:ApplyLineContinuationSpacing()
     normal! mm
-    %s/[ ]\+\\$/ \\/g
+    %s/\s*\\\s*$/ \\/g
     normal! gg
     let longest = s:LongestLine()
     while search('\\$', 'W')
