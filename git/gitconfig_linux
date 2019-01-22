@@ -3,8 +3,15 @@
 [alias]
 # checks out a branch, creates if not exist
     b="!f() {                             \
-            git co $1 2>/dev/null         \
-            || git co -b $1;              \
+            if [ $1 ];                    \
+            then                          \
+                if git co $1 2>/dev/null; \
+                then                      \
+                    git p;                \
+                else                      \
+                    git co -b $1;         \
+                fi;                       \
+            fi;                           \
             git branch -a --color=always  \
             | nl                          \
             | tac;                        \
