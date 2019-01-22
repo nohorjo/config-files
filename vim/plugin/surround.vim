@@ -20,6 +20,6 @@ function! SurroundChange()
 endfunction
 
 vnoremap s d:call Surround()<CR>
-vnoremap sd da<BS><BS><ESC>p
+vnoremap sd dh"_2xP
 
 nnoremap S :call SurroundChange()<CR>
