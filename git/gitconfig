@@ -185,6 +185,7 @@
         }; f"
 # last working day logs for current user on all branches
     su="!f() {                                                                                                                              \
+            git f;                                                                                                                          \
             if [ $(date +%u) -eq 1 ];                                                                                                       \
             then                                                                                                                            \
                 git lm --branches=* --since=\"3 day\";                                                                                      \
