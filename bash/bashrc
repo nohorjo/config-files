@@ -11,4 +11,11 @@ alias rnra='react-native run-android'
 alias adbr='adb reverse tcp:8081 tcp:8081'
 alias adbl='adb logcat'
 
+if [ $(uname -s) == "Linux" ]
+then
+    alias open='xdg-open'
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xsel -b'
+fi
+
 export HISTCONTROL=ignoreboth:erasedups
