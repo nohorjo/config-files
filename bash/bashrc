@@ -11,11 +11,19 @@ alias rnra='react-native run-android'
 alias adbr='adb reverse tcp:8081 tcp:8081'
 alias adbl='adb logcat'
 
+alias resource='source ~/.bashrc'
+
 if [ $(uname -s) == "Linux" ]
 then
     alias open='xdg-open'
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xsel -b'
 fi
+
+ssh-port-forward() {
+    local port=$1
+    shift
+    ssh -qL ${port}:127.0.0.1:${port} $@
+}
 
 export HISTCONTROL=ignoreboth:erasedups
