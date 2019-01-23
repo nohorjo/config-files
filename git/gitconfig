@@ -193,6 +193,10 @@
                 git lm --branches=* --since=\"1 day\";                                                                                      \
             fi;                                                                                                                             \
         }; f"
+    t="!f() {                                                                                                                               \
+            git tag -a \"$1\" -m \"$1\";                                                                                                    \
+            git push --tags;                                                                                                                \
+        }; f"
     uc=reset @^
 [include]
     path=~/.gitconfig_platform
