@@ -194,3 +194,5 @@ runtime macros/matchit.vim
 "{ ... } => { \n\t ... \n }
 nnoremap <Leader>{ di{i<CR><CR><ESC>k>>p
 vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
+
+command! Vsp vsplit %:h
