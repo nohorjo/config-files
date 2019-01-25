@@ -116,6 +116,7 @@
                 fi;                                                                                                                         \
             fi;                                                                                                                             \
         }; f"
+    di=diff
 # diff names only
     dn="!f() {                                                                                                                              \
             git diff --name-only \"$1^!\";                                                                                                  \
