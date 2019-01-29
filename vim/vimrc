@@ -123,8 +123,9 @@ nnoremap <Leader>; <C-w>w
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
 "writes
-inoremap <Leader>w <C-o>:w<CR>
 inoremap :w<CR> <ESC>:w<CR>
+
+inoremap <Leader> <C-o>
 
 "esc
 inoremap jk <ESC>
