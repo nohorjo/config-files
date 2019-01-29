@@ -94,14 +94,13 @@ endfunction
 nnoremap FF :Grep "" 
 nnoremap Ff yiw:Grep "" \<<C-r>"\> ./
 vnoremap Ff y:Grep F <C-r>" ./
+nnoremap * *``:%s///gn<CR>
+nnoremap <silent> /<CR> /;;;;;<CR>
 
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 
 nnoremap Q :sh<CR>
-
-nnoremap * *<C-O>:%s///gn<CR>``
-nnoremap <silent> /<CR> /;;;;;<CR>
 
 "replacing words
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
