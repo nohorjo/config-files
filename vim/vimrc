@@ -153,6 +153,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
 
 cabbrev %% %:h
 
+cabbrev G !git
+
 command! New tabnew | tabonly
 command! Vsp vsplit %:h
 
