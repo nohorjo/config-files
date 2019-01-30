@@ -156,11 +156,6 @@ execute pathogen#infect()
 "easymotion
 function! EMMap()
     map / <Plug>(easymotion-sn)
-    map w <Plug>(easymotion-w)
-    map W <Plug>(easymotion-W)
-    map E <Plug>(easymotion-E)
-    map b <Plug>(easymotion-b)
-    map B <Plug>(easymotion-B)
     map f <Plug>(easymotion-f)
     map F <Plug>(easymotion-F)
     map t <Plug>(easymotion-t)
@@ -169,11 +164,6 @@ function! EMMap()
 endfunction
 function! EMUnmap()
     silent! unmap /
-    silent! unmap w
-    silent! unmap W
-    silent! unmap E
-    silent! unmap b
-    silent! unmap B
     silent! unmap f
     silent! unmap F
     silent! unmap t
