@@ -18,6 +18,8 @@ set secure
 filetype plugin on
 syntax on
 
+runtime macros/matchit.vim
+
 if &diff
     colorscheme dracula
     set diffopt+=iwhite
@@ -122,6 +124,10 @@ nnoremap <Leader>; <C-w>w
 "continue page in another split
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
+"{ ... } => { \n\t ... \n }
+nnoremap <Leader>{ di{i<CR><CR><ESC>k>>p
+vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
+
 "writes
 inoremap :w<CR> <ESC>:w<CR>
 
@@ -145,10 +151,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
 "discard line
 "inoremap <Leader><BS> <ESC>d0kJ2xi
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+cabbrev %% %:h
+
+command! New tabnew | tabonly
+command! Vsp vsplit %:h
 
 "pathogen
 execute pathogen#infect()
@@ -179,14 +185,10 @@ augroup EMBuffs
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
     
-command! New tabnew | tabonly
-
-runtime macros/matchit.vim
-
-"{ ... } => { \n\t ... \n }
-nnoremap <Leader>{ di{i<CR><CR><ESC>k>>p
-vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
-
-command! Vsp vsplit %:h
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let g:NERDTreeNodeDelimiter = "\u00a0"
+
