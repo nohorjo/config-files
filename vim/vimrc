@@ -155,6 +155,7 @@ execute pathogen#infect()
 
 "easymotion
 function! EMMap()
+    nnoremap <Leader>/ /
     map / <Plug>(easymotion-sn)
     map f <Plug>(easymotion-f)
     map F <Plug>(easymotion-F)
@@ -163,6 +164,7 @@ function! EMMap()
     let g:emmapped = 1
 endfunction
 function! EMUnmap()
+    silent! unmap <Leader>/
     silent! unmap /
     silent! unmap f
     silent! unmap F
