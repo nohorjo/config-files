@@ -1,13 +1,18 @@
 [user]
     email=nohorjo@gmail.com
 [alias]
-    bd="!f() {                                                                      \
-            git branch -D $1;                                                       \
-            git push origin --delete $1;                                            \
+    bd="!f() {                                                                          \
+            git branch -D $1;                                                           \
+            git push origin --delete $1;                                                \
         }; f"
     bs=!git b staging
-    c="!f () {                                                                      \
-            git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1) - $@\"; \
+    c="!f () {                                                                          \
+            if [ \"$1\" == \"\" ];                                                      \
+            then                                                                        \
+                git commit;                                                             \
+            else                                                                        \
+                git commit -m \"#$(git symbolic-ref --short HEAD | cut -d- -f1) - $@\"; \
+            fi;                                                                         \
         }; f"
     ms=merge staging
     ps=pull origin staging

@@ -3,8 +3,13 @@
 [alias]
     bs=!git b development
     bd=branch -D
-    c="!f () {                                                                                                      \
-            git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f2 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
+    c="!f () {                                                                                                          \
+            if [ \"$1\" == \"\" ];                                                                                      \
+            then                                                                                                        \
+                git commit;                                                                                             \
+            else                                                                                                        \
+                git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f2 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
+            fi;                                                                                                         \
         }; f"
     ms=merge development
     ps=pull origin development
