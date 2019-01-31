@@ -96,3 +96,7 @@ set makeprg=eslint\ -f\ unix\ common\ __tests__
 function! OpenTest()
     execute "vs __tests__/" . substitute(expand('%'), "js$", "test.js", "")
 endfunction
+
+inoremap <Leader>t test('', () => {<CR>});<UP><C-o>2f'
+inoremap <Leader>d describe('', () => {<CR>});<UP><C-o>2f'
+
