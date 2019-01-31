@@ -131,9 +131,8 @@ vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
 "writes
 inoremap :w<CR> <ESC>:w<CR>
 
-inoremap <Leader> <C-o>
-
 "esc
+inoremap <Esc> <C-o>
 inoremap jk <ESC>
 inoremap kj <ESC>
 
