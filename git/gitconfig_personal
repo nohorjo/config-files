@@ -7,7 +7,7 @@
         }; f"
     bs=!git b staging
     c="!f () {                                                                          \
-            if [ \"$1\" == \"\" ];                                                      \
+            if [ \"$1\" = \"\" ];                                                       \
             then                                                                        \
                 git commit;                                                             \
             else                                                                        \

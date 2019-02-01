@@ -4,7 +4,7 @@
     bs=!git b development
     bd=branch -D
     c="!f () {                                                                                                          \
-            if [ \"$1\" == \"\" ];                                                                                      \
+            if [ \"$1\" = \"\" ];                                                                                       \
             then                                                                                                        \
                 git commit;                                                                                             \
             else                                                                                                        \
