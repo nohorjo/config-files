@@ -5,6 +5,7 @@ alias vom=vim
 alias ne='node -e'
 
 alias yarni='rm -rf node_modules yarn.lock package-lock.json; yarn'
+alias yarnt='yarn test'
 alias npmi='rm -rf node_modules package-lock.json; npm install'
 
 alias rnra='react-native run-android'
