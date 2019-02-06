@@ -4,19 +4,6 @@ function! ManualFolds()
     elseif !b:dofolds
         return
     endif
-    function! LinesFromTop()
-        let current = line('.')
-        normal! H
-        let top = line('.')
-        execute "silent! normal! " . current . "gg"
-        let lines = 0
-        while current > top
-            normal! k
-            let lines = lines + 1
-            let current = line('.')
-        endwhile
-        return lines
-    endfunction
 
     setlocal foldmethod=manual
 
@@ -25,7 +12,7 @@ function! ManualFolds()
     if isTest || search('\<class\>.*{', 'n')
         let start = line('.')
         let col = col('.') - 1
-        let screentop = LinesFromTop()
+        let screentop = winline() - 1
         normal! gg
         if isTest
             execute "normal! /\\s*test(\<cr>"

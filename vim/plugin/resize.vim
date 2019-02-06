@@ -1,23 +1,12 @@
-function! LinesFrom(bottom)
-    let current = line('.')
-    if a:bottom
-        normal! L
-    else
-        normal! H
+function! LinesFrom(top)
+    if a:top
+        return winline() - 1
     endif
-    let end = line('.')
-    execute "silent! normal! " . current . "gg"
-    let lines = 0
-    while (a:bottom && current < end ) || (!a:bottom && current > end)
-        if a:bottom
-            normal! j
-        else
-            normal! k
-        endif
-        let lines = lines + 1
-        let current = line('.')
-    endwhile
-    return lines + 1
+    let start = winline()
+    normal! L
+    let end = winline()
+    normal! ``
+    return end - start + 1
 endfunction
 
 function! LongestLine(where)
@@ -37,8 +26,8 @@ nnoremap <Leader>E :exe "vertical resize " . (&foldcolumn + &numberwidth + strle
 nnoremap <Leader>d :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <Leader>a :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
-nnoremap <Leader>r :exe "resize " . (LinesFrom(0) + (&scrolloff * 2))<CR>L
-nnoremap <Leader>R :exe "resize " . (LinesFrom(1) + (&scrolloff * 2))<CR>H
+nnoremap <Leader>r :exe "resize " . (LinesFrom(1) + (&scrolloff * 2))<CR>L
+nnoremap <Leader>R :exe "resize " . (LinesFrom(0) + (&scrolloff * 2))<CR>H
 
 vnoremap <Leader>r :<BS><BS><BS><BS><BS>execute  "resize " . (line("'>") - line("'<") + 1 + (&scrolloff * 2))<CR>zt
 
