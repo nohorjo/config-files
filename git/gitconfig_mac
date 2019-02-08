@@ -1,17 +1,17 @@
 [alias]
 # checks out a branch, creates if not exist
-    b="!f() {                             \
-            if [ $1 ];                    \
-            then                          \
-                if git co $1 2>/dev/null; \
-                then                      \
-                    git p;                \
-                else                      \
-                    git co -b $1;         \
-                fi;                       \
-            fi;                           \
-            git branch -a --color=always  \
-            | nl                          \
-            | tail -r;                    \
+    b="!f() {                                                                       \
+            if [ $1 ];                                                              \
+            then                                                                    \
+                if git co $(echo $1 | sed 's/remotes\\/[^\\/]*\\///g') 2>/dev/null; \
+                then                                                                \
+                    git p;                                                          \
+                else                                                                \
+                    git co -b $1;                                                   \
+                fi;                                                                 \
+            fi;                                                                     \
+            git branch -a --color=always                                            \
+            | nl                                                                    \
+            | tail -r;                                                              \
         }; f"
 

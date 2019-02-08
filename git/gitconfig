@@ -55,7 +55,7 @@
             git bd $(git bg $1);                                                                                                            \
         }; f"
     bg="!f() {                                                                                                                              \
-            git branch                                                                                                                      \
+            git branch -a                                                                                                                   \
             | grep $1;                                                                                                                      \
         }; f"
     bm=!git b master
