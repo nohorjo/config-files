@@ -178,6 +178,11 @@
     sms=submodule status
     smu=submodule update
     sp=stash pop
+# last two weeksprint
+    sr="!f() {                                                                                                                              \
+            git f;                                                                                                                          \
+            git lm --branches=* --since=\"2 weeks\";                                                                                        \
+        }; f"
     ss=stash show -p
     st=stash
     stb="!f() {                                                                                                                             \
