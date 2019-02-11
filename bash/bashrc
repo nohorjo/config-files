@@ -27,4 +27,11 @@ ssh-port-forward() {
     ssh -qL ${port}:127.0.0.1:${port} $@
 }
 
+gitb() {
+    for a in $@
+    do
+        git $a
+    done
+}
+
 export HISTCONTROL=ignoreboth:erasedups
