@@ -156,6 +156,16 @@ cabbrev G !git
 
 command! New tabnew | tabonly
 command! Vsp vsplit %:h
+command! So source ~/.vimrc
+    \| for plugin in split(globpath('~/.vim/plugin', '*'), '\n')
+        \| execute 'source ' . plugin
+        \| endfor
+    \| if filereadable('.vimrc')
+        \| source .vimrc
+    \| endif | 
+    \| if filereadable('~/.vim/ftplugin/' . &ft . '.vim')
+        \| execute 'source ~/.vim/ftplugin/' . &ft . '.vim'
+    \| endif | 
 
 "pathogen
 execute pathogen#infect()
