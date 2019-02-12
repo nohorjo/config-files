@@ -200,7 +200,11 @@ endfunction
 call EMMap()
 augroup EMBuffs
     autocmd!
-    autocmd BufEnter * if line('$') > 3000 | let emmapped_prev = g:emmapped | call EMUnmap() | let g:emmapped = emmapped_prev | endif
+    autocmd BufEnter * if line('$') > 3000 
+            \| let emmapped_prev = g:emmapped
+            \| call EMUnmap()
+            \| let g:emmapped = emmapped_prev
+        \| endif
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
     

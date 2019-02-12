@@ -21,12 +21,23 @@ endfunction
 
 augroup autoquickfix
     autocmd!
-    autocmd QuickFixCmdPre * if bufname("%") != "" | tabnew | else | execute "normal! \<C-w>L" | endif
+    autocmd QuickFixCmdPre * if bufname("%") != ""
+            \| tabnew
+        \| else
+            \| execute "normal! \<C-w>L"
+        \| endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
-    autocmd QuickFixCmdPost * if winnr('$') == 1 | tabclose | else | call s:SaveQuickFixList() | endif | redraw!
+    autocmd QuickFixCmdPost * if winnr('$') == 1
+            \| tabclose
+        \| else
+            \| call s:SaveQuickFixList()
+        \| endif
+        \| redraw!
     autocmd TabEnter * call s:LoadQuickFixList()
-    autocmd WinEnter * if &buftype == 'quickfix' | nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zvzz | endif
+    autocmd WinEnter * if &buftype == 'quickfix'
+            \| nnoremap <buffer> <Enter> :execute 'let t:qfnum = ' . line('.')<CR>:execute 'cc' . line('.')<CR>zvzz
+        \| endif
 augroup END
 
 nnoremap <silent> <C-N> :cn<CR>zvzz:let t:qfnum = t:qfnum + 1<CR>
