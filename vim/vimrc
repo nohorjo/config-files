@@ -21,7 +21,7 @@ syntax on
 runtime macros/matchit.vim
 
 if &diff
-    colorscheme dracula
+    colorscheme github
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
@@ -38,7 +38,7 @@ if &diff
         autocmd TextChanged,TextChangedI * diffupdate
     augroup END
 else
-    colorscheme donbass
+    colorscheme badwolf
     set number relativenumber
     set foldcolumn=2
     "make active window obvious
