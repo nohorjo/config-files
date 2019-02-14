@@ -9,6 +9,7 @@ set laststatus=2
 set statusline=%m<%{winnr()}>\ %f\ %P:%c
 set scrolloff=3
 set complete=.,w,u,b,i
+set backspace=indent,eol,start
 "no text break
 set fo-=t
 "enable project specific .vimrc
