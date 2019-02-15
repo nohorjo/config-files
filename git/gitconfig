@@ -45,17 +45,21 @@
             git s;                                                                                                                          \
         }; f"
     asd="!f() {                                                                                                                             \
-            git as;                                                                                                                         \
+            git as $@;                                                                                                                      \
             git dc;                                                                                                                         \
         }; f"
     bbg="!f() {                                                                                                                             \
             git b $(git bg $1);                                                                                                             \
         }; f"
     bdg="!f() {                                                                                                                             \
-            git bd $(git bg $1);                                                                                                            \
+            git bd $(git bg $1 n);                                                                                                          \
         }; f"
     bg="!f() {                                                                                                                              \
-            git branch -a                                                                                                                   \
+            if [ \"$2\" = \"\" ];                                                                                                           \
+            then                                                                                                                            \
+                a=-a;                                                                                                                       \
+            fi;                                                                                                                             \
+            git branch $a                                                                                                                   \
             | grep $1;                                                                                                                      \
         }; f"
     bm=!git b master
