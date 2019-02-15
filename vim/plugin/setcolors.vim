@@ -51,7 +51,7 @@ let s:mycolors = [
 \'hybrid',
 \'wasabi256',
 \'badwolf',
-\'jellyx',
+\'jellyx-mod',
 \'two-firewatch',
 \'elda',
 \'sidonia',

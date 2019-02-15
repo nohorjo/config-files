@@ -34,7 +34,7 @@ if exists('syntax_on')
     syntax reset
 endif
 
-let colors_name = 'jellyx'
+let colors_name = 'jellyx-mod'
 
 if &t_Co != 256 && ! has('gui_running')
     echoerr 'Not enough colors to display JellyX!'
@@ -162,7 +162,7 @@ HI Visual           fg      96      -
 HI VisualNOS        fg      60      NONE
 HI IncSearch        -       -       inverse
 highlight clear Search " Explicitly clear the default Search style
-HI Search           -       -       bold,underline
+HI Search           -       -       bold,underline,inverse
 
 HI LineNr           240     bg      -
 HI FoldColumn       240     bg      -
