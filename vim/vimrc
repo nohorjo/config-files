@@ -21,8 +21,11 @@ syntax on
 
 runtime macros/matchit.vim
 
+"change every two months
+let s:colourperiod = 5.3e6
+
 if &diff
-    colorscheme github
+    autocmd VimEnter * call TimeColour(s:colourperiod, 1)
     set diffopt+=iwhite
     set number norelativenumber
     set noreadonly
@@ -39,7 +42,7 @@ if &diff
         autocmd TextChanged,TextChangedI * diffupdate
     augroup END
 else
-    colorscheme badwolf
+    autocmd VimEnter * call TimeColour(s:colourperiod, 0)
     set number relativenumber
     set foldcolumn=2
     "make active window obvious
