@@ -35,7 +35,12 @@ gitb() {
 }
 
 line() {
-    sed "$1q;d" "$2"
+    if [ $# -eq 2 ]
+    then
+        sed "$1q;d" "$2"
+    else
+        sed "$1q;d"
+    fi
 }
 
 export HISTCONTROL=ignoreboth:erasedups
