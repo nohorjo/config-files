@@ -34,4 +34,8 @@ gitb() {
     done
 }
 
+line() {
+    sed "$1q;d" "$2"
+}
+
 export HISTCONTROL=ignoreboth:erasedups
