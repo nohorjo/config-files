@@ -56,12 +56,7 @@ function! DisableTests()
     set nowrapscan
 
     normal! mmgg
-    while 1
-        let l = line('.')
-        call search('^\s*test(')
-        if l == line('.')
-            break
-        endif
+    while search('^\s*test(', 'W')
         normal! O/*DISABLETESTj$%oDISABLETEST*/
     endwhile
 
