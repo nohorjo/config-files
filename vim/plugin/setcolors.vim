@@ -52,8 +52,6 @@ let s:mycolors = [
 \'wasabi256',
 \'badwolf',
 \'jellyx-mod',
-\'two-firewatch',
-\'elda',
 \'sidonia',
 \'neverland-darker',
 \'soda',
@@ -61,9 +59,15 @@ let s:mycolors = [
 \'magellan',
 \'github'
 \]
+let s:justregular = [
+\]
+let s:justdiff = [
+\'elda',
+\'two-firewatch'
+\]
 
-let s:regularcolours = copy(s:mycolors)
-let s:diffcolours = reverse(copy(s:mycolors))
+let s:regularcolours = copy(s:mycolors) + s:justregular
+let s:diffcolours = reverse(copy(s:mycolors)) + s:justdiff
 
 function! TimeColour(periodseconds, diff)
     let colours = a:diff ? s:diffcolours : s:regularcolours
