@@ -21,8 +21,8 @@ syntax on
 
 runtime macros/matchit.vim
 
-"change every two months
-let s:colourperiod = 5.3e6
+"change every six weeks
+let s:colourperiod = 3.5e6
 
 if &diff
     autocmd VimEnter * call TimeColour(s:colourperiod, 1)
