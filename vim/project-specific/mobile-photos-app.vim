@@ -12,7 +12,7 @@ function! ManualFolds()
     if isTest || search('\<class\>.*{', 'n')
         let start = line('.')
         let col = col('.') - 1
-        let screentop = winline() - 1
+        let screentop = winline() - 4
         normal! gg
         if isTest
             execute "normal! /\\s*test(\<cr>"
