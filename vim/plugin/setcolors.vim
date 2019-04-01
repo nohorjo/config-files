@@ -14,7 +14,6 @@ let s:mycolors = [
 \'mango',
 \'vimbrains',
 \'hydrangea-mod',
-\'moonfly',
 \'khaki-mod',
 \'space-vim-dark',
 \'sorcerer',
@@ -22,7 +21,6 @@ let s:mycolors = [
 \'unicon',
 \'flattown',
 \'kolor',
-\'itsasoa',
 \'itg_flat',
 \'materialbox',
 \'zazen',
@@ -32,7 +30,6 @@ let s:mycolors = [
 \'evening',
 \'CandyPaper',
 \'night-owl',
-\'phosphor',
 \'turtles',
 \'tone',
 \'bleh',
@@ -60,9 +57,12 @@ let s:mycolors = [
 \'github'
 \]
 let s:justregular = [
+\'moonfly'
 \]
 let s:justdiff = [
 \'elda',
+\'itsasoa',
+\'phosphor',
 \'two-firewatch'
 \]
 
