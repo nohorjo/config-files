@@ -164,6 +164,10 @@
             git push --force origin $(git symbolic-ref --short HEAD);                                                                       \
         }; f"
     pm=pull origin master
+# pull nth last branch, as shown by git b
+    pn="!f() {                                                                                                                              \
+            git p $(git branch -a --color=never | head -n${1} | tail -n1);                                                                  \
+        }; f"
     pp="!f(){                                                                                                                               \
             git push origin $(git symbolic-ref --short HEAD);                                                                               \
         }; f"
