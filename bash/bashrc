@@ -1,16 +1,17 @@
+alias gti=git
 alias la='ls -a'
 alias ll='ls -l'
-alias gti=git
-alias vom=vim
 alias ne='node -e'
+alias vom=vim
 
+alias npmi='rm -rf node_modules package-lock.json; npm install'
 alias yarni='rm -rf node_modules yarn.lock package-lock.json; yarn'
 alias yarnt='yarn test'
-alias npmi='rm -rf node_modules package-lock.json; npm install'
 
-alias rnra='react-native run-android'
-alias adbr='adb reverse tcp:8081 tcp:8081'
+alias adbd='adb devices'
 alias adbl='adb logcat'
+alias adbr='adb reverse tcp:8081 tcp:8081'
+alias rnra='react-native run-android'
 
 alias resource='source ~/.bashrc'
 
