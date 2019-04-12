@@ -10,6 +10,7 @@ alias yarnt='yarn test'
 
 alias adbd='adb devices'
 alias adbl='adb logcat'
+alias adbll='adb logcat -T1 | grep "ReactNativeJS\\|System\\."'
 alias adbr='adb reverse tcp:8081 tcp:8081'
 alias rnra='react-native run-android'
 
