@@ -52,11 +52,11 @@ let s:mycolors = [
 \'sidonia',
 \'neverland-darker',
 \'soda',
-\'valloric',
 \'magellan',
 \'github'
 \]
 let s:justregular = [
+\'valloric',
 \'moonfly'
 \]
 let s:justdiff = [
