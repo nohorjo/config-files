@@ -39,7 +39,7 @@ let s:mycolors = [
 \'vendetta',
 \'Tomorrow-Night-Bright',
 \'dracula',
-\'tropikos',
+\'tropikos-mod',
 \'antares',
 \'thornbird',
 \'donbass',
