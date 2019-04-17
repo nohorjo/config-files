@@ -7,6 +7,7 @@ alias vom=vim
 alias npmi='rm -rf node_modules package-lock.json; npm install'
 alias yarni='rm -rf node_modules yarn.lock package-lock.json; yarn'
 alias yarnt='yarn test'
+alias ysr='yarn start --reset-cache'
 
 alias adbd='adb devices'
 alias adbl='adb logcat'
