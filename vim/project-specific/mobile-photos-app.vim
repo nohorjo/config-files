@@ -13,11 +13,15 @@ function! ManualFolds()
         let start = line('.')
         let col = col('.') - 1
         let screentop = winline() - 4
-        normal! gg
+        0
         if isTest
             execute "normal! /\\s*test(\<cr>"
         else
-            execute "normal! /\\<StyleSheet.create\\>({\<cr>j[{zf%gg"
+            execute "normal! /\\<StyleSheet.create\\>({\<cr>"
+            if !foldlevel('.')
+                normal! j[{zf%
+            endif
+            0
             execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         endif
         for pass in range(1,2)
@@ -29,7 +33,7 @@ function! ManualFolds()
                 endif
                 normal! n
             endwhile
-            normal! gg
+            0
             if isTest && pass == 1
                 execute "normal! /\\s*describe(\<cr>n"
             else
