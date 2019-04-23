@@ -17,6 +17,7 @@ function! ManualFolds()
         if isTest
             execute "normal! /\\s*test(\<cr>"
         else
+            execute "normal! /\\<StyleSheet.create\\>({\<cr>j[{zf%gg"
             execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         endif
         for pass in range(1,2)
