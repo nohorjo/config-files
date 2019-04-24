@@ -17,10 +17,11 @@ function! ManualFolds()
         if isTest
             execute "normal! /\\s*test(\<cr>"
         else
-            execute "normal! /\\<StyleSheet.create\\>({\<cr>"
-            if !foldlevel('.')
-                normal! j[{zf%
-            endif
+            while search('\<StyleSheet.create\>({', 'W')
+                if !foldlevel('.')
+                    normal! j[{zf%
+                endif
+            endwhile
             0
             execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         endif
