@@ -10,8 +10,7 @@ function! ManualFolds()
     let isTest = expand('%') =~ '.test.js$'
 
     if isTest || search('\<class\>.*{', 'n')
-        let start = line('.')
-        let col = col('.')
+        normal! mm
         let screentop = winline() - &scrolloff - 1
         0
         if isTest
@@ -41,7 +40,7 @@ function! ManualFolds()
                 break
             endif
         endfor
-        execute "silent! normal! " . start . "ggzO" . col . "|zt" . screentop . "\<C-y>"
+        execute "silent! normal! `mzOzt" . screentop . "\<C-y>"
         mkview!
     endif
 endfunction
