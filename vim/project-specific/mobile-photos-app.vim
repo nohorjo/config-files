@@ -11,8 +11,8 @@ function! ManualFolds()
 
     if isTest || search('\<class\>.*{', 'n')
         let start = line('.')
-        let col = col('.') - 1
-        let screentop = winline() - 4
+        let col = col('.')
+        let screentop = winline() - &scrolloff - 1
         0
         if isTest
             execute "normal! /\\s*test(\<cr>"
