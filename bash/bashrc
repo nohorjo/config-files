@@ -13,7 +13,7 @@ alias adbd='adb devices'
 alias adbl='adb logcat'
 alias adbll='adb logcat -T1 | grep "ReactNativeJS\\|System\\."'
 alias adbr='adb reverse tcp:8081 tcp:8081'
-alias rnra='react-native run-android'
+alias rnra='adb uninstall $(grep package android/app/src/main/AndroidManifest.xml | cut -d\" -f2); react-native run-android'
 
 alias resource='source ~/.bashrc'
 
