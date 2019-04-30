@@ -72,7 +72,18 @@
             git c \"$1\";                                                                                                                   \
             git pp;                                                                                                                         \
         }; f"
-    cl=clean -f -d
+    cl="!f() {                                                                                                                              \
+            local toclean=$(git clean -n -d);                                                                                               \
+            echo \"$toclean\";                                                                                                              \
+            if [ \"$toclean\" != \"\" ];                                                                                                    \
+            then                                                                                                                            \
+                read -n1 -p 'press y to confirm, or any other key to quit ' y;                                                              \
+                if [ \"$y\" = \"y\" ];                                                                                                      \
+                then                                                                                                                        \
+                    git clean -f -d;                                                                                                        \
+                fi;                                                                                                                         \
+            fi;                                                                                                                             \
+        }; f"
     clo="!f() {                                                                                                                             \
             find . -name \\*.orig | xargs rm;                                                                                               \
         }; f"
