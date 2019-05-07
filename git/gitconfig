@@ -48,6 +48,19 @@
             git as $@;                                                                                                                      \
             git dc;                                                                                                                         \
         }; f"
+# checks out a branch, creates if not exist
+    b="!f() {                                                                                                                               \
+            if [ $1 ];                                                                                                                      \
+            then                                                                                                                            \
+                if git co $(echo $1 | sed 's/remotes\\/[^\\/]*\\///g') 2>/dev/null;                                                         \
+                then                                                                                                                        \
+                    git p;                                                                                                                  \
+                else                                                                                                                        \
+                    git co -b $1;                                                                                                           \
+                fi;                                                                                                                         \
+            fi;                                                                                                                             \
+            git list-branches;                                                                                                              \
+        }; f"
     bbg="!f() {                                                                                                                             \
             git b $(git bg $1);                                                                                                             \
         }; f"
@@ -66,6 +79,14 @@
 # switch to nth last branch, as shown by git b
     bn="!f() {                                                                                                                              \
             git b $(git branch -a --color=never | head -n${1} | tail -n1);                                                                  \
+        }; f"
+    c="!f () {                                                                                                                              \
+            if [ \"$1\" = \"\" ];                                                                                                           \
+            then                                                                                                                            \
+                git commit;                                                                                                                 \
+            else                                                                                                                            \
+                git commit-with-issue-tag \"$@\";                                                                                           \
+            fi;                                                                                                                             \
         }; f"
 # commit and push
     cc="!f() {                                                                                                                              \
