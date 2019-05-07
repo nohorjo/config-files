@@ -28,4 +28,5 @@ augroup LineConts
 augroup END
 
 inoremap <Leader>f ="!f() { \<CR>    }; f"<ESC>O    
+inoremap <Leader><CR> ;\<CR>
 
