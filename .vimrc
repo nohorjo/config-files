@@ -24,7 +24,7 @@ endfunction
 augroup LineConts
     autocmd!
     autocmd! BufWritePre,FileWritePre gitconfig* call s:ApplyLineContinuationSpacing()
-    autocmd! InsertEnter gitconfig* s/\s*\\$/\\/
+    autocmd! InsertEnter gitconfig* silent! s/\s*\\$/\\/
 augroup END
 
 inoremap <Leader>f ="!f() { \<CR>    }; f"<ESC>O    
