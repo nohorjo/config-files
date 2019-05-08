@@ -24,7 +24,7 @@ augroup autoquickfix
     autocmd QuickFixCmdPre * if bufname("%") != ""
             \| tabnew
         \| else
-            \| execute "normal! \<C-w>L"
+            \| wincmd L
         \| endif
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
