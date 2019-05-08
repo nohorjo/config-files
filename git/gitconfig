@@ -162,6 +162,10 @@
     dn="!f() {                                                                                                                              \
             git diff --name-only \"$1^!\";                                                                                                  \
         }; f"
+# diff using got show, `other` `this`
+    do="!f() {                                                                                                                              \
+            git show $1 | vim -d - +\"vs $2 | wincmd r | windo diffthis | windo set ro\";                                                   \
+        }; f"
     f=fetch --all --prune
 # grep files
     g="!f() {                                                                                                                               \
