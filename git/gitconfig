@@ -252,6 +252,7 @@
             git push --tags;                                                                                                                \
         }; f"
     uc=reset @^
+    uch=reset --hard @^
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type
