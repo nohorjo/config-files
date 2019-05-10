@@ -1,5 +1,6 @@
 [core]
     editor=vim
+    fileMode = false
 [user]
     name = Muhammed Haque
 [diff]
