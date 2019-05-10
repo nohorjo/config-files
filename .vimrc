@@ -21,10 +21,14 @@ function! s:ApplyLineContinuationSpacing()
     normal! `m
 endfunction
 
-augroup LineConts
-    autocmd!
-    autocmd! BufWritePre,FileWritePre gitconfig* call s:ApplyLineContinuationSpacing()
-augroup END
+if !&diff
+    augroup LineConts
+        autocmd!
+        autocmd! BufWritePre,FileWritePre gitconfig* call s:ApplyLineContinuationSpacing()
+        autocmd! InsertEnter gitconfig* silent! s/\s*\\$/\\/
+    augroup END
+endif
 
 inoremap <Leader>f ="!f() { \<CR>    }; f"<ESC>O    
+inoremap <Leader><CR> ;\<CR>
 

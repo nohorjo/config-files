@@ -10,13 +10,18 @@ function! ManualFolds()
     let isTest = expand('%') =~ '.test.js$'
 
     if isTest || search('\<class\>.*{', 'n')
-        let start = line('.')
-        let col = col('.') - 1
-        let screentop = winline() - 4
-        normal! gg
+        normal! mm
+        let screentop = winline() - &scrolloff - 1
+        0
         if isTest
             execute "normal! /\\s*test(\<cr>"
         else
+            while search('\<StyleSheet.create\>({', 'W')
+                if !foldlevel('.')
+                    normal! j[{zf%
+                endif
+            endwhile
+            0
             execute "normal! /\\<class\\>.*{\<cr>/^    \\w.*(.*).*{\<cr>"
         endif
         for pass in range(1,2)
@@ -28,14 +33,14 @@ function! ManualFolds()
                 endif
                 normal! n
             endwhile
-            normal! gg
+            0
             if isTest && pass == 1
                 execute "normal! /\\s*describe(\<cr>n"
             else
                 break
             endif
         endfor
-        execute "silent! normal! " . start . "ggzO" . col . "|zt" . screentop . "\<C-y>"
+        execute "silent! normal! `mzOzt" . screentop . "\<C-y>"
         mkview!
     endif
 endfunction

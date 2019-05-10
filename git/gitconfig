@@ -49,6 +49,24 @@
             git as $@;                                                                                                                      \
             git dc;                                                                                                                         \
         }; f"
+# checks out a branch, creates if not exist
+    b="!f() {                                                                                                                               \
+            if [ $1 ];                                                                                                                      \
+            then                                                                                                                            \
+                echo $1;                                                                                                                    \
+                echo $(git symbolic-ref --short HEAD) > $(git rev-parse --git-dir)/LAST_BRANCH;                                             \
+                if git co $(echo $1 | sed 's/remotes\\/[^\\/]*\\///g') 2>/dev/null;                                                         \
+                then                                                                                                                        \
+                    git p;                                                                                                                  \
+                else                                                                                                                        \
+                    git co -b $1;                                                                                                           \
+                fi;                                                                                                                         \
+            fi;                                                                                                                             \
+            git list-branches;                                                                                                              \
+        }; f"
+    bb="!f() {                                                                                                                              \
+            git b $(< $(git rev-parse --git-dir)/LAST_BRANCH);                                                                              \
+        }; f"
     bbg="!f() {                                                                                                                             \
             git b $(git bg $1);                                                                                                             \
         }; f"
@@ -68,12 +86,31 @@
     bn="!f() {                                                                                                                              \
             git b $(git branch -a --color=never | head -n${1} | tail -n1);                                                                  \
         }; f"
+    c="!f () {                                                                                                                              \
+            if [ \"$1\" = \"\" ];                                                                                                           \
+            then                                                                                                                            \
+                git commit;                                                                                                                 \
+            else                                                                                                                            \
+                git commit-with-issue-tag \"$@\";                                                                                           \
+            fi;                                                                                                                             \
+        }; f"
 # commit and push
     cc="!f() {                                                                                                                              \
             git c \"$1\";                                                                                                                   \
             git pp;                                                                                                                         \
         }; f"
-    cl=clean -f -d
+    cl="!f() {                                                                                                                              \
+            local toclean=$(git clean -n -d);                                                                                               \
+            echo \"$toclean\";                                                                                                              \
+            if [ \"$toclean\" != \"\" ];                                                                                                    \
+            then                                                                                                                            \
+                read -n1 -p 'press y to confirm, or any other key to quit ' y;                                                              \
+                if [ \"$y\" = \"y\" ];                                                                                                      \
+                then                                                                                                                        \
+                    git clean -f -d;                                                                                                        \
+                fi;                                                                                                                         \
+            fi;                                                                                                                             \
+        }; f"
     clo="!f() {                                                                                                                             \
             find . -name \\*.orig | xargs rm;                                                                                               \
         }; f"
@@ -126,6 +163,10 @@
     dn="!f() {                                                                                                                              \
             git diff --name-only \"$1^!\";                                                                                                  \
         }; f"
+# diff using got show, `other` `this`
+    do="!f() {                                                                                                                              \
+            git show $1 | vim -d - +\"vs $2 | wincmd r | windo diffthis | windo set ro\";                                                   \
+        }; f"
     f=fetch --all --prune
 # grep files
     g="!f() {                                                                                                                               \
@@ -165,6 +206,10 @@
             git push --force origin $(git symbolic-ref --short HEAD);                                                                       \
         }; f"
     pm=pull origin master
+# pull nth last branch, as shown by git b
+    pn="!f() {                                                                                                                              \
+            git p $(git branch -a --color=never | head -n${1} | tail -n1);                                                                  \
+        }; f"
     pp="!f(){                                                                                                                               \
             git push origin $(git symbolic-ref --short HEAD);                                                                               \
         }; f"
@@ -212,6 +257,7 @@
             git push --tags;                                                                                                                \
         }; f"
     uc=reset @^
+    uch=reset --hard @^
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type

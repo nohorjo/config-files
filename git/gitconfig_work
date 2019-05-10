@@ -1,15 +1,10 @@
 [user]
     email = m.haque@livelinktechnology.net
 [alias]
-    bs=!git b development
     bd=branch -D
-    c="!f () {                                                                                                          \
-            if [ \"$1\" = \"\" ];                                                                                       \
-            then                                                                                                        \
-                git commit;                                                                                             \
-            else                                                                                                        \
-                git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f3 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
-            fi;                                                                                                         \
+    bs=!git b development
+    commit-with-issue-tag="!f () {                                                                                  \
+            git commit -m \"$(git symbolic-ref --short HEAD | cut -d/ -f3 | egrep -o '\\w+-[0-9]+' | head -1) $@\"; \
         }; f"
     ms=merge development
     ps=pull origin development

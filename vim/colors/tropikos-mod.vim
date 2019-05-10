@@ -5,7 +5,7 @@
 " License:      Beer Ware
 " ----------------------------------------------------------------------------
 
-let g:colors_name = "tropikos" 
+let g:colors_name = "tropikos-mod" 
 
 highlight clear Normal
 set background=dark
@@ -110,3 +110,6 @@ hi link rubyConditional             Keyword
 hi link rubyInterpolation           Interpolation
 hi link rubyInterpolationDelimiter  Interpolation
 hi link rubyRailsMethod             Method
+
+"MODS
+hi Search ctermbg=56
