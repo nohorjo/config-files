@@ -162,9 +162,18 @@
     dn="!f() {                                                                                                                              \
             git diff --name-only \"$1^!\";                                                                                                  \
         }; f"
-# diff using got show, `other` `this`
+# diff using git show, `other` `this`
     do="!f() {                                                                                                                              \
             git show $1 | vim -d - +\"vs $2 | wincmd r | windo diffthis | windo set ro\";                                                   \
+        }; f"
+# diff stash
+    ds="!f() {                                                                                                                              \
+            local stash=$1;                                                                                                                 \
+            if [ \"$stash\" = \"\" ];                                                                                                       \
+            then                                                                                                                            \
+                local stash=0;                                                                                                              \
+            fi;                                                                                                                             \
+            git difftool stash@{$stash}^!;                                                                                                  \
         }; f"
     f=fetch --all --prune
 # grep files
