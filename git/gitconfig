@@ -144,7 +144,12 @@
         }; f"
 # keep diffing a file
     dfh="!f() {                                                                                                                             \
-            prev=$(git rev-list $(git rev-list @ | tail -n 1)..$2^ $1 | head -n 1);                                                         \
+            local current=$2;                                                                                                               \
+            if [ \"$current\" = \"\" ];                                                                                                     \
+            then                                                                                                                            \
+                local current=@;                                                                                                            \
+            fi;                                                                                                                             \
+            local prev=$(git rev-list $(git rev-list @ | tail -n 1)..$current^ $1 | head -n 1);                                             \
             echo $prev;                                                                                                                     \
             git d -y $prev:$1 $2:$1;                                                                                                        \
             if [ \"$3\" = \"\" ];                                                                                                           \
