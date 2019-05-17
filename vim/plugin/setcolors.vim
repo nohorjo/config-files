@@ -40,7 +40,6 @@ let s:mycolors = [
 \'Tomorrow-Night-Bright',
 \'dracula',
 \'tropikos-mod',
-\'antares',
 \'thornbird',
 \'donbass',
 \'znake',
@@ -50,7 +49,6 @@ let s:mycolors = [
 \'badwolf',
 \'jellyx-mod',
 \'sidonia',
-\'neverland-darker',
 \'soda',
 \'magellan',
 \'github'
@@ -63,6 +61,8 @@ let s:justdiff = [
 \'elda',
 \'itsasoa',
 \'phosphor',
+\'antares',
+\'neverland-darker',
 \'two-firewatch'
 \]
 
