@@ -57,6 +57,7 @@ endif
 let @t='0w"nyt(j"cci{try{console.time(">>>>>n");}finally{console.timeEnd(">>>>>n");}zEkk"cP/    \\w*{'
 
 function! DisableTests()
+    setlocal foldlevel=99
     let ws = &wrapscan
     set nowrapscan
 
