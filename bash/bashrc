@@ -4,8 +4,8 @@ alias ll='ls -l'
 alias ne='node -e'
 alias vom=vim
 
-alias npmi='rm -rf node_modules package-lock.json; npm install'
-alias yarni='rm -rf node_modules yarn.lock package-lock.json; yarn'
+alias npmi='rm -rf node_modules; npm install'
+alias yarni='rm -rf node_modules; yarn'
 alias yarnt='yarn test'
 alias ysr='yarn start --reset-cache'
 
