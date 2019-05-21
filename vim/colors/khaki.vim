@@ -47,7 +47,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "khaki-mod"
+let g:colors_name = "khaki"
 
 if !has("gui_running")
     hi Normal           cterm=NONE      ctermfg=58      ctermbg=187
@@ -176,7 +176,4 @@ if has("gui_running") && v:version >= 700
 endif
 
 " vim: set sts=4 et tw=0 ft=vim:
-
-"MODS
-hi CursorLine ctermbg=233 ctermfg=228
 

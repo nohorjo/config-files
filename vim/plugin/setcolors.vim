@@ -14,7 +14,7 @@ let s:mycolors = [
 \'mango',
 \'vimbrains',
 \'hydrangea-mod',
-\'khaki-mod',
+\'khaki',
 \'space-vim-dark',
 \'sorcerer',
 \'sublimemonokai',
