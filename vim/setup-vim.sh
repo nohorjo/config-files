@@ -33,7 +33,7 @@ cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 
 popd
 
-npm install -g eslint babel-eslint eslint-config-react-app eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react
+npm install -g eslint babel-eslint eslint-config-react-app eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-import
 npm install -g typescript
 npm install -g tslint
 npm install -g js-beautify
