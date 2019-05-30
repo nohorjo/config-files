@@ -18,12 +18,16 @@ alias rrnra='adb uninstall $(grep package android/app/src/main/AndroidManifest.x
 
 alias resource='source ~/.bashrc'
 
-if [ $(uname -s) == "Linux" ]
-then
-    alias open='xdg-open'
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xsel -b'
-fi
+case $(uname -s) in
+    "Linux")
+        alias open='xdg-open'
+        alias pbcopy='xclip -selection clipboard'
+        alias pbpaste='xsel -b'
+        ;;
+    "Darwin")
+        alias tac='tail -r'
+        ;;
+esac
 
 ssh-port-forward() {
     local port=$1
