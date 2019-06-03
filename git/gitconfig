@@ -63,6 +63,7 @@
                 fi;                                                                                                                         \
             fi;                                                                                                                             \
             git list-branches;                                                                                                              \
+            echo \"\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)\";                                                                  \
         }; f"
     bb="!f() {                                                                                                                              \
             git b $(< $(git rev-parse --git-dir)/LAST_BRANCH);                                                                              \
