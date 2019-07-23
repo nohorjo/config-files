@@ -36,6 +36,7 @@
         git acc \"$@\";                                                                                                                     \
         git pf;                                                                                                                             \
     }; f"
+    ap=add -p
     as="!f() {                                                                                                                              \
             if [ $# -eq 0 ];                                                                                                                \
             then                                                                                                                            \
