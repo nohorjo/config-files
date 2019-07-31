@@ -128,9 +128,8 @@ nnoremap <Leader>; <C-w>w
 "continue page in another split
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
 
-"{ ... } => { \n\t ... \n }
-nnoremap <Leader>{ di{i<CR><CR><ESC>k>>p
-vnoremap <Leader>{ di{<CR><TAB><C-r>"<CR><BS>}<ESC>
+"highlight to new line
+vnoremap <CR> di<CR><C-r>"<CR><ESC>
 
 "writes
 inoremap :w<CR> <ESC>:w<CR>
