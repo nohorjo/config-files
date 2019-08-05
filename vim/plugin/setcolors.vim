@@ -16,7 +16,6 @@ let s:mycolors = [
 \'hydrangea-mod',
 \'khaki',
 \'space-vim-dark',
-\'sublimemonokai',
 \'unicon',
 \'flattown',
 \'kolor',
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'antares',
 \'neverland-darker',
 \'sorcerer',
+\'sublimemonokai',
 \'two-firewatch'
 \]
 
