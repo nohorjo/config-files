@@ -121,8 +121,8 @@
 # redo commit
     cr="!f() {                                                                                                                              \
         message=$(git log -1 --pretty=%B);                                                                                                  \
-        git reset @^;                                                                                                                       \
-        git aa;                                                                                                                             \
+        git uc;                                                                                                                             \
+        [ \"$(git diff --name-only --cached)\" = \"\" ] && git aa;                                                                          \
         git commit -m \"$message\";                                                                                                         \
         git pf;                                                                                                                             \
     }; f"
