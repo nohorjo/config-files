@@ -254,7 +254,7 @@
             git lm --branches=* --since=\"2 weeks\";                                                                                        \
         }; f"
     ss=stash show -p
-    st=stash
+    st=stash --include-untracked
     stb="!f() {                                                                                                                             \
             git st;                                                                                                                         \
             git b $1;                                                                                                                       \
