@@ -236,7 +236,8 @@
             git r;                                                                                                                          \
             git cl;                                                                                                                         \
         }; f"
-    rh=reset --hard @
+    rh=reset @
+    rhh=reset --hard @
     s=status
     sd="!f() {                                                                                                                              \
             git s;                                                                                                                          \
@@ -258,6 +259,10 @@
             git st;                                                                                                                         \
             git b $1;                                                                                                                       \
         }; f"
+    stbp="!f() {                                                                                                                            \
+        git stb $1;                                                                                                                         \
+        git sp;                                                                                                                             \
+    }; f"
 # last working day logs for current user on all branches
     su="!f() {                                                                                                                              \
             git f;                                                                                                                          \
