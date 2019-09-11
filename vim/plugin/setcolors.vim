@@ -47,7 +47,6 @@ let s:mycolors = [
 \'jellyx-mod',
 \'sidonia',
 \'soda',
-\'magellan',
 \'github'
 \]
 let s:justregular = [
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'sorcerer',
 \'sublimemonokai',
 \'unicon',
+\'magellan',
 \'two-firewatch'
 \]
 
