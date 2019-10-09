@@ -170,6 +170,8 @@
             fi;                                                                                                                             \
         }; f"
     di=diff
+# only modified
+    dm=difftool --diff-filter=M
 # diff names only
     dn="!f() {                                                                                                                              \
             git diff --name-only \"$1^!\";                                                                                                  \
