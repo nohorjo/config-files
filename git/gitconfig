@@ -105,11 +105,11 @@
             git pp;                                                                                                                         \
         }; f"
     cl="!f() {                                                                                                                              \
-            local toclean=$(git clean -n -d);                                                                                               \
+            local toclean=\"$(git clean -n -d)\";                                                                                           \
             echo \"$toclean\";                                                                                                              \
             if [ \"$toclean\" != \"\" ];                                                                                                    \
             then                                                                                                                            \
-                read -n1 -p 'press y to confirm, or any other key to quit ' y;                                                              \
+                read -p 'Enter y to confirm, or anything else to quit: ' y;                                                                 \
                 if [ \"$y\" = \"y\" ];                                                                                                      \
                 then                                                                                                                        \
                     git clean -f -d;                                                                                                        \
@@ -132,7 +132,7 @@
     d=difftool
 # diff blame filename line
     db="!f() {                                                                                                                              \
-            local rev=$(git blame $1 -L $2,$2 | cut -d' ' -f1);                                                                             \
+            local rev=\"$(git blame $1 -L $2,$2 | cut -d' ' -f1)\";                                                                         \
             echo $rev;                                                                                                                      \
             git df $1 $rev;                                                                                                                 \
         }; f"
@@ -140,7 +140,7 @@
 # diff a commit against previous
     dd="!f() {                                                                                                                              \
             local hash=\"$1\";                                                                                                              \
-            [ \"$hash\" = \"\" ] && local hash=@;                                                                                           \
+            [ \"$hash\" = \"\" ] && local hash=\"@\";                                                                                       \
             shift;                                                                                                                          \
             git d \"$hash^\" \"$hash\" \"$@\";                                                                                              \
         }; f"
@@ -150,12 +150,12 @@
         }; f"
 # keep diffing a file
     dfh="!f() {                                                                                                                             \
-            local current=$2;                                                                                                               \
+            local current=\"$2\";                                                                                                           \
             if [ \"$current\" = \"\" ];                                                                                                     \
             then                                                                                                                            \
-                local current=@;                                                                                                            \
+                local current=\"@\";                                                                                                        \
             fi;                                                                                                                             \
-            local prev=$(git rev-list $(git rev-list @ | tail -n 1)..$current^ $1 | head -n 1);                                             \
+            local prev=\"$(git rev-list $(git rev-list @ | tail -n 1)..$current^ $1 | head -n 1)\";                                         \
             git log -n 1 $prev;                                                                                                             \
             git d -y $prev:$1 $2:$1;                                                                                                        \
             if [ \"$3\" = \"\" ];                                                                                                           \
@@ -182,10 +182,10 @@
         }; f"
 # diff stash
     ds="!f() {                                                                                                                              \
-            local stash=$1;                                                                                                                 \
+            local stash=\"$1\";                                                                                                             \
             if [ \"$stash\" = \"\" ];                                                                                                       \
             then                                                                                                                            \
-                local stash=0;                                                                                                              \
+                local stash=\"0\";                                                                                                          \
             fi;                                                                                                                             \
             git difftool stash@{$stash};                                                                                                    \
         }; f"
@@ -214,7 +214,7 @@
             git pull origin $branch;                                                                                                        \
         }; f"
     pa="!f(){                                                                                                                               \
-            local current=$(git symbolic-ref --short HEAD);                                                                                 \
+            local current=\"$(git symbolic-ref --short HEAD)\";                                                                             \
             git branch -r                                                                                                                   \
             | grep -v '\\->'                                                                                                                \
             | while read remote;                                                                                                            \
