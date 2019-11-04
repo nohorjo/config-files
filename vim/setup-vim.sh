@@ -2,7 +2,7 @@
 
 ln -s $(pwd)/vimrc ~/.vimrc
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/ftplugin ~/.vim/plugin ~/.vim/tmp
 
 for f in \
     colors/* \

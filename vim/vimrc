@@ -16,6 +16,9 @@ set fo-=t
 set exrc
 set secure
 
+" swap files here
+set directory^=~/.vim/tmp//
+
 filetype plugin on
 syntax on
 
