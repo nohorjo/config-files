@@ -160,7 +160,7 @@
             git d -y $prev:$1 $2:$1;                                                                                                        \
             if [ \"$3\" = \"\" ];                                                                                                           \
             then                                                                                                                            \
-                read -n1 -p 'press q to quit, or any other key to continue ' q;                                                             \
+                read -p 'Enter q to quit, or anything else to continue: ' q;                                                                \
                 if [ \"$q\" != \"q\" ];                                                                                                     \
                 then                                                                                                                        \
                     git dfh $1 $prev;                                                                                                       \
