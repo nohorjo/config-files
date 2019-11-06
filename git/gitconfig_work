@@ -3,8 +3,8 @@
 [alias]
     bd=branch -D
     bs=!git b master
-    commit-with-issue-tag="!f () {                                                                   \
-            git commit -m \"$(git symbolic-ref --short HEAD | cut -d- -f1 | sed 's/[^0-9]*//g') $@\"; \
+    commit-with-issue-tag="!f () {                                                   \
+            git commit -m \"$(git symbolic-ref --short HEAD | sed 's/--.*//g') $@\"; \
         }; f"
     ms=merge master
     ps=pull origin master
