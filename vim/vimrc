@@ -62,7 +62,7 @@ else
         autocmd CursorMoved,CursorMovedI * silent! mkview!
         autocmd BufWinEnter *[^*.txt.gpg] silent! loadview
         "save session
-        autocmd TextChanged,TextChangedI,VimLeave * :silent :mksession!
+        autocmd TextChanged,TextChangedI,VimLeave *[^COMMIT_EDITMSG] :silent :mksession!
     augroup END
     augroup other
         autocmd!
