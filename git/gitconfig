@@ -267,9 +267,14 @@
             git b $1;                                                                                                                       \
         }; f"
     stbp="!f() {                                                                                                                            \
-        git stb $1;                                                                                                                         \
-        git sp;                                                                                                                             \
-    }; f"
+            git stb $1;                                                                                                                     \
+            git sp;                                                                                                                         \
+        }; f"
+    stp="!f() {                                                                                                                             \
+            git st;                                                                                                                         \
+            git p $1;                                                                                                                       \
+            git sp;                                                                                                                         \
+        }; f"
     stu=stash --keep-index
 # last working day logs for current user on all branches
     su="!f() {                                                                                                                              \
