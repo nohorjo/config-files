@@ -79,5 +79,5 @@ if [ "$FROM_VIM" == "" ]
 then
     export PS1="${LIGHT_RED}[${SHLVL}]${LIGHT_GREEN}\u@\h${LIGHT_BLUE}\w${END_COLOURS}\$ "
 else
-    export PS1="bash$ "
+    export PS1="${LIGHT_PURPLE}bash${END_COLOURS}\$ "
 fi
