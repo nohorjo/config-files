@@ -89,6 +89,20 @@ nnoremap <S-Tab><DOWN> :tabc<CR>
 nnoremap <S-Tab><LEFT> :tabp<CR>
 nnoremap <S-Tab><RIGHT> :tabn<CR>
 nnoremap <S-Tab>o :tabo<CR>
+nnoremap <S-Tab><S-Tab> :DupTab<CR>
+command! -bar DupTab
+    \| let s:sessionoptions = &sessionoptions
+    \| try
+    \|   let &sessionoptions = 'blank,help,folds,winsize,localoptions'
+    \|   let s:file = tempname()
+    \|   execute 'mksession ' . s:file
+    \|   tabnew
+    \|   execute 'source ' . s:file
+    \| finally
+    \|   silent call delete(s:file)
+    \|   let &sessionoptions = s:sessionoptions
+    \|   unlet! s:file s:sessionoptions
+    \| endtry
 
 nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
