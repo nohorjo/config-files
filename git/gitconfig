@@ -71,7 +71,7 @@
             echo \"\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)\";                                                                  \
         }; f"
     bb="!f() {                                                                                                                              \
-            git b $(< $(git rev-parse --git-dir)/LAST_BRANCH);                                                                              \
+            git b $(cat $(git rev-parse --git-dir)/LAST_BRANCH);                                                                            \
         }; f"
     bbg="!f() {                                                                                                                             \
             git b $(git bg $1);                                                                                                             \
