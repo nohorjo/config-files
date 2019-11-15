@@ -60,24 +60,53 @@ line() {
 
 export HISTCONTROL=ignoreboth:erasedups
 
-BLUE='\[\e[0;34m\]'
-GREEN='\[\e[0;32m\]'
-CYAN='\[\e[0;36m\]'
-RED='\[\e[0;31m\]'
-PURPLE='\[\e[0;35m\]'
-BROWN='\[\e[0;33m\]'
-LIGHT_BLUE='\[\e[1;34m\]'
-LIGHT_GREEN='\[\e[1;32m\]'
-LIGHT_CYAN='\[\e[1;36m\]'
-LIGHT_RED='\[\e[1;31m\]'
-LIGHT_PURPLE='\[\e[1;35m\]'
-LIGHT_BROWN='\[\e[1;33m\]'
-END_COLOURS='\[\e[m\]'
+F_NORMAL=0
+F_BOLD=1
+F_UNDER=4
+
+FG_BLACK=30
+FG_RED=31
+FG_GREEN=32
+FG_YELLOW=33
+FG_BLUE=34
+FG_PURPLE=35
+FG_CYAN=36
+FG_WHITE=37
+
+BG_BLACK=40
+BG_RED=41
+BG_GREEN=42
+BG_YELLOW=43
+BG_BLUE=44
+BG_PURPLE=45
+BG_CYAN=46
+BG_WHITE=47
+
+
+colour() {
+    echo "\[\e[$1;$2;$3m\]"
+}
+
+if [ "$(whoami)" == "root" ]
+then
+    SHLVL_C=$(colour $F_BOLD $FG_YELLOW $BG_BLACK)
+    USER_HOST_C=$(colour $F_BOLD $FG_RED $BG_BLACK)
+    PATH_C=$(colour $F_NORMAL $FG_CYAN $BG_BLACK)
+
+    VIM_BASH_C=$(colour $F_BOLD $FG_RED $BG_BLACK)
+else
+    SHLVL_C=$(colour $F_BOLD $FG_RED $BG_BLACK)
+    USER_HOST_C=$(colour $F_BOLD $FG_GREEN $BG_BLACK)
+    PATH_C=$(colour $F_BOLD $FG_BLUE $BG_BLACK)
+
+    VIM_BASH_C=$(colour $F_NORMAL $FG_YELLOW $BG_BLACK)
+fi
 
 export OLD_PS1="$PS1"
 if [ "$FROM_VIM" == "" ]
 then
-    export PS1="${LIGHT_RED}[${SHLVL}]${LIGHT_GREEN}\u@\h${LIGHT_BLUE}\w${END_COLOURS}\$ "
+    export PS1="${SHLVL_C}[${SHLVL}]${USER_HOST_C}\u@\h${PATH_C}\w${END_COLOURS}\$ "
 else
-    export PS1="${LIGHT_PURPLE}bash${END_COLOURS}\$ "
+    export PS1="${VIM_BASH_C}bash${END_COLOURS}\$ "
 fi
+
