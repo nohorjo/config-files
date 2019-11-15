@@ -50,3 +50,41 @@ function! MoveComp(from, to, ...)
 
     execute a:to . 'windo EditDiff'
 endfunction
+
+function! s:DoGetImport(import)
+    let l:search = split(a:import, '#')[0]
+    try
+        let l:num = str2nr(split(a:import, '#')[1])
+    catch
+        let l:num = 0
+    endtry
+    let l:fpath = system('find ./src/app/ -name *' . l:search . '*module.ts')
+    let l:fpath = split(l:fpath, '\n')
+
+    if len(l:fpath) != 1
+        if l:num != 0
+            let l:fpath = l:fpath[l:num - 1]
+        else
+            echo l:fpath
+            return
+        endif
+    else
+        let l:fpath = l:fpath[0]
+    endif
+
+    let l:comp = system("grep 'export class' " . l:fpath[:-1])
+    let l:comp = split(l:comp, ' ')[2]
+    let l:relpath = system('realpath --relative-to=' . expand('%') . ' ' . l:fpath)
+    let l:relpath = l:relpath[:-5]
+
+    return "import { " . l:comp . " } from '" . l:relpath . "';"
+endfunction
+
+function! GetImport(...)
+    for import in a:000
+        let l:import = s:DoGetImport(import)
+        if type(l:import) == 1
+            call append(line('.'), l:import)
+        endif
+    endfor
+endfunction
