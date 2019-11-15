@@ -65,6 +65,7 @@ function! s:DoGetImport(import)
         if l:num != 0
             let l:fpath = l:fpath[l:num - 1]
         else
+            echo a:import . ': '
             echo l:fpath
             return
         endif
