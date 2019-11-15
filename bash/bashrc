@@ -82,6 +82,7 @@ BG_PURPLE=45
 BG_CYAN=46
 BG_WHITE=47
 
+END_COLOURS='\[\e[m\]'
 
 colour() {
     echo "\[\e[$1;$2;$3m\]"
