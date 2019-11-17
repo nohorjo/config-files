@@ -103,6 +103,11 @@ command! -bar DupTab
     \|   let &sessionoptions = s:sessionoptions
     \|   unlet! s:file s:sessionoptions
     \| endtry
+command! -bar ToNewTab
+    \| tabe %
+    \| tabp
+    \| q
+    \| tabn
 
 nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
