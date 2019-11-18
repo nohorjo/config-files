@@ -66,8 +66,20 @@ function! s:DoGetImport(import)
             let l:fpath = l:fpath[l:num - 1]
         else
             echo a:import . ': '
-            echo l:fpath
-            return
+            let l:i = 1
+            for p in l:fpath
+                echo l:i . ': ' . p
+                let l:i = l:i + 1
+            endfor
+            let l:selection = input('Which one? ')
+            if l:selection == 0
+                return
+            endif
+            try
+                let l:fpath = l:fpath[l:selection - 1]
+            catch
+                return
+            endtry
         endif
     else
         let l:fpath = l:fpath[0]
