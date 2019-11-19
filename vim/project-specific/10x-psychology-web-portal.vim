@@ -87,8 +87,8 @@ function! s:DoGetImport(import)
 
     let l:comp = system("grep 'export class' " . l:fpath[:-1])
     let l:comp = split(l:comp, ' ')[2]
-    let l:relpath = system('realpath --relative-to=' . expand('%') . ' ' . l:fpath)
-    let l:relpath = l:relpath[3:-5]
+    let l:relpath = system('realpath --relative-to=' . expand('%:h') . ' ' . l:fpath)
+    let l:relpath = l:relpath[:-5]
 
     if l:relpath !~ '\./.*'
         let l:relpath = './' . l:relpath
