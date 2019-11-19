@@ -188,14 +188,14 @@ command! New tabnew | tabonly
 command! Vsp vsplit %:h
 command! So source ~/.vimrc
     \| for plugin in split(globpath('~/.vim/plugin', '*'), '\n')
-        \| execute 'source ' . plugin
-        \| endfor
+    \|     execute 'source ' . plugin
+    \| endfor
     \| if filereadable('.vimrc')
-        \| source .vimrc
-    \| endif | 
+    \|     source .vimrc
+    \| endif
     \| if filereadable('~/.vim/ftplugin/' . &ft . '.vim')
-        \| execute 'source ~/.vim/ftplugin/' . &ft . '.vim'
-    \| endif | 
+    \|     execute 'source ~/.vim/ftplugin/' . &ft . '.vim'
+    \| endif
 
 "pathogen
 execute pathogen#infect()
@@ -231,9 +231,9 @@ call EMMap()
 augroup EMBuffs
     autocmd!
     autocmd BufEnter * if line('$') > 3000 
-            \| let emmapped_prev = g:emmapped
-            \| call EMUnmap()
-            \| let g:emmapped = emmapped_prev
+        \|     let emmapped_prev = g:emmapped
+        \|     call EMUnmap()
+        \|     let g:emmapped = emmapped_prev
         \| endif
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
