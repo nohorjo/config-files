@@ -92,6 +92,11 @@
     bn="!f() {                                                                                                                              \
             git b $(git branch -a --color=never | head -n${1} | tail -n1);                                                                  \
         }; f"
+    br="!f() {                                                                                                                              \
+            local branch=$(git symbolic-ref --short HEAD);                                                                                  \
+            git co -b $1;                                                                                                                   \
+            git bd $branch;                                                                                                                 \
+        }; f"
     c="!f () {                                                                                                                              \
             if [ \"$1\" = \"\" ];                                                                                                           \
             then                                                                                                                            \
