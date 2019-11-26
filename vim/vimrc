@@ -236,6 +236,13 @@ augroup EMBuffs
         \| endif
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
+
+function! FixIndex(n)
+    for i in reverse(range(a:n))
+        execute "normal! <" . i ."jj"
+    endfor
+    execute "normal! " . (a:n + 1) ."k"
+endfunction
     
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
