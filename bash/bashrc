@@ -106,7 +106,11 @@ fi
 export OLD_PS1="$PS1"
 if [ "$FROM_VIM" == "" ]
 then
-    export PS1="${SHLVL_C}[${SHLVL}]${USER_HOST_C}\u@\h${PATH_C}\w${END_COLOURS}\$ "
+    if [ $SHLVL -ne 1 ]
+    then
+        SHLVL_PART="${SHLVL_C}[${SHLVL}]"
+    fi
+    export PS1="${SHLVL_PART}${USER_HOST_C}\u@\h${PATH_C}\w${END_COLOURS}\$ "
 else
     export PS1="${VIM_BASH_C}bash${END_COLOURS}\$ "
 fi
