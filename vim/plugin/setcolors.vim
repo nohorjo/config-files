@@ -26,7 +26,6 @@ let s:mycolors = [
 \'CandyPaper',
 \'night-owl',
 \'turtles',
-\'tone',
 \'bleh',
 \'cabin',
 \'cobalt2',
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'unicon',
 \'magellan',
 \'khaki',
+\'tone',
 \'two-firewatch'
 \]
 
