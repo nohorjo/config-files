@@ -13,7 +13,6 @@ let s:mycolors = [
 \'detailed',
 \'mango',
 \'vimbrains',
-\'hydrangea-mod',
 \'khaki',
 \'space-vim-dark',
 \'flattown',
@@ -51,6 +50,7 @@ let s:mycolors = [
 \]
 let s:justregular = [
 \'valloric',
+\'hydrangea-mod',
 \'moonfly'
 \]
 let s:justdiff = [
