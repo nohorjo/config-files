@@ -29,7 +29,8 @@ for repo in \
     plasticboy/vim-markdown \
     leafgarland/typescript-vim \
     sirtaj/vim-openscad \
-    valloric/MatchTagAlways
+    valloric/MatchTagAlways \
+    tpope/vim-sleuth
 do
     git clone https://github.com/${repo}.git
 done
