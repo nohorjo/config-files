@@ -2,61 +2,6 @@ cabbrev TS %:r:r.component.ts
 cabbrev HTML %:r:r.component.html
 cabbrev MOD %:r:r.module.ts
 
-function! s:DoGetImport(import)
-    let l:search = split(a:import, '#')[0]
-    try
-        let l:num = str2nr(split(a:import, '#')[1])
-    catch
-        let l:num = 0
-    endtry
-    let l:fpath = system('find ./src/app/ -name *' . l:search . '*module.ts')
-    let l:fpath = split(l:fpath, '\n')
-
-    if len(l:fpath) != 1
-        if l:num != 0
-            let l:fpath = l:fpath[l:num - 1]
-        else
-            echo a:import . ': '
-            let l:i = 1
-            for p in l:fpath
-                echo l:i . ': ' . p
-                let l:i = l:i + 1
-            endfor
-            let l:selection = input('Which one? ')
-            if l:selection == 0
-                return
-            endif
-            try
-                let l:fpath = l:fpath[l:selection - 1]
-            catch
-                return
-            endtry
-        endif
-    else
-        let l:fpath = l:fpath[0]
-    endif
-
-    let l:comp = system("grep 'export class' " . l:fpath[:-1])
-    let l:comp = split(l:comp, ' ')[2]
-    let l:relpath = system('realpath --relative-to=' . expand('%:h') . ' ' . l:fpath)
-    let l:relpath = l:relpath[:-5]
-
-    if l:relpath !~ '\./.*'
-        let l:relpath = './' . l:relpath
-    endif
-
-    return "import { " . l:comp . " } from '" . l:relpath . "';"
-endfunction
-
-function! GetImport(...)
-    for import in a:000
-        let l:import = s:DoGetImport(import)
-        if type(l:import) == 1
-            call append(line('.'), l:import)
-        endif
-    endfor
-endfunction
-
 function! Import()
 python3<<EOF
 from subprocess import Popen, PIPE
