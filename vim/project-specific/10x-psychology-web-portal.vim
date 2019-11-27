@@ -2,17 +2,15 @@ cabbrev TS %:r:r.component.ts
 cabbrev HTML %:r:r.component.html
 cabbrev MOD %:r:r.module.ts
 
-function! Import()
+function! s:GetExportPath(compName)
 python3<<EOF
 from subprocess import Popen, PIPE
 import vim
 
-cword = vim.eval("expand('<cword>')")
-
 with Popen([
     "grep",
     "-r",
-    "export.*%s" % cword,
+    "export.*%s" % vim.eval("a:compName"),
     "src"
 ], stdout = PIPE) as proc:
     grep_out = list(map(lambda x: x.split(':')[0], proc.stdout.read().decode('utf-8').split('\n')))
@@ -30,15 +28,27 @@ with Popen([
                         break
                 except ValueError:
                     pass
-        with Popen([
-            "realpath",
-            "--relative-to=%s" % vim.eval("expand('%:h')"),
-            grep_out[index]
-        ], stdout = PIPE) as proc:
-            path = proc.stdout.read().decode('utf-8').strip()[:-3]
-            if path[0] != '.':
-                path = './' + path
-            vim.command("""let impstr = "import { %s } from '%s';" """ % (cword, path))
+        print('let path = "%s"' % grep_out[index])
+        vim.command("let path = '%s'" % grep_out[index])
+EOF
+    return path
+endfunction
+
+function! Import()
+    let path = s:GetExportPath(expand('<cword>'))
+python3<<EOF
+from subprocess import Popen, PIPE
+import vim
+
+with Popen([
+    "realpath",
+    "--relative-to=%s" % vim.eval("expand('%:h')"),
+    vim.eval('path')
+], stdout = PIPE) as proc:
+    path = proc.stdout.read().decode('utf-8').strip()[:-3]
+    if path[0] != '.':
+        path = './' + path
+    vim.command("""let impstr = "import { %s } from '%s';" """ % (vim.eval("expand('<cword>')"), path))
 EOF
     if exists('impstr')
         call append(search('import ', 'bn'), impstr)
