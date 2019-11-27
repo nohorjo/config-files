@@ -259,7 +259,7 @@
     smi=submodule init
     sms=submodule status
     smu=submodule update
-    sp=stash pop
+    sp=stash pop --index
 # last two weeksprint
     sr="!f() {                                                                                                                              \
             git f;                                                                                                                          \
