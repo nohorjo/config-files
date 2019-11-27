@@ -13,7 +13,6 @@ let s:mycolors = [
 \'detailed',
 \'mango',
 \'vimbrains',
-\'khaki',
 \'space-vim-dark',
 \'flattown',
 \'kolor',
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'sublimemonokai',
 \'unicon',
 \'magellan',
+\'khaki',
 \'two-firewatch'
 \]
 
