@@ -1,5 +1,6 @@
-cabbrev TS %:r.ts
-cabbrev HTML %:r.html
+cabbrev TS %:r:r.component.ts
+cabbrev HTML %:r:r.component.html
+cabbrev MOD %:r:r.module.ts
 
 function! s:DoMove(from, to, comp)
     execute a:from . 'wincmd w'
