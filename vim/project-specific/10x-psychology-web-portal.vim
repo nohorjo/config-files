@@ -57,3 +57,7 @@ EOF
     endif
 endfunction
 
+function! GoToDeclaration()
+    execute "edit " . s:GetExportPath(expand('<cword>'))
+endfunction
+
