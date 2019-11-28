@@ -146,8 +146,12 @@
 # diff a commit against previous
     dd="!f() {                                                                                                                              \
             local hash=\"$1\";                                                                                                              \
-            [ \"$hash\" = \"\" ] && local hash=\"@\";                                                                                       \
-            shift;                                                                                                                          \
+            if [ \"$hash\" = \"\" ];                                                                                                        \
+            then                                                                                                                            \
+                local hash=\"@\";                                                                                                           \
+            else                                                                                                                            \
+                shift;                                                                                                                      \
+            fi;                                                                                                                             \
             git d \"$hash^\" \"$hash\" \"$@\";                                                                                              \
         }; f"
 # diff a file
