@@ -196,9 +196,9 @@ command! So source ~/.vimrc
     \| endif
 
 command! WW if &wrap
-    \|     set nowrap
+    \|     setlocal nowrap
     \| else
-    \|     set wrap
+    \|     setlocal wrap
     \| endif
 
 "pathogen
