@@ -195,6 +195,12 @@ command! So source ~/.vimrc
     \|     execute 'source ~/.vim/ftplugin/' . &ft . '.vim'
     \| endif
 
+command! WW if &wrap
+    \|     set nowrap
+    \| else
+    \|     set wrap
+    \| endif
+
 "pathogen
 execute pathogen#infect()
 
