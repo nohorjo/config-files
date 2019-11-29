@@ -37,7 +37,6 @@ let s:mycolors = [
 \'thornbird',
 \'donbass',
 \'znake',
-\'abstract-mod', 
 \'hybrid',
 \'wasabi256',
 \'badwolf',
@@ -49,6 +48,7 @@ let s:mycolors = [
 let s:justregular = [
 \'valloric',
 \'hydrangea-mod',
+\'abstract-mod', 
 \'moonfly'
 \]
 let s:justdiff = [
