@@ -1,5 +1,6 @@
 cabbrev TS %:r:r.component.ts
 cabbrev HTML %:r:r.component.html
+cabbrev CSS %:r:r.component.scss
 cabbrev MOD %:r:r.module.ts
 
 function! s:GetExportPath(compName)
