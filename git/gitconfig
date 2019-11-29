@@ -271,6 +271,7 @@
         }; f"
     ss=stash show -p
     st=stash --include-untracked
+    std=stash drop
     stb="!f() {                                                                                                                             \
             git st;                                                                                                                         \
             git b $1;                                                                                                                       \
