@@ -182,7 +182,7 @@ cabbrev %% %:h
 
 cabbrev G !git
 
-command! New tabnew | tabonly
+command! New ccl | tabnew | tabonly
 command! Vsp vsplit %:h
 command! So source ~/.vimrc
     \| for plugin in split(globpath('~/.vim/plugin', '*'), '\n')
