@@ -285,6 +285,7 @@
             git p $1;                                                                                                                       \
             git sp;                                                                                                                         \
         }; f"
+    stpa=stash --patch
     stu=stash --keep-index
 # last working day logs for current user on all branches
     su="!f() {                                                                                                                              \
