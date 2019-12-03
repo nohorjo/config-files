@@ -11,7 +11,7 @@ function! Surround()
     else
         let otherchar = char
     endif
-    execute "normal! i" . char . "\<C-r>\"" . otherchar
+    execute "normal! i" . char . "\<C-r>\"" . otherchar . "\<Esc>vi" . char
 endfunction
 
 function! SurroundChange()
