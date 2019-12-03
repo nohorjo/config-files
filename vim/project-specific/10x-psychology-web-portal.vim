@@ -3,6 +3,8 @@ cabbrev HTML %:r:r.component.html
 cabbrev CSS %:r:r.component.scss
 cabbrev MOD %:r:r.module.ts
 
+cabbrev CONFIG src/assets/config/config.dev.json
+
 function! s:GetExportPath(compName)
 python3<<EOF
 from subprocess import Popen, PIPE
