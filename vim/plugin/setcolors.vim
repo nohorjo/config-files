@@ -40,7 +40,6 @@ let s:mycolors = [
 \'hybrid',
 \'wasabi256',
 \'badwolf',
-\'jellyx-mod',
 \'sidonia',
 \'soda',
 \'github'
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'magellan',
 \'khaki',
 \'tone',
+\'jellyx-mod',
 \'two-firewatch'
 \]
 
