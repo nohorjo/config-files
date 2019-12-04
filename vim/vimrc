@@ -36,6 +36,8 @@ if &diff
     nnoremap ]c ]czz
     nnoremap dgl :diffg LO<ENTER>
     nnoremap dgr :diffg RE<ENTER>
+    nnoremap dgt ddk/=======<ENTER>V/>>>>>>><ENTER>d
+    nnoremap dgb V/=======<ENTER>dk/>>>>>>><ENTER>dd
     nnoremap dl dd<C-w>wdd<C-w>w
     nnoremap dd dd
     augroup UpdateDiff
