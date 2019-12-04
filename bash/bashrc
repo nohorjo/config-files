@@ -20,9 +20,16 @@ alias resource='source ~/.bashrc'
 
 case $(uname -s) in
     "Linux")
-        alias open='xdg-open'
-        alias pbcopy='xclip -selection clipboard'
-        alias pbpaste='xsel -b'
+        if [ -d '/mnt/c/Windows/System32' ]
+        then
+            alias open='/mnt/c/Windows/System32/cmd.exe /c start'
+            alias pbcopy='/mnt/c/Windows/System32/clip.exe'
+            alias pbpaste='/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command "Get-Clipboard"'
+        else
+            alias open='xdg-open'
+            alias pbcopy='xclip -selection clipboard'
+            alias pbpaste='xsel -b'
+        fi
         ;;
     "Darwin")
         alias tac='tail -r'
