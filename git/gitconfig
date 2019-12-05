@@ -79,7 +79,7 @@
             git b $(git bg $1);                                                                                                             \
         }; f"
     bdg="!f() {                                                                                                                             \
-            git bd $(git bg $1 n);                                                                                                          \
+            git bd $(git bg $1 n | sed 's/*//g');                                                                                           \
         }; f"
     bg="!f() {                                                                                                                              \
             if [ \"$2\" = \"\" ];                                                                                                           \
