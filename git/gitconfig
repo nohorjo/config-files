@@ -9,28 +9,24 @@
     tool = vimdiff
     renormalize = true
 [alias]
-    a=add
-    aa=add -A
+    a="!f() {                                                                                                                               \
+            if [ $# -eq 0 ];                                                                                                                \
+            then                                                                                                                            \
+                git add -A;                                                                                                                 \
+            else                                                                                                                            \
+                git add $@;                                                                                                                 \
+            fi;                                                                                                                             \
+        }; f"
     ac="!f() {                                                                                                                              \
             local message=\"$1\";                                                                                                           \
             shift;                                                                                                                          \
-            if [ $# -eq 0 ];                                                                                                                \
-            then                                                                                                                            \
-                git aa;                                                                                                                     \
-            else                                                                                                                            \
-                git a $@;                                                                                                                   \
-            fi;                                                                                                                             \
+            git a $@;                                                                                                                       \
             git cc \"$message\";                                                                                                            \
         }; f"
     acc="!f() {                                                                                                                             \
             local message=\"$1\";                                                                                                           \
             shift;                                                                                                                          \
-            if [ $# -eq 0 ];                                                                                                                \
-            then                                                                                                                            \
-                git aa;                                                                                                                     \
-            else                                                                                                                            \
-                git a $@;                                                                                                                   \
-            fi;                                                                                                                             \
+            git a $@;                                                                                                                       \
             git c \"$message\";                                                                                                             \
         }; f"
     acf="!f() {                                                                                                                             \
@@ -44,7 +40,7 @@
     as="!f() {                                                                                                                              \
             if [ $# -eq 0 ];                                                                                                                \
             then                                                                                                                            \
-                git aa;                                                                                                                     \
+                git a;                                                                                                                      \
             else                                                                                                                            \
                 git a $*;                                                                                                                   \
             fi;                                                                                                                             \
@@ -131,7 +127,7 @@
     cr="!f() {                                                                                                                              \
         message=$(git log -1 --pretty=%B);                                                                                                  \
         git uc;                                                                                                                             \
-        [ \"$(git diff --name-only --cached)\" = \"\" ] && git aa;                                                                          \
+        [ \"$(git diff --name-only --cached)\" = \"\" ] && git a;                                                                           \
         git commit -m \"$message\";                                                                                                         \
         git pf;                                                                                                                             \
     }; f"
