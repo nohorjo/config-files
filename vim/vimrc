@@ -165,6 +165,10 @@ inoremap :w<CR> <ESC>:w<CR>
 inoremap <Esc><Esc> <C-o>
 inoremap jk <ESC>
 inoremap kj <ESC>
+vnoremap jk <ESC>
+vnoremap kj <ESC>
+vnoremap i <ESC>i
+vnoremap a <ESC>a
 
 "autocomplete
 inoremap <C-l> <C-x><C-l>
