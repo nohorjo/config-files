@@ -297,7 +297,7 @@
             git tag -a \"$1\" -m \"$1\";                                                                                                    \
             git push --tags;                                                                                                                \
         }; f"
-    uc=reset @^
+    uc=reset --soft @^
     uch=reset --hard @^
 [include]
     path=~/.gitconfig_platform
