@@ -19,13 +19,19 @@
         }; f"
     ac="!f() {                                                                                                                              \
             local message=\"$1\";                                                                                                           \
-            shift;                                                                                                                          \
+            if [ $# -ne 0 ];                                                                                                                \
+            then                                                                                                                            \
+                shift;                                                                                                                      \
+            fi;                                                                                                                             \
             git a $@;                                                                                                                       \
             git cc \"$message\";                                                                                                            \
         }; f"
     acc="!f() {                                                                                                                             \
             local message=\"$1\";                                                                                                           \
-            shift;                                                                                                                          \
+            if [ $# -ne 0 ];                                                                                                                \
+            then                                                                                                                            \
+                shift;                                                                                                                      \
+            fi;                                                                                                                             \
             git a $@;                                                                                                                       \
             git c \"$message\";                                                                                                             \
         }; f"
