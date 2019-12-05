@@ -16,7 +16,6 @@ let s:mycolors = [
 \'night-owl',
 \'lilypink',
 \'CandyPaper',
-\'donbass',
 \'hemisu',
 \'wasabi256',
 \'kolor',
@@ -63,6 +62,7 @@ let s:justdiff = [
 \'khaki',
 \'tone',
 \'jellyx-mod',
+\'donbass',
 \'two-firewatch'
 \]
 
