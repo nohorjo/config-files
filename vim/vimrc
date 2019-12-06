@@ -252,6 +252,14 @@ function! FixIndex(n)
     endfor
     execute "normal! " . (a:n + 1) ."k"
 endfunction
+
+function! Session()
+    let l:i = 0
+    while filereadable('Session'. l:i . '.vim')
+        let l:i = l:i + 1
+    endwhile
+    execute 'mksession Session' . l:i . '.vim'
+endfunction
     
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
