@@ -268,4 +268,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
+let g:NERDSpaceDelims = 1
+
 let $FROM_VIM=1
