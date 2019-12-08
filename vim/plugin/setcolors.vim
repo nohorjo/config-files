@@ -23,7 +23,6 @@ let s:mycolors = [
 \'znake',
 \'hybrid',
 \'vendetta',
-\'github',
 \'sidonia',
 \'soda',
 \'evening',
@@ -47,6 +46,7 @@ let s:justregular = [
 \'valloric',
 \'hydrangea-mod',
 \'abstract-mod', 
+\'github',
 \'moonfly'
 \]
 let s:justdiff = [
