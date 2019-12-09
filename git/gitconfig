@@ -182,6 +182,7 @@
             fi;                                                                                                                             \
         }; f"
     di=diff
+    dic=diff --cached
 # only modified
     dm=difftool --diff-filter=M
 # diff names only
