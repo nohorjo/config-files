@@ -200,7 +200,7 @@
             then                                                                                                                            \
                 local stash=\"0\";                                                                                                          \
             fi;                                                                                                                             \
-            git difftool stash@{$stash};                                                                                                    \
+            git difftool ...stash@{$stash};                                                                                                 \
         }; f"
     f=fetch --all --prune
 # grep files
