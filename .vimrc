@@ -29,6 +29,6 @@ if !&diff
     augroup END
 endif
 
-inoremap <Leader>f ="!f() { \<CR>    }; f"<ESC>O    
+inoremap <Leader>f ="!f() { \<CR>}; f"<ESC>O    
 inoremap <Leader><CR> ;\<CR>
 
