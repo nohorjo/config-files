@@ -64,3 +64,4 @@ function! GoToDeclaration()
     execute "edit " . s:GetExportPath(expand('<cword>'))
 endfunction
 
+nnoremap <C-f> :find src/**/
