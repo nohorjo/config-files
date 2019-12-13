@@ -222,6 +222,10 @@
     mm=merge master
     ms=merge staging
     mt=mergetool
+    mtr="!f() {                                                                                                                             \
+            git mt;                                                                                                                         \
+            git rh;                                                                                                                         \
+        }; f"
     p="!f(){                                                                                                                                \
             [ \"$1\" = \"\" ] && branch=$(git symbolic-ref --short HEAD) || branch=$1;                                                      \
             git pull origin $branch;                                                                                                        \
