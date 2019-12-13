@@ -127,6 +127,7 @@ nnoremap FF :Grep ""
 nnoremap Ff yiw:Grep "" \<<C-r>"\> ./
 vnoremap Ff y:Grep F <C-r>" ./
 nnoremap * *``:%s///gn<CR>
+vnoremap * y/<C-r>"<Enter>
 nnoremap <silent> /<CR> /\[^.\]<CR>
 
 nnoremap <Leader>q :qa!<CR>
