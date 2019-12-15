@@ -16,6 +16,8 @@ alias adbr='adb reverse tcp:8081 tcp:8081'
 alias rnra='react-native run-android'
 alias rrnra='adb uninstall $(grep package android/app/src/main/AndroidManifest.xml | cut -d\" -f2); rnra'
 
+alias venv='source venv/bin/activate'
+
 alias resource='source ~/.bashrc'
 
 case $(uname -s) in
