@@ -113,7 +113,7 @@ nnoremap <Enter> <UP>o<ESC><DOWN>
 nnoremap <Space> i <ESC><RIGHT>
 
 "searching
-nnoremap <C-f> :find ./**/
+cabbrev F find ./**/
 let g:grepexcludes = '--exclude "' . join(["*.cfile", "*.orig", "Session.vim"], '" --exclude "') . '" --exclude-dir "' . join([".git"], '" --exclude-dir "') . '"'
 command! -nargs=+ -complete=file Grep call Grep(<f-args>)
 function! Grep(...)

@@ -5,6 +5,8 @@ cabbrev MOD %:r:r.module.ts
 
 cabbrev CONFIG src/assets/config/config.dev.json
 
+cabbrev F find src/**/
+
 function! s:GetExportPath(compName)
 python3<<EOF
 from subprocess import Popen, PIPE
@@ -64,4 +66,3 @@ function! GoToDeclaration()
     execute "edit " . s:GetExportPath(expand('<cword>'))
 endfunction
 
-nnoremap <C-f> :find src/**/
