@@ -49,8 +49,8 @@ else
     set number relativenumber
     set foldcolumn=2
     function! s:SaveSession()
-        if index(['COMMIT_EDITMSG', '[Command Line]'], expand('%:t')) == -1
-             silent mksession!
+        if index(['COMMIT_EDITMSG', 'MERGE_MSG', '[Command Line]'], expand('%:t')) == -1
+            silent mksession!
         endif
     endfunction
     "make active window obvious
