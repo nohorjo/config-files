@@ -184,8 +184,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-n>"
 
 cabbrev %% %:h
 
-cabbrev G !git
-
 command! New ccl | tabnew | tabonly
 command! Vsp vsplit %:h
 command! So source ~/.vimrc
