@@ -225,6 +225,10 @@
             git mt;                                                                                                                     \
             git rh;                                                                                                                     \
         }; f"
+    mtrd="!f() {                                                                                                                        \
+            git mtr;                                                                                                                    \
+            git std;                                                                                                                    \
+        }; f"
     p="!f(){                                                                                                                            \
             [ \"$1\" = \"\" ] && branch=$(git symbolic-ref --short HEAD) || branch=$1;                                                  \
             git pull origin $branch;                                                                                                    \
