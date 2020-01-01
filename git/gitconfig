@@ -316,6 +316,19 @@
         }; f"
     uc=reset --soft @^
     uch=reset --hard @^
+    wip="!f() {                                                                                                                         \
+        git p;                                                                                                                          \
+        if [ \"$(git log -1 --pretty=%B)\" = \"WIP\" ];                                                                                 \
+        then                                                                                                                            \
+            git uc;                                                                                                                     \
+            git rh;                                                                                                                     \
+            git pf;                                                                                                                     \
+        else                                                                                                                            \
+            git as;                                                                                                                     \
+            git commit -m WIP;                                                                                                          \
+            git pp;                                                                                                                     \
+        fi;                                                                                                                             \
+        }; f"
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type
