@@ -293,6 +293,9 @@
             git stb $1;                                                                                                                 \
             git sp;                                                                                                                     \
         }; f"
+    stbpm="!f() {                                                                                                                       \
+            git stbp master;                                                                                                            \
+        }; f"
     stp="!f() {                                                                                                                         \
             git st;                                                                                                                     \
             git p $1;                                                                                                                   \
