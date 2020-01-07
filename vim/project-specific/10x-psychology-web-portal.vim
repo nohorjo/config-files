@@ -15,7 +15,7 @@ import vim
 with Popen([
     "grep",
     "-r",
-    "export.*%s" % vim.eval("a:compName"),
+    "export.*\\b%s\\b" % vim.eval("a:compName"),
     "src"
 ], stdout = PIPE) as proc:
     grep_out = list(map(lambda x: x.split(':')[0], proc.stdout.read().decode('utf-8').split('\n')))
