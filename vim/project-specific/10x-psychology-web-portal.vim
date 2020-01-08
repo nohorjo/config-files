@@ -5,7 +5,8 @@ cabbrev MOD %:r:r.module.ts
 
 cabbrev CONFIG src/assets/config/config.dev.json
 
-cabbrev F find src/**/
+cabbrev F find src/**
+cabbrev VF vs \| find src/**
 
 function! s:GetExportPath(compName)
 python3<<EOF
