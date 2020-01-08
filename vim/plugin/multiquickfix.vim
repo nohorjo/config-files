@@ -48,3 +48,5 @@ command! Cn let t:fn = expand('%') | wincmd j | $ | call search(t:fn, 'b') | let
 command! Cp let t:fn = expand('%') | wincmd j | 0 | call search(t:fn) | let t:qfnum = line('.') - 1 | execute 'cc' . t:qfnum | normal! zvzz
 
 cabbrev ccl ccl \| if exists('t:qflist') \| unlet t:qflist \| endif
+cabbrev cn cn \| let t:qfnum = t:qfnum + 1
+cabbrev cp cp \| let t:qfnum = t:qfnum - 1
