@@ -58,19 +58,34 @@
         }; f"
 # checks out a branch, creates if not exist
     b="!f() {                                                                                                                           \
+            local current=$(git symbolic-ref --short HEAD);                                                                             \
+            local pass=0;                                                                                                               \
+            local writelast=0;                                                                                                          \
             if [ $1 ];                                                                                                                  \
             then                                                                                                                        \
                 echo $1;                                                                                                                \
-                echo $(git symbolic-ref --short HEAD) > $(git rev-parse --git-dir)/LAST_BRANCH;                                         \
                 if git co $(echo $1 | sed 's/remotes\\/[^\\/]*\\///g') 2>/dev/null;                                                     \
                 then                                                                                                                    \
                     git p;                                                                                                              \
-                else                                                                                                                    \
-                    git co -b $1;                                                                                                       \
+                    pass=1;                                                                                                             \
+                    writelast=1;                                                                                                        \
+                elif git co -b $1;                                                                                                      \
+                then                                                                                                                    \
+                    pass=1;                                                                                                             \
+                    writelast=1;                                                                                                        \
                 fi;                                                                                                                     \
+            else                                                                                                                        \
+                pass=1;                                                                                                                 \
             fi;                                                                                                                         \
-            git list-branches;                                                                                                          \
-            echo \"\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)\";                                                              \
+            if [ $pass = 1 ];                                                                                                           \
+            then                                                                                                                        \
+                if [ $writelast = 1 ];                                                                                                  \
+                then                                                                                                                    \
+                    echo $current > $(git rev-parse --git-dir)/LAST_BRANCH;                                                             \
+                fi;                                                                                                                     \
+                git list-branches;                                                                                                      \
+                echo \"\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)\";                                                          \
+            fi;                                                                                                                         \
         }; f"
     bb="!f() {                                                                                                                          \
             git b $(cat $(git rev-parse --git-dir)/LAST_BRANCH);                                                                        \
