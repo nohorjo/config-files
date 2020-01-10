@@ -258,6 +258,7 @@ function! Session()
         let l:i = l:i + 1
     endwhile
     execute 'mksession Session' . l:i . '.vim'
+    echo 'Created session ' . l:i
 endfunction
     
 function! SyntasticEnable()
