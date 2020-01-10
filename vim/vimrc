@@ -245,6 +245,11 @@ augroup EMBuffs
     autocmd BufLeave * if g:emmapped | call EMMap() | endif
 augroup END
 
+augroup SaveClosedBufs
+    autocmd!
+    au BufUnload * let g:lastbuf=expand('%')
+augroup END
+
 function! FixIndex(n)
     for i in reverse(range(a:n))
         execute "normal! <" . i ."jj"
