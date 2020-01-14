@@ -250,6 +250,11 @@ augroup SaveClosedBufs
     au BufUnload * let g:lastbuf=expand('%')
 augroup END
 
+augroup SaveStateBeforeWrite
+    autocmd!
+    au BufUnload * if !exists('b:beforewritefile')
+augroup END
+
 function! FixIndex(n)
     for i in reverse(range(a:n))
         execute "normal! <" . i ."jj"
@@ -267,14 +272,10 @@ function! Session()
 endfunction
     
 function! SyntasticEnable()
-    if exists('*SyntasticToggleMode')
-        call SyntasticToggleMode()
-    endif
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_check_on_open = 1
 endfunction
 function! SyntasticDisable()
-    call SyntasticToggleMode()
     let g:syntastic_always_populate_loc_list = 0
     let g:syntastic_check_on_open = 0
 endfunction
