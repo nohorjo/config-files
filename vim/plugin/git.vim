@@ -5,6 +5,7 @@ function! GitDiff()
     let ft = &ft
     vnew
     execute "read !git show @:" . fn
+    normal! ggdd
     execute "set ft=" . ft
     windo diffthis
 endfunction
