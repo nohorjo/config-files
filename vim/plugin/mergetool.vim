@@ -1,6 +1,7 @@
 function! DiffBase(other)
     execute a:other . 'wincmd w'
     let line = line('.')
+    4wincmd w
 
     let base = bufname(2)
     let other = bufname(a:other)
