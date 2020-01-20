@@ -248,6 +248,7 @@ augroup END
 augroup SaveClosedBufs
     autocmd!
     au BufUnload * let g:lastbuf=expand('%')
+    au WinLeave * let g:lastwin=expand('%')
 augroup END
 
 function! FixIndex(n)
