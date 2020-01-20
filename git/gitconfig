@@ -39,6 +39,9 @@
         git acc \"$@\";                                                                                                                 \
         git pf;                                                                                                                         \
     }; f"
+    alias="!f() {                                                                                                                       \
+        git config alias.$1 | sed 's/\\(  \\+\\)/\\n    /g';                                                                            \
+    }; f"
     ap="!f() {                                                                                                                          \
             git add -p;                                                                                                                 \
             git dc;                                                                                                                     \
