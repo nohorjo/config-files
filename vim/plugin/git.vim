@@ -2,6 +2,7 @@ cabbrev G !git
 
 function! GitDiff()
     let fn = expand('%')
+    execute 'tabe ' . fn
     let ft = &ft
     vnew
     execute "read !git show @:" . fn
