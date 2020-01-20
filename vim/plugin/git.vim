@@ -40,3 +40,5 @@ function! View()
         2,3windo diffthis
     endif
 endfunction
+
+command! -bar View call View()
