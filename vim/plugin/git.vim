@@ -3,11 +3,10 @@ cabbrev G !git
 function! GitDiff()
     let fn = expand('%')
     execute 'tabe ' . fn
-    let ft = &ft
-    vnew
+    execute 'vs ' . tempname() . '.' . expand('%:e')
     execute "read !git show @:" . fn
     normal! ggdd
-    execute "set ft=" . ft
+    write
     windo diffthis
 endfunction
 
@@ -16,12 +15,12 @@ command! -bar Gdiff call GitDiff()
 function! GitHistory()
     let fn = expand('%')
     execute 'tabe ' . fn
-    let t:ft = &ft
-    vnew
-    50vnew
+    execute 'vs ' . tempname() . '.' . expand('%:e')
+    execute '50vs ' . tempname()
     execute 'read !git log --pretty="\%h \%s" --follow ' . fn
     let t:ghistorywin=fn
-    normal! ggdd
+    normal! ggddj
+    write
     set readonly
     call View()
 endfunction
@@ -35,7 +34,7 @@ function! View()
         normal! ggdG
         execute "read !git show " . hash . ":" . t:ghistorywin
         normal! ggdd
-        execute "set ft=" . t:ft
+        write
         windo diffoff
         2,3windo diffthis
     endif
