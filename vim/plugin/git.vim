@@ -12,13 +12,13 @@ endfunction
 
 command! -bar Gdiff call GitDiff()
 
-function! GitHistory()
+function! GitHistory(ref)
     let fn = expand('%')
     execute 'tabe ' . fn
     execute 'vs ' . tempname() . '.' . expand('%:e')
     execute 'vs ' . tempname() . '.' . expand('%:e')
     execute '50vs ' . tempname()
-    execute 'read !git log --pretty="\%h \%s" --follow ' . fn
+    execute 'read !git log ' . a:ref .' --pretty="\%h \%s" --follow ' . fn
     let t:ghistorywin=fn
     normal! ggdd
     write
@@ -26,7 +26,7 @@ function! GitHistory()
     call View()
 endfunction
 
-command! -bar Ghistory call GitHistory()
+command! -bar Ghistory call GitHistory('@')
 
 function! View()
     if exists('t:ghistorywin')
