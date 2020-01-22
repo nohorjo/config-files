@@ -143,7 +143,7 @@
             fi;                                                                                                                         \
         }; f"
     clo="!f() {                                                                                                                         \
-            find . -name \\*.orig | xargs rm;                                                                                           \
+            find . -name \\*.orig | xargs -I{} rm \"{}\";                                                                               \
         }; f"
     co=checkout
     cp=cherry-pick
