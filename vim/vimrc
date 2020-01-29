@@ -134,7 +134,7 @@ nnoremap <silent> /<CR> /\[^.\]<CR>
 nnoremap <Leader>q :qa!<CR>
 nnoremap <Leader>Q :only<CR>
 
-nnoremap Q :let $MODIFIED = len(filter(getbufinfo(), 'v:val.changed == 1 && len(v:val.windows)')) \| sh<CR>
+nnoremap Q :let $MODIFIED = len(filter(getbufinfo(), 'v:val.changed == 1 && len(v:val.windows)')) \| let $F = expand('%') \| sh<CR>
 
 "replacing words
 nnoremap <C-g> :%s//gc<LEFT><LEFT><LEFT>
