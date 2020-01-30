@@ -54,3 +54,58 @@ function! View()
 endfunction
 
 command! -bar View call View()
+
+function! GitBlame()
+    let fn = expand('%')
+    let ln = line('.')
+    execute 'tabe ' . fn
+    normal! gg
+    execute 'vs ' . tempname()
+    setlocal nowrap
+python3<<EOF
+from subprocess import Popen, PIPE
+import vim
+import re
+
+with Popen([
+    "git",
+    "blame",
+    "-p",
+    vim.eval("fn")
+], stdout = PIPE) as proc:
+    lines = proc.stdout.read().decode('utf-8').split('\n')
+    out = ""
+    ln = 0
+    summaries = {}
+    committers = {}
+    lasthash = ""
+    ll = 50
+    for l in lines:
+        if re.match('^[a-f\d]{40}( \d+){3}$', l):
+            lasthash = l[0:7]
+            out = out + lasthash
+        elif l.startswith('committer-mail'):
+            email = l.replace('committer-mail', '')
+            out = out + email
+            committers[lasthash] = email
+        elif l.startswith('summary'):
+            summary = l.replace('summary', '')
+            out = out + summary
+            summaries[lasthash] = summary
+        elif l.startswith('\t'):
+            if out == lasthash:
+                out = "%s%s%s" % (lasthash, committers[lasthash], summaries[lasthash])
+            vim.command('call append(%d ,"%s")' % (ln, out))
+            ln = ln + 1
+            ll = min(max(ll, len(out)), 100)
+            out = ""
+        vim.command("""exe "vertical resize " . (&foldcolumn + &numberwidth + %d + 4)""" % ll)
+EOF
+    write
+    normal! gg
+    windo set scrollbind
+    execute ln
+endfunction
+
+command! -bar Gblame call GitBlame()
+
