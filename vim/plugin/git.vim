@@ -15,16 +15,16 @@ command! -bar Gdiff call GitDiff()
 function! GitHistory(ref)
     let fn = expand('%')
     execute 'tabe ' . fn
-    let width = (winwidth('.') - 50) / 3
+    execute 'sp ' . tempname() . '.' . expand('%:e')
     execute 'vs ' . tempname() . '.' . expand('%:e')
-    execute 'vs ' . tempname() . '.' . expand('%:e')
-    execute '50vs ' . tempname()
+    execute 'vs ' . tempname()
+    wincmd H
+    vertical resize 50
     execute 'read !git log ' . a:ref .' --pretty="\%h \%s" --follow ' . fn
     let t:ghistorywin=fn
     normal! ggdd
     write
     set readonly
-    execute "2,4windo vertical resize " . width
     call View()
 endfunction
 
