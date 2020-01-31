@@ -15,13 +15,14 @@ command! -bar Gdiff call GitDiff()
 function! GitHistory(ref)
     let fn = expand('%')
     execute 'tabe ' . fn
+    let t:ghistoryln = line('.')
     execute 'sp ' . tempname() . '.' . expand('%:e')
     execute 'vs ' . tempname() . '.' . expand('%:e')
     execute 'vs ' . tempname()
     wincmd H
     vertical resize 50
     execute 'read !git log ' . a:ref .' --pretty="\%h \%s" --follow ' . fn
-    let t:ghistorywin=fn
+    let t:ghistorywin = fn
     normal! ggdd
     write
     set readonly
@@ -52,6 +53,7 @@ function! View()
         endfor
         windo diffoff
         2,4windo diffthis
+        execute "normal! " . t:ghistoryln . "ggzz"
         1wincmd w
     endif
 endfunction
