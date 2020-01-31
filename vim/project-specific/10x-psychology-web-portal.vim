@@ -74,7 +74,7 @@ import vim
 with Popen([
     "grep",
     "-Enr",
-    "^\\s*%s\\([^\\)]*\\)[ ]+{" % vim.eval("expand('<cword>')"),
+    "^\\s*%s\\([^\\)]*\\)[ :a-zA-Z<>]+{" % vim.eval("expand('<cword>')"),
     "src"
 ], stdout = PIPE) as proc:
     grep_out = list(map(lambda x: x.split(':'), proc.stdout.read().decode('utf-8').split('\n')))
