@@ -25,7 +25,6 @@ function! GitHistory(ref)
     write
     set readonly
     execute "2,4windo vertical resize " . width
-    1wincmd w
     call View()
 endfunction
 
@@ -53,6 +52,7 @@ function! View()
         endfor
         windo diffoff
         2,4windo diffthis
+        1wincmd w
     endif
 endfunction
 
