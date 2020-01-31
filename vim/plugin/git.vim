@@ -15,6 +15,7 @@ command! -bar Gdiff call GitDiff()
 function! GitHistory(ref)
     let fn = expand('%')
     execute 'tabe ' . fn
+    let width = (winwidth('.') - 50) / 3
     execute 'vs ' . tempname() . '.' . expand('%:e')
     execute 'vs ' . tempname() . '.' . expand('%:e')
     execute '50vs ' . tempname()
@@ -23,6 +24,8 @@ function! GitHistory(ref)
     normal! ggdd
     write
     set readonly
+    execute "2,4windo vertical resize " . width
+    1wincmd w
     call View()
 endfunction
 
