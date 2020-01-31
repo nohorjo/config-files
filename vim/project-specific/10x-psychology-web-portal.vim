@@ -34,7 +34,6 @@ with Popen([
                         break
                 except ValueError:
                     pass
-        print('let path = "%s"' % grep_out[index])
         vim.command("let path = '%s'" % grep_out[index])
 EOF
     return path
@@ -67,3 +66,33 @@ function! GoToDeclaration()
     execute "edit " . s:GetExportPath(expand('<cword>'))
 endfunction
 
+function! FindMethod()
+python3<<EOF
+from subprocess import Popen, PIPE
+import vim
+
+with Popen([
+    "grep",
+    "-Enr",
+    "^\\s*%s\\([^\\)]*\\)[ ]+{" % vim.eval("expand('<cword>')"),
+    "src"
+], stdout = PIPE) as proc:
+    grep_out = list(map(lambda x: x.split(':'), proc.stdout.read().decode('utf-8').split('\n')))
+    if len(grep_out) > 1:
+        if len(grep_out) is 2:
+            index = 0
+        else:
+            for i, l in enumerate(grep_out):
+                if not l[0] == '':
+                    print('[%i] %s' % (i, l[0]))
+            while True:
+                try:
+                    index = int(vim.eval("input('Which one? ')"))
+                    if index < len(grep_out) - 1 and index >= 0:
+                        break
+                except ValueError:
+                    pass
+        vim.command("tabe %s" % grep_out[index][0])
+        vim.command("%s" % grep_out[index][1])
+EOF
+endfunction
