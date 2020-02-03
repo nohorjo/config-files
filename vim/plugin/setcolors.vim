@@ -27,7 +27,6 @@ let s:mycolors = [
 \'hybrid',
 \'vimbrains',
 \'badwolf',
-\'sidonia',
 \'detailed',
 \'night-owl',
 \'soda',
@@ -60,7 +59,7 @@ let s:justdiff = [
 \'jellyx-mod',
 \'elda',
 \'sorcerer',
-\'znake',
+\'sidonia',
 \'khaki'
 \]
 
