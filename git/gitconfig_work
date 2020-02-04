@@ -3,8 +3,5 @@
 [alias]
     bd=branch -D
     bs=!git b master
-    commit-with-issue-tag="!f () {          \
-            git commit -m \"$@\";           \
-        }; f"
     ms=merge master
     ps=pull origin master

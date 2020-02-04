@@ -9,222 +9,16 @@
     tool = vimdiff
     renormalize = true
 [alias]
-    a="!f() {                                                                                                                           \
-            if [ $# -eq 0 ];                                                                                                            \
-            then                                                                                                                        \
-                git add -A;                                                                                                             \
-            else                                                                                                                        \
-                git add $@;                                                                                                             \
-            fi;                                                                                                                         \
-        }; f"
-    ac="!f() {                                                                                                                          \
-            local message=\"$1\";                                                                                                       \
-            if [ $# -ne 0 ];                                                                                                            \
-            then                                                                                                                        \
-                shift;                                                                                                                  \
-            fi;                                                                                                                         \
-            git a $@;                                                                                                                   \
-            git cc \"$message\";                                                                                                        \
-        }; f"
-    acc="!f() {                                                                                                                         \
-            local message=\"$1\";                                                                                                       \
-            if [ $# -ne 0 ];                                                                                                            \
-            then                                                                                                                        \
-                shift;                                                                                                                  \
-            fi;                                                                                                                         \
-            git a $@;                                                                                                                   \
-            git c \"$message\";                                                                                                         \
-        }; f"
-    acf="!f() {                                                                                                                         \
-        git acc \"$@\";                                                                                                                 \
-        git pf;                                                                                                                         \
-    }; f"
-    alias="!f() {                                                                                                                       \
-        git config alias.$1 | sed 's/\\(  \\+\\)/\\n    /g';                                                                            \
-    }; f"
-    ap="!f() {                                                                                                                          \
-            git add -p;                                                                                                                 \
-            git dc;                                                                                                                     \
-    }; f"
-    as="!f() {                                                                                                                          \
-            if [ $# -eq 0 ];                                                                                                            \
-            then                                                                                                                        \
-                git a;                                                                                                                  \
-            else                                                                                                                        \
-                git a $*;                                                                                                               \
-            fi;                                                                                                                         \
-            git s;                                                                                                                      \
-        }; f"
-    asd="!f() {                                                                                                                         \
-            git as $@;                                                                                                                  \
-            git dc;                                                                                                                     \
-        }; f"
-# checks out a branch, creates if not exist
-    b="!f() {                                                                                                                           \
-            local current=$(git symbolic-ref --short HEAD);                                                                             \
-            local pass=0;                                                                                                               \
-            local writelast=0;                                                                                                          \
-            if [ $1 ];                                                                                                                  \
-            then                                                                                                                        \
-                echo $1;                                                                                                                \
-                if git co $(echo $1 | sed 's/remotes\\/[^\\/]*\\///g') 2>/dev/null;                                                     \
-                then                                                                                                                    \
-                    git p;                                                                                                              \
-                    pass=1;                                                                                                             \
-                    writelast=1;                                                                                                        \
-                elif git co -b $1;                                                                                                      \
-                then                                                                                                                    \
-                    pass=1;                                                                                                             \
-                    writelast=1;                                                                                                        \
-                fi;                                                                                                                     \
-            else                                                                                                                        \
-                pass=1;                                                                                                                 \
-            fi;                                                                                                                         \
-            if [ $pass = 1 ];                                                                                                           \
-            then                                                                                                                        \
-                if [ $writelast = 1 ];                                                                                                  \
-                then                                                                                                                    \
-                    echo $current > $(git rev-parse --git-dir)/LAST_BRANCH;                                                             \
-                fi;                                                                                                                     \
-                git list-branches;                                                                                                      \
-                echo \"\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)\";                                                          \
-            fi;                                                                                                                         \
-        }; f"
-    bb="!f() {                                                                                                                          \
-            git b $(cat $(git rev-parse --git-dir)/LAST_BRANCH);                                                                        \
-        }; f"
-    bbg="!f() {                                                                                                                         \
-            git b $(git bg $1);                                                                                                         \
-        }; f"
-    bdg="!f() {                                                                                                                         \
-            git bd $(git bg $1 n | sed 's/*//g');                                                                                       \
-        }; f"
-    bg="!f() {                                                                                                                          \
-            if [ \"$2\" = \"\" ];                                                                                                       \
-            then                                                                                                                        \
-                a=-a;                                                                                                                   \
-            fi;                                                                                                                         \
-            git branch $a                                                                                                               \
-            | grep $1;                                                                                                                  \
-        }; f"
     bm=!git b master
-# switch to nth last branch, as shown by git b
-    bn="!f() {                                                                                                                          \
-            git b $(git branch -a --color=never | head -n${1} | tail -n1);                                                              \
-        }; f"
-    br="!f() {                                                                                                                          \
-            local branch=$(git symbolic-ref --short HEAD);                                                                              \
-            git co -b $1;                                                                                                               \
-            git bd $branch;                                                                                                             \
-        }; f"
-    c="!f () {                                                                                                                          \
-            if [ \"$1\" = \"\" ];                                                                                                       \
-            then                                                                                                                        \
-                git commit;                                                                                                             \
-            else                                                                                                                        \
-                git commit-with-issue-tag \"$@\";                                                                                       \
-            fi;                                                                                                                         \
-        }; f"
-# commit and push
-    cc="!f() {                                                                                                                          \
-            git c \"$1\";                                                                                                               \
-            git pp;                                                                                                                     \
-        }; f"
-    cl="!f() {                                                                                                                          \
-            local toclean=\"$(git clean -n -d)\";                                                                                       \
-            echo \"$toclean\";                                                                                                          \
-            if [ \"$toclean\" != \"\" ];                                                                                                \
-            then                                                                                                                        \
-                read -p 'Enter y to confirm, or anything else to quit: ' y;                                                             \
-                if [ \"$y\" = \"y\" ];                                                                                                  \
-                then                                                                                                                    \
-                    git clean -f -d;                                                                                                    \
-                fi;                                                                                                                     \
-            fi;                                                                                                                         \
-        }; f"
-    clo="!f() {                                                                                                                         \
-            find . -name \\*.orig | xargs -I{} rm \"{}\";                                                                               \
-        }; f"
     co=checkout
     cp=cherry-pick
-# redo commit
-    cr="!f() {                                                                                                                          \
-        message=$(git log -1 --pretty=%B);                                                                                              \
-        git uc;                                                                                                                         \
-        [ \"$(git diff --name-only --cached)\" = \"\" ] && git a;                                                                       \
-        git commit -m \"$message\";                                                                                                     \
-        git pf;                                                                                                                         \
-    }; f"
     d=difftool
-# diff blame filename line
-    db="!f() {                                                                                                                          \
-            local rev=\"$(git blame $1 -L $2,$2 | cut -d' ' -f1)\";                                                                     \
-            echo $rev;                                                                                                                  \
-            git df $1 $rev;                                                                                                             \
-        }; f"
     dc=!git d --cached
-# diff a commit against previous
-    dd="!f() {                                                                                                                          \
-            local hash=\"$1\";                                                                                                          \
-            if [ \"$hash\" = \"\" ];                                                                                                    \
-            then                                                                                                                        \
-                local hash=\"@\";                                                                                                       \
-            else                                                                                                                        \
-                shift;                                                                                                                  \
-            fi;                                                                                                                         \
-            git d \"$hash^\" \"$hash\" \"$@\";                                                                                          \
-        }; f"
-# diff a file
-    df="!f() {                                                                                                                          \
-            git dfh $1 $2 n;                                                                                                            \
-        }; f"
-# keep diffing a file
-    dfh="!f() {                                                                                                                         \
-            local current=\"$2\";                                                                                                       \
-            if [ \"$current\" = \"\" ];                                                                                                 \
-            then                                                                                                                        \
-                local current=\"@\";                                                                                                    \
-            fi;                                                                                                                         \
-            local prev=\"$(git rev-list $(git rev-list @ | tail -n 1)..$current^ $1 | head -n 1)\";                                     \
-            git log -n 1 $prev;                                                                                                         \
-            git d -y $prev:$1 $2:$1;                                                                                                    \
-            if [ \"$3\" = \"\" ];                                                                                                       \
-            then                                                                                                                        \
-                read -p 'Enter q to quit, or anything else to continue: ' q;                                                            \
-                if [ \"$q\" != \"q\" ];                                                                                                 \
-                then                                                                                                                    \
-                    git dfh $1 $prev;                                                                                                   \
-                else                                                                                                                    \
-                    echo;                                                                                                               \
-                fi;                                                                                                                     \
-            fi;                                                                                                                         \
-        }; f"
     di=diff
     dic=diff --cached
 # only modified
     dm=difftool --diff-filter=M
-# diff names only
-    dn="!f() {                                                                                                                          \
-            git diff --name-only \"$1^!\";                                                                                              \
-        }; f"
-# diff using git show, `other` `this`
-    do="!f() {                                                                                                                          \
-            git show $1 | vim -d - +\"vs $2 | wincmd r | windo diffthis | windo set ro\";                                               \
-        }; f"
-# diff stash
-    ds="!f() {                                                                                                                          \
-            local stash=\"$1\";                                                                                                         \
-            if [ \"$stash\" = \"\" ];                                                                                                   \
-            then                                                                                                                        \
-                local stash=\"0\";                                                                                                      \
-            fi;                                                                                                                         \
-            git difftool ...stash@{$stash};                                                                                             \
-        }; f"
     f=fetch --all --prune
-# grep files
-    g="!f() {                                                                                                                           \
-            git rev-list --all -- \"$2\"  | xargs git grep \"$1\";                                                                      \
-        }; f"
     git=!git
 # pretty log
     l=!git ll -15
@@ -239,120 +33,24 @@
     mm=merge master
     ms=merge staging
     mt=mergetool
-    mtr="!f() {                                                                                                                         \
-            git mt;                                                                                                                     \
-            git rh;                                                                                                                     \
-        }; f"
-    mtrd="!f() {                                                                                                                        \
-            git mtr;                                                                                                                    \
-            git std;                                                                                                                    \
-        }; f"
-    p="!f(){                                                                                                                            \
-            [ \"$1\" = \"\" ] && branch=$(git symbolic-ref --short HEAD) || branch=$1;                                                  \
-            git pull origin $branch;                                                                                                    \
-        }; f"
-    pa="!f(){                                                                                                                           \
-            local current=\"$(git symbolic-ref --short HEAD)\";                                                                         \
-            git branch -r                                                                                                               \
-            | grep -v '\\->'                                                                                                            \
-            | while read remote;                                                                                                        \
-            do                                                                                                                          \
-                git b ${remote#origin/};                                                                                                \
-                git p;                                                                                                                  \
-            done;                                                                                                                       \
-            git b $current;                                                                                                             \
-        }; f"
-    pf="!f(){                                                                                                                           \
-            git push --force origin $(git symbolic-ref --short HEAD);                                                                   \
-        }; f"
     pm=pull origin master
-# pull nth last branch, as shown by git b
-    pn="!f() {                                                                                                                          \
-            git p $(git branch -a --color=never | head -n${1} | tail -n1);                                                              \
-        }; f"
-    pp="!f(){                                                                                                                           \
-            git push origin $(git symbolic-ref --short HEAD);                                                                           \
-        }; f"
-    r="!f(){                                                                                                                            \
-            git reset --hard origin/$(git symbolic-ref --short HEAD);                                                                   \
-        }; f"
-    rcl="!f() {                                                                                                                         \
-            git r;                                                                                                                      \
-            git cl;                                                                                                                     \
-        }; f"
     rh=reset @
     rhh=reset --hard @
     s=status
-    sd="!f() {                                                                                                                          \
-            git s;                                                                                                                      \
-            git d;                                                                                                                      \
-        }; f"
     sl=stash list
     smi=submodule init
     sms=submodule status
     smu=submodule update
     sp=stash pop --index
-# last two weeksprint
-    sr="!f() {                                                                                                                          \
-            git f;                                                                                                                      \
-            git lm --branches=* --since=\"2 weeks\";                                                                                    \
-        }; f"
     ss=stash show -p
     st=stash --include-untracked
-    std="!f() {                                                                                                                         \
-            git stash drop;                                                                                                             \
-            git sl;                                                                                                                     \
-        }; f"
-    stb="!f() {                                                                                                                         \
-            git st;                                                                                                                     \
-            git b $1;                                                                                                                   \
-        }; f"
-    stbp="!f() {                                                                                                                        \
-            git stb $1;                                                                                                                 \
-            git sp;                                                                                                                     \
-        }; f"
-    stbpm="!f() {                                                                                                                       \
-            git stbp master;                                                                                                            \
-        }; f"
-    stp="!f() {                                                                                                                         \
-            git st;                                                                                                                     \
-            git p $1;                                                                                                                   \
-            git sp;                                                                                                                     \
-        }; f"
     stpa=stash --patch
-    stpm="!f() {                                                                                                                        \
-            git stp master;                                                                                                             \
-        }; f"
     stu=stash --keep-index
-# last working day logs for current user on all branches
-    su="!f() {                                                                                                                          \
-            git f;                                                                                                                      \
-            if [ $(date +%u) -eq 1 ];                                                                                                   \
-            then                                                                                                                        \
-                git lm --branches=* --since=\"3 day\";                                                                                  \
-            else                                                                                                                        \
-                git lm --branches=* --since=\"1 day\";                                                                                  \
-            fi;                                                                                                                         \
-        }; f"
-    t="!f() {                                                                                                                           \
-            git tag -a \"$1\" -m \"$1\";                                                                                                \
-            git push --tags;                                                                                                            \
-        }; f"
     uc=reset --soft @^
     uch=reset --hard @^
-    wip="!f() {                                                                                                                         \
-        git p;                                                                                                                          \
-        if [ \"$(git log -1 --pretty=%B)\" = \"WIP\" ];                                                                                 \
-        then                                                                                                                            \
-            git uc;                                                                                                                     \
-            git rh;                                                                                                                     \
-            git pf;                                                                                                                     \
-        else                                                                                                                            \
-            git as;                                                                                                                     \
-            git commit -m WIP;                                                                                                          \
-            git pp;                                                                                                                     \
-        fi;                                                                                                                             \
-        }; f"
 [include]
     path=~/.gitconfig_platform
     path=~/.gitconfig_type
+    path=~/.gitconfig_aliases
+    path=~/.gitconfig_aliases_platform
+    path=~/.gitconfig_aliases_type

@@ -1,8 +1,2 @@
 [alias]
-# checks out a branch, creates if not exist
-    list-branches="!f() {                 \
-        git branch -a --color=always      \
-        | nl                              \
-        | tail -r;                        \
-    }; f"
 
