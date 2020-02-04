@@ -211,11 +211,11 @@ mtrd() {
     git mtr
     git std
 }
-p(){
+p() {
     [ "$1" = "" ] && branch=$(git symbolic-ref --short HEAD) || branch=$1
     git pull origin $branch
 }
-pa(){
+pa() {
     local current="$(git symbolic-ref --short HEAD)"
     git branch -r | grep -v '\->' | while read remote
     do
@@ -224,17 +224,17 @@ pa(){
     done
     git b $current
 }
-pf(){
+pf() {
     git push --force origin $(git symbolic-ref --short HEAD)
 }
 # pull nth last branch, as shown by git b
 pn() {
     git p $(git branch -a --color=never | head -n${1} | tail -n1)
 }
-pp(){
+pp() {
     git push origin $(git symbolic-ref --short HEAD)
 }
-r(){
+r() {
     git reset --hard origin/$(git symbolic-ref --short HEAD)
 }
 rcl() {
