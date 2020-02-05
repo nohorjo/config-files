@@ -88,6 +88,9 @@ bbg() {
 bdg() {
     git bd $(git bg $1 n | sed 's/*//g')
 }
+bdn() {
+    git bd $(git branch -a --color=never | head -n${1} | tail -n1)
+}
 bg() {
     if [ "$2" = "" ]
     then
