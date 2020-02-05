@@ -110,6 +110,8 @@ EOF
     normal! gg
     windo set scrollbind
     execute ln
+    1wincmd w
+    execute ln
 endfunction
 
 command! -bar Gblame call GitBlame()
