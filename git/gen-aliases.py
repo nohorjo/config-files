@@ -21,7 +21,7 @@ with open(script) as file:
         elif line == '}':
             aliases[name] = func_string
             func_string = ""
-        elif not line.startswith('#'):
+        elif not line.lstrip().startswith('#'):
             semi = ";"
             stripped = func_string.rstrip();
             if stripped.endswith(' then') or stripped.endswith(' else') or stripped.endswith(' do') or stripped == '':
