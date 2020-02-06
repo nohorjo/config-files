@@ -8,6 +8,9 @@ cabbrev CONFIG src/assets/config/config.dev.json
 cabbrev F find src/**
 cabbrev VF vs \| find src/**
 
+set foldmethod=syntax
+set foldnestmax=2
+
 function! s:GetExportPath(compName)
 python3<<EOF
 from subprocess import Popen, PIPE
