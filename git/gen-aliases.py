@@ -24,8 +24,15 @@ with open(script) as file:
         elif not line.lstrip().startswith('#'):
             semi = ";"
             stripped = func_string.rstrip();
-            if stripped.endswith(' then') or stripped.endswith(' else') or stripped.endswith(' do') or stripped == '':
-                    semi = ""
+            if (
+                stripped.endswith(' then')
+                or stripped.endswith(' else')
+                or stripped.endswith(' do')
+                or stripped.endswith(';')
+                or stripped.endswith('{')
+                or stripped == ''
+            ):
+                semi = ""
             func_string = func_string + semi + line
 
 with open(out_file, 'w') as out:
