@@ -10,6 +10,7 @@ cabbrev VF vs \| find src/**
 
 set foldmethod=syntax
 set foldnestmax=2
+set foldlevel=99
 
 function! s:GetExportPath(compName)
 python3<<EOF
