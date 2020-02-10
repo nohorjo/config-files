@@ -95,7 +95,7 @@ with Popen([
             out = out + email
             committers[lasthash] = email
         elif l.startswith('summary'):
-            summary = l.replace('summary', '')
+            summary = l.replace('summary', '').replace('"', '\\"')
             out = out + summary
             summaries[lasthash] = summary
         elif l.startswith('\t'):
