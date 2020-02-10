@@ -64,6 +64,7 @@ function! GitBlame()
     let fn = expand('%')
     let ln = line('.')
     execute 'tabe ' . fn
+    setlocal nofoldenable
     normal! gg
     execute 'vs ' . tempname()
     setlocal nowrap
