@@ -105,7 +105,7 @@ with Popen([
             ln = ln + 1
             ll = min(max(ll, len(out)), 100)
             out = ""
-        vim.command("""exe "vertical resize " . (&foldcolumn + &numberwidth + %d + 4)""" % ll)
+    vim.command("""exe "vertical resize " . (&foldcolumn + &numberwidth + %d + 4)""" % ll)
 EOF
     write
     normal! gg
