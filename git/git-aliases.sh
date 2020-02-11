@@ -90,6 +90,7 @@ bdg() {
 }
 bdn() {
     git bd $(git branch -a --color=never | head -n${1} | tail -n1)
+    git list-branches
 }
 bg() {
     if [ "$2" = "" ]
