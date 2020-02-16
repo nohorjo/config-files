@@ -1,3 +1,8 @@
+if command -v >/dev/null xset 2>&1
+then
+    xset -b
+fi
+
 alias gti=git
 alias la='ls -a'
 alias ll='ls -l'
