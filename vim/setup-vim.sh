@@ -58,5 +58,6 @@ npm install -g \
 npm install -g js-beautify
 npm install -g \
     tslint \
-    typescript
+    typescript \
+    typescipt-parser
 
