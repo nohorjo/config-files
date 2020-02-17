@@ -188,7 +188,12 @@ dfh() {
 }
 # diff names only
 dn() {
-    git diff --name-only "$1^!"
+    if [ "$1" = "" ]
+    then
+        git diff --name-only
+    else
+        git diff --name-only "$1^!"
+    fi
 }
 # diff using git show, `other` `this`
 do() {
