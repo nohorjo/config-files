@@ -204,6 +204,8 @@ command! WW if &wrap
     \|     setlocal wrap
     \| endif
 
+command! NoDiff windo diffoff | windo set noscrollbind | windo set nocursorbind
+
 "pathogen
 execute pathogen#infect()
 
