@@ -22,7 +22,6 @@ let s:mycolors = [
 \'vendetta',
 \'orbital',
 \'Tomorrow',
-\'Tomorrow-Night-Bright',
 \'hemisu',
 \'hybrid',
 \'vimbrains',
@@ -42,6 +41,7 @@ let s:justregular = [
 \'mango',
 \'github',
 \'valloric',
+\'Tomorrow-Night-Bright',
 \'abstract-mod'
 \]
 let s:justdiff = [
