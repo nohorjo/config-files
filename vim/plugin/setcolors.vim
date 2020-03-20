@@ -48,7 +48,6 @@ let s:justdiff = [
 \'neverland-darker',
 \'donbass',
 \'antares',
-\'itsasoa',
 \'sublimemonokai',
 \'materialbox',
 \'phosphor',
