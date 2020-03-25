@@ -72,6 +72,10 @@ line() {
     fi
 }
 
+free_port() {
+    kill -9 `netstat -tulpn 2>/dev/null | grep $1 | awk '{ print $7 }' | cut -d/ -f1`
+}
+
 export HISTCONTROL=ignoreboth:erasedups
 
 F_NORMAL=0
