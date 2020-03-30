@@ -18,6 +18,7 @@ set secure
 
 " swap files here
 set directory^=~/.vim/tmp//
+set directory-=.
 set nobackup
 
 filetype plugin on
