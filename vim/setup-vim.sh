@@ -37,7 +37,7 @@ for repo in \
     sirtaj/vim-openscad \
     tpope/vim-sleuth \
     valloric/MatchTagAlways \
-    peitalin/vim-jsx-typescript
+    ianks/vim-tsx
 do
     git clone https://github.com/${repo}.git
 done
