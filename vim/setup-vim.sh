@@ -37,7 +37,7 @@ for repo in \
     sirtaj/vim-openscad \
     tpope/vim-sleuth \
     valloric/MatchTagAlways \
-    ianks/vim-tsx
+    peitalin/vim-jsx-typescript
 do
     git clone https://github.com/${repo}.git
 done
@@ -45,7 +45,7 @@ done
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
-rm -rf vim-tsx/after/indent
+rm -rf vim-jsx-typescript/after/indent
 
 popd
 
