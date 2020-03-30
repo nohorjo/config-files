@@ -45,6 +45,8 @@ done
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
+rm -rf vim-tsx/after/indent
+
 popd
 
 npm install -g \
