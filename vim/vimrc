@@ -21,6 +21,8 @@ set directory^=~/.vim/tmp//
 set directory-=.
 set nobackup
 
+set wildignore+=**/node_modules/**
+
 filetype plugin on
 syntax on
 
