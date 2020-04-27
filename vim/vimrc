@@ -293,3 +293,4 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDSpaceDelims = 1
 
 let $FROM_VIM=1
+let $BASH_ENV="~/.bashrc_custom"

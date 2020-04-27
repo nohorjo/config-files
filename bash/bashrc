@@ -136,3 +136,5 @@ else
     export PS1="[+] ${VIM_BASH_C}bash${END_COLOURS}\$ "
 fi
 
+shopt -s expand_aliases
+
