@@ -3,6 +3,10 @@ cabbrev HTML %:r:r.component.html
 cabbrev CSS %:r:r.component.scss
 cabbrev MOD %:r:r.module.ts
 
+cabbrev TSP %:r:r.page.ts
+cabbrev HTMLP %:r:r.page.html
+cabbrev CSSP %:r:r.page.scss
+
 cabbrev CONFIG src/assets/config/config.dev.json
 
 cabbrev F find src/**
