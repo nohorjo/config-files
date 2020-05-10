@@ -76,7 +76,7 @@ b() {
         echo $current > $(git rev-parse --git-dir)/LAST_BRANCH
     fi
     git list-branches
-    echo "\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)"
+    echo -e "\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)"
     fi
 }
 bb() {
