@@ -24,11 +24,9 @@ let s:mycolors = [
 \'vimbrains',
 \'hemisu',
 \'hybrid',
-\'bleh',
 \'itg_flat',
 \'zazen',
 \'wasabi256',
-\'turtles',
 \'night-owl'
 \]
 let s:justregular = [
@@ -46,7 +44,6 @@ let s:justdiff = [
 \'two-firewatch',
 \'materialbox',
 \'orbital',
-\'phosphor',
 \'sublimemonokai',
 \'unicon',
 \'sorcerer',
