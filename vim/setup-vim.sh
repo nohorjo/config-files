@@ -1,5 +1,7 @@
 #!/bin/bash
 
+command -v npm || { echo Please install node; exit 1; }
+
 ln -s $(pwd)/vimrc ~/.vimrc
 
 mkdir -p \
