@@ -5,6 +5,9 @@ command -v npm || { echo Please install node; exit 1; }
 if command -v apt
 then
     apt install build-essential cmake python3-dev mono-runtime golang-go
+elif command -v pacman
+then
+    pacman -S cmake mono go
 fi
 
 ln -s $(pwd)/vimrc ~/.vimrc

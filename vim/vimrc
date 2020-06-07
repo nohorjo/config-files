@@ -1,3 +1,5 @@
+"Load python3 first
+py3 pass
 set nocompatible
 set term=screen-256color
 set cursorline
