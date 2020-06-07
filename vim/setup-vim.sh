@@ -2,6 +2,11 @@
 
 command -v npm || { echo Please install node; exit 1; }
 
+if command -v apt
+then
+    apt install build-essential cmake python3-dev mono-runtime golang-go
+fi
+
 ln -s $(pwd)/vimrc ~/.vimrc
 
 mkdir -p \
@@ -40,13 +45,14 @@ for repo in \
     tpope/vim-sleuth \
     valloric/MatchTagAlways \
     peitalin/vim-jsx-typescript \
-    Quramy/tsuquyomi
+    ycm-core/YouCompleteMe
 do
     git clone https://github.com/${repo}.git
 done
 
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+cd YouCompleteMe && git submodule update --init --recursive && python3 install.py --all; cd ..
 
 rm -rf vim-jsx-typescript/after/indent
 
