@@ -22,7 +22,6 @@ let s:mycolors = [
 \'cobalt2',
 \'detailed',
 \'badwolf',
-\'hybrid',
 \'dracula',
 \'wasabi256',
 \'zazen',
@@ -52,6 +51,7 @@ let s:justdiff = [
 \'donbass',
 \'materialbox',
 \'vendetta',
+\'hybrid',
 \'khaki'
 \]
 
