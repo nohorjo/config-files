@@ -16,7 +16,6 @@ let s:mycolors = [
 \'hemisu',
 \'soda',
 \'flattown',
-\'kolor',
 \'itg_flat',
 \'thornbird',
 \'night-owl',
@@ -37,6 +36,7 @@ let s:justregular = [
 \'CandyPaper',
 \'Tomorrow-Night-Bright',
 \'valloric',
+\'kolor',
 \'github'
 \]
 let s:justdiff = [
