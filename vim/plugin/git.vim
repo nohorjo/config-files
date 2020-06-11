@@ -26,6 +26,7 @@ function! GitHistory(ref)
     normal! ggdd
     write
     set readonly
+    nnoremap <buffer> <Enter> :call View()<CR>
     call View()
 endfunction
 
@@ -57,8 +58,6 @@ function! View()
         1wincmd w
     endif
 endfunction
-
-command! -bar View call View()
 
 function! GitBlame()
     let fn = expand('%')
