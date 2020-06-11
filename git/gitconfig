@@ -8,6 +8,8 @@
 [merge]
     tool = vimdiff
     renormalize = true
+[pull]
+    rebase = false
 [alias]
     bm=!git b master
     co=checkout
