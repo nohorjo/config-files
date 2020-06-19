@@ -158,6 +158,7 @@ nnoremap z{ [{zf%
 
 "switch windows
 nnoremap <Leader>; <C-w>w
+nnoremap <Leader><Leader>; <C-w>W
 
 "continue page in another split
 nnoremap <Leader>cv :setlocal nowrap<CR>H<C-w>v:set scb<CR><C-w>w:setlocal nowrap<CR>Ljzt:set scb<CR>
