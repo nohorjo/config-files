@@ -10,49 +10,49 @@ endif
 let loaded_setcolors = 1
 
 let s:mycolors = [
-\'evening',
-\'tropikos-mod',
-\'lilypink',
-\'hemisu',
-\'soda',
-\'flattown',
-\'itg_flat',
-\'thornbird',
-\'night-owl',
 \'cobalt2',
+\'hemisu',
+\'itg_flat',
+\'night-owl',
+\'tropikos-mod',
+\'flattown',
 \'detailed',
+\'evening',
+\'vimbrains',
+\'lilypink',
 \'badwolf',
-\'dracula',
+\'thornbird',
 \'wasabi256',
-\'zazen',
-\'vimbrains'
+\'dracula'
 \]
 let s:justregular = [
-\'space-vim-dark',
-\'mango',
-\'Tomorrow',
-\'abstract-mod',
-\'CandyPaper',
-\'Tomorrow-Night-Bright',
 \'valloric',
-\'kolor',
+\'abstract-mod',
+\'Tomorrow-Night-Bright',
+\'soda',
 \'github'
+\'Tomorrow',
+\'mango',
+\'CandyPaper',
+\'space-vim-dark',
+\'kolor'
 \]
 let s:justdiff = [
-\'two-firewatch',
-\'antares',
-\'jellyx-mod',
-\'sublimemonokai',
-\'unicon',
-\'neverland-darker',
-\'elda',
-\'orbital',
-\'sorcerer',
+\'zazen',
 \'donbass',
 \'materialbox',
-\'vendetta',
+\'antares',
+\'khaki',
+\'orbital',
 \'hybrid',
-\'khaki'
+\'neverland-darker',
+\'jellyx-mod',
+\'elda',
+\'two-firewatch',
+\'vendetta',
+\'sublimemonokai',
+\'unicon',
+\'sorcerer'
 \]
 
 let s:regularcolours = copy(s:mycolors) + s:justregular
