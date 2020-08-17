@@ -59,6 +59,7 @@ b() {
     if git co $(echo $1 | sed 's/remotes\/[^\/]*\///g') 2>/dev/null
     then
         git p
+        sleep 1
         pass=1
         writelast=1
     elif git co -b $1
