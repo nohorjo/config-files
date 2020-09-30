@@ -295,5 +295,8 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:NERDSpaceDelims = 1
 
+let g:ycm_auto_hover=''
+nmap <leader>z <plug>(YCMHover)
+
 let $FROM_VIM=1
 let $BASH_ENV="~/.bashrc_custom"
