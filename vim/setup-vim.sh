@@ -50,7 +50,7 @@ for repo in \
     peitalin/vim-jsx-typescript \
     ycm-core/YouCompleteMe
 do
-    git clone https://github.com/${repo}.git
+    git clone https://github.com/${repo}.git || cd ${repo#*/} && git pull; cd ..
 done
 
 cd vim-jsbeautify && git submodule update --init --recursive ; cd ..
