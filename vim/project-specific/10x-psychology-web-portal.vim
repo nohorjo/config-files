@@ -1,8 +1,3 @@
-augroup fileopen
-    autocmd!
-    autocmd BufRead * let g:syntastic_typescript_checkers = ['tsuquyomi', 'eslint']
-augroup END
-
 cabbrev TS %:r:r.component.ts
 cabbrev HTML %:r:r.component.html
 cabbrev CSS %:r:r.component.scss

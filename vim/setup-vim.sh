@@ -67,11 +67,9 @@ npm install -g \
     eslint-config-react-app \
     eslint-plugin-flowtype \
     eslint-plugin-import \
-    eslint-plugin-import \
     eslint-plugin-jsx-a11y \
     eslint-plugin-react
 npm install -g js-beautify
 npm install -g \
-    tslint \
     typescript
 
