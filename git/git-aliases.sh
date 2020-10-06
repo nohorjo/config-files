@@ -1,16 +1,16 @@
 a() {
     if [ $# -eq 0 ]
     then
-    git add -A
+        git add -A
     else
-    git add $@
+        git add $@
     fi
 }
 ac() {
     local message="$1"
     if [ $# -ne 0 ]
     then
-    shift
+        shift
     fi
     git a $@
     git cc "$message"
@@ -19,7 +19,7 @@ acc() {
     local message="$1"
     if [ $# -ne 0 ]
     then
-    shift
+        shift
     fi
     git a $@
     git c "$message"
@@ -38,9 +38,9 @@ ap() {
 as() {
     if [ $# -eq 0 ]
     then
-    git a
+        git a
     else
-    git a $*
+        git a $*
     fi
     git s
 }
@@ -55,29 +55,29 @@ b() {
     local writelast=0
     if [ $1 ]
     then
-    echo $1
-    if git co $(echo $1 | sed 's/remotes\/[^\/]*\///g') 2>/dev/null
-    then
-        git p
-        sleep 1
-        pass=1
-        writelast=1
-    elif git co -b $1
-    then
-        pass=1
-        writelast=1
-    fi
+        echo $1
+        if git co $(echo $1 | sed 's/remotes\/[^\/]*\///g') 2>/dev/null
+        then
+            git p
+            sleep 1
+            pass=1
+            writelast=1
+        elif git co -b $1
+        then
+            pass=1
+            writelast=1
+        fi
     else
-    pass=1
+        pass=1
     fi
     if [ $pass = 1 ]
     then
-    if [ $writelast = 1 ]
-    then
-        echo $current > $(git rev-parse --git-dir)/LAST_BRANCH
-    fi
-    git list-branches
-    echo -e "\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)"
+        if [ $writelast = 1 ]
+        then
+            echo $current > $(git rev-parse --git-dir)/LAST_BRANCH
+        fi
+        git list-branches
+        echo -e "\n\tb\t$(cat $(git rev-parse --git-dir)/LAST_BRANCH)"
     fi
 }
 bb() {
@@ -96,7 +96,7 @@ bdn() {
 bg() {
     if [ "$2" = "" ]
     then
-    a=-a
+        a=-a
     fi
     git branch $a | grep $1
 }
@@ -112,17 +112,17 @@ br() {
 c() {
     if [ "$(git log -1 --pretty=%B)" = "WIP" ]
     then
-    git st
-    git wip
-    git sp
-    git c "$1"
+        git st
+        git wip
+        git sp
+        git c "$1"
     else
-    if [ "$1" = "" ]
-    then
-    git commit
-    else
-    git commit-with-issue-tag "$@"
-    fi
+        if [ "$1" = "" ]
+        then
+            git commit
+        else
+            git commit-with-issue-tag "$@"
+        fi
     fi
 }
 # commit and push
@@ -135,11 +135,11 @@ cl() {
     echo "$toclean"
     if [ "$toclean" != "" ]
     then
-    read -p 'Enter y to confirm, or anything else to quit: ' y
-    if [ "$y" = "y" ]
-    then
-        git clean -f -d
-    fi
+        read -p 'Enter y to confirm, or anything else to quit: ' y
+        if [ "$y" = "y" ]
+        then
+            git clean -f -d
+        fi
     fi
 }
 clo() {
@@ -164,9 +164,9 @@ dd() {
     local hash="$1"
     if [ "$hash" = "" ]
     then
-    local hash="@"
+        local hash="@"
     else
-    shift
+        shift
     fi
     git d "$hash^" "$hash" "$@"
 }
@@ -179,20 +179,20 @@ dfh() {
     local current="$2"
     if [ "$current" = "" ]
     then
-    local current="@"
+        local current="@"
     fi
     local prev="$(git rev-list $(git rev-list @ | tail -n 1)..$current^ $1 | head -n 1)"
     git log -n 1 $prev
     git d -y $prev:$1 $2:$1
     if [ "$3" = "" ]
     then
-    read -p 'Enter q to quit, or anything else to continue: ' q
-    if [ "$q" != "q" ]
-    then
-        git dfh $1 $prev
-    else
-        echo
-    fi
+        read -p 'Enter q to quit, or anything else to continue: ' q
+        if [ "$q" != "q" ]
+        then
+            git dfh $1 $prev
+        else
+            echo
+        fi
     fi
 }
 # diff names only
@@ -213,7 +213,7 @@ ds() {
     local stash="$1"
     if [ "$stash" = "" ]
     then
-    local stash="0"
+        local stash="0"
     fi
     git difftool ...stash@{$stash}
 }
@@ -237,8 +237,8 @@ pa() {
     local current="$(git symbolic-ref --short HEAD)"
     git branch -r | grep -v '\->' | while read remote
     do
-    git b ${remote#origin/}
-    git p
+        git b ${remote#origin/}
+        git p
     done
     git b $current
 }
@@ -296,9 +296,9 @@ su() {
     git f
     if [ $(date +%u) -eq 1 ]
     then
-    git lm --branches=* --since="3 day"
+        git lm --branches=* --since="3 day"
     else
-    git lm --branches=* --since="1 day"
+        git lm --branches=* --since="1 day"
     fi
 }
 t() {
@@ -309,12 +309,12 @@ wip() {
     git p
     if [ "$(git log -1 --pretty=%B)" = "WIP" ]
     then
-    git uc
-    git rh
-    git pf
+        git uc
+        git rh
+        git pf
     else
-    git as
-    git commit -m WIP
-    git pp
+        git as
+        git commit -m WIP
+        git pp
     fi
 }
