@@ -39,6 +39,6 @@ with open(out_file, 'w') as out:
     contents = "[alias]\n"
     for name, func_string in aliases.items():
         escaped = func_string.replace('\\', '\\\\').replace('"', '\\"')
-        contents = contents + '%s="!f() { %s; }; f"\n' % (name, escaped)
+        contents = contents + '%s="!f() { set -e; %s; }; f"\n' % (name, escaped)
     out.write(contents)
 
