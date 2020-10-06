@@ -110,11 +110,19 @@ br() {
     git bd $branch
 }
 c() {
+    if [ "$(git log -1 --pretty=%B)" = "WIP" ]
+    then
+    git st
+    git wip
+    git sp
+    git c "$1"
+    else
     if [ "$1" = "" ]
     then
     git commit
     else
     git commit-with-issue-tag "$@"
+    fi
     fi
 }
 # commit and push
