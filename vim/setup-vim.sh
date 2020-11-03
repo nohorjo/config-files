@@ -39,7 +39,6 @@ for repo in \
     easymotion/vim-easymotion \
     leafgarland/typescript-vim \
     maksimr/vim-jsbeautify \
-    mhinz/vim-startify \
     mxw/vim-jsx \
     pangloss/vim-javascript \
     plasticboy/vim-markdown \
