@@ -2,6 +2,7 @@ cabbrev TS %:r:r.component.ts
 cabbrev HTML %:r:r.component.html
 cabbrev CSS %:r:r.component.scss
 cabbrev MOD %:r:r.module.ts
+cabbrev TEST %:r.spec.ts
 
 cabbrev TSP %:r:r.page.ts
 cabbrev HTMLP %:r:r.page.html
