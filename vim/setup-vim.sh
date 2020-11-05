@@ -37,6 +37,7 @@ curl -LSso autoload/pathogen.vim https://tpo.pe/pathogen.vim
 cd bundle
 for repo in \
     easymotion/vim-easymotion \
+    kshenoy/vim-signature \
     leafgarland/typescript-vim \
     maksimr/vim-jsbeautify \
     mxw/vim-jsx \
