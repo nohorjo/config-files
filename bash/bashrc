@@ -4,8 +4,8 @@ then
 fi
 
 alias gti=git
-alias la='ls -a'
-alias ll='ls -l'
+alias la='ls -alh'
+alias ll='ls -lh'
 alias ne='node -e'
 alias vom=vim
 
