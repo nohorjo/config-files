@@ -6,10 +6,11 @@ augroup END
 
 augroup Syntax
     autocmd!
-    autocmd BufEnter *.txt.gpg set syntax=markdown
+    autocmd InsertEnter *.txt.gpg set syntax=markdown
 augroup END
 
 set foldmethod=marker
+set foldmarker=##,----
 set noswf
 
 "gpg decrypt
