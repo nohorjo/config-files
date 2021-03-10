@@ -3,6 +3,8 @@ then
     xset -b
 fi
 
+alias sudo='sudo '
+
 alias gti=git
 alias la='ls -alh'
 alias ll='ls -lh'
@@ -20,6 +22,8 @@ alias adbll='adb logcat -T1 | grep "ReactNativeJS\\|System\\."'
 alias adbr='adb reverse tcp:8081 tcp:8081'
 alias rnra='react-native run-android'
 alias rrnra='adb uninstall $(grep package android/app/src/main/AndroidManifest.xml | cut -d\" -f2); rnra'
+
+alias ns='ng serve --ssl'
 
 alias venv='source venv/bin/activate'
 
@@ -138,4 +142,5 @@ fi
 
 shopt -s expand_aliases
 
-export ANDROID_HOME=~/Android/Sdk
+export ANDROID_HOME=~/Android
+export PATH=./node_modules/.bin:$PATH
