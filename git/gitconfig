@@ -56,3 +56,5 @@
     path=~/.gitconfig_aliases
     path=~/.gitconfig_aliases_platform
     path=~/.gitconfig_aliases_type
+[init]
+	defaultBranch = master
