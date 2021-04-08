@@ -26,7 +26,7 @@ with Popen([
 ], stdout = PIPE) as proc:
     grep_out = list(map(lambda x: x.split(':')[0], proc.stdout.read().decode('utf-8').split('\n')))
     if len(grep_out) > 1:
-        if len(grep_out) is 2:
+        if len(grep_out) == 2:
             index = 0
         else:
             for i, l in enumerate(grep_out):
