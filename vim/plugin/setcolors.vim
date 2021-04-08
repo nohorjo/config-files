@@ -16,7 +16,6 @@ let s:mycolors = [
 \'thornbird',
 \'wasabi256',
 \'evening',
-\'lilypink',
 \'tropikos-mod',
 \'dracula',
 \'itg_flat',
