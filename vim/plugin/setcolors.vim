@@ -10,46 +10,45 @@ endif
 let loaded_setcolors = 1
 
 let s:mycolors = [
-\'hemisu',
-\'detailed',
-\'vimbrains',
-\'thornbird',
-\'wasabi256',
 \'evening',
-\'tropikos-mod',
 \'dracula',
+\'wasabi256',
 \'itg_flat',
-\'cobalt2'
+\'thornbird',
+\'hemisu',
+\'cobalt2',
+\'vimbrains',
+\'tropikos-mod',
+\'detailed'
 \]
 let s:justregular = [
-\'Tomorrow-Night-Bright',
-\'badwolf',
-\'CandyPaper',
-\'Tomorrow',
-\'abstract-mod',
 \'soda',
-\'valloric',
-\'flattown',
-\'mango',
 \'space-vim-dark',
+\'mango',
+\'kolor',
 \'github',
-\'kolor'
+\'CandyPaper',
+\'flattown',
+\'Tomorrow-Night-Bright',
+\'valloric',
+\'badwolf',
+\'Tomorrow'
 \]
 let s:justdiff = [
-\'jellyx-mod',
-\'unicon',
-\'two-firewatch',
-\'hybrid',
-\'sublimemonokai',
-\'orbital',
 \'neverland-darker',
-\'zazen',
-\'antares',
-\'khaki',
-\'sorcerer',
-\'materialbox',
+\'orbital',
 \'donbass',
-\'vendetta'
+\'zazen',
+\'vendetta',
+\'jellyx-mod',
+\'materialbox',
+\'antares',
+\'sublimemonokai',
+\'khaki',
+\'two-firewatch',
+\'sorcerer',
+\'unicon',
+\'hybrid'
 \]
 
 let s:regularcolours = copy(s:mycolors) + s:justregular
