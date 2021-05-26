@@ -12,6 +12,7 @@
     rebase = false
 [alias]
     bm=!git b master
+    cm=log -1 --pretty=%B
     co=checkout
     cp=cherry-pick
     d=difftool
