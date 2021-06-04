@@ -13,6 +13,8 @@ set scrolloff=3
 set complete=.,w,u,b,i
 set backspace=indent,eol,start
 set linebreak
+set breakindent
+set showbreak=ᐧᐧ
 "no text break
 set fo-=t
 "enable project specific .vimrc
