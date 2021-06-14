@@ -47,6 +47,7 @@
     sp=stash pop --index
     ss=stash show -p
     st=stash --include-untracked
+    stbm=stbpm
     stpa=stash --patch
     stu=stash --keep-index
     uc=reset --soft @^
