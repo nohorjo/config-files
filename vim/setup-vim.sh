@@ -48,5 +48,3 @@ npm install -g js-beautify
 npm install -g \
     typescript
 
-popd
-
