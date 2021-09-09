@@ -32,7 +32,7 @@ for repo in \
     scrooloose/nerdtree \
     tpope/vim-sleuth
 do
-    git clone https://github.com/${repo}.git || cd ${repo#*/} && git pull; cd ..
+    git clone https://github.com/${repo}.git || cd ${repo#*/} && (git pull; cd ..)
 done
 
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
