@@ -11,7 +11,6 @@
 [pull]
     rebase = false
 [alias]
-    bm=!git b master
     cm=log -1 --pretty=%B
     co=checkout
     cp=cherry-pick
@@ -33,10 +32,8 @@
     lm=!git ll --author=$(git config user.email)
     lp=log --pretty=format:'%C(blue)%<(15)%cr%Creset %C(yellow)%h%Creset %C(red)%<(25)%ce%Creset %C(bold green)%<(95,trunc)%s%Creset'
     m=merge
-    mm=merge master
     ms=merge staging
     mt=mergetool
-    pm=pull origin master
     rh=reset @
     rhh=reset --hard @
     s=status
@@ -59,4 +56,4 @@
     path=~/.gitconfig_aliases_platform
     path=~/.gitconfig_aliases_type
 [init]
-	defaultBranch = master
+    defaultBranch = master

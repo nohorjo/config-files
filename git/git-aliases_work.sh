@@ -7,3 +7,6 @@ commit-with-issue-tag() {
     fi
     git commit -m "$issue_tag$@"
 }
+master-branch() {
+    echo develop
+}

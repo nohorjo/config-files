@@ -100,6 +100,9 @@ bg() {
     fi
     git branch $a | grep $1
 }
+bm() {
+    git b $(git master-branch)
+}
 # switch to nth last branch, as shown by git b
 bn() {
     git b $(git branch -a --color=never | head -n${1} | tail -n1)
@@ -221,6 +224,12 @@ ds() {
 g() {
     git rev-list --all -- "$2"  | xargs git grep "$1"
 }
+master-branch() {
+    echo master
+}
+mm() {
+    git merge $(git master-branch)
+}
 mtr() {
     git mt
     git rh
@@ -244,6 +253,9 @@ pa() {
 }
 pf() {
     git push --force origin $(git symbolic-ref --short HEAD)
+}
+pm() {
+    git pull origin $(git master-branch)
 }
 # pull nth last branch, as shown by git b
 pn() {
@@ -281,7 +293,7 @@ stbp() {
     git sp
 }
 stbpm() {
-    git stbp master
+    git stbp $(git master-branch)
 }
 stp() {
     git st
@@ -289,7 +301,7 @@ stp() {
     git sp
 }
 stpm() {
-    git stp master
+    git stp $(git master-branch)
 }
 # last working day logs for current user on all branches
 su() {
