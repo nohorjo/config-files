@@ -1,0 +1,69 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.minimap.enabled": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascript"
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<esc>"]
+        },
+        {
+            "before": ["k", "j"],
+            "after": ["<esc>"]
+        }
+    ],
+    "vim.easymotion": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["T"],
+            "after": ["leader", "leader", "T"],
+        },
+        {
+            "before": ["F"],
+            "after": ["leader", "leader", "F"],
+        },
+        {
+            "before": ["t"],
+            "after": ["leader", "leader", "t"],
+        },
+        {
+            "before": ["f"],
+            "after": ["leader", "leader", "f"],
+        },
+        {
+            "before": ["leader", "e"],
+            "after": ["leader", "leader", "e"],
+        },
+        {
+            "before": ["leader", "w"],
+            "after": ["leader", "leader", "w"],
+        },
+        {
+            "before": ["leader", "b"],
+            "after": ["leader", "leader", "b"],
+        },
+        {
+            "before": ["leader", ";"],
+            "after": ["<C-w>", "w"],
+        },
+        {
+            "before": ["<ENTER>"],
+            "after": ["O", "<ESC>", "j"],
+        },
+        {
+            "before": ["<SPACE>"],
+            "after": ["i", "<SPACE>", "<ESC>"],
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-w>": false,
+        "<C-c>": false,
+        "<C-a>": false,
+    },
+    "vim.highlightedyank.enable": true,
+    "editor.lineNumbers": "relative",
+}
