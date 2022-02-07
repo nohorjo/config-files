@@ -1,5 +1,4 @@
 {
-    "diffEditor.ignoreTrimWhitespace": false,
     "editor.minimap.enabled": false,
     "emmet.includeLanguages": {
         "javascript": "javascript"
@@ -12,7 +11,11 @@
         {
             "before": ["k", "j"],
             "after": ["<esc>"]
-        }
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-x>", "<C-l>"],
+        },
     ],
     "vim.easymotion": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -57,13 +60,30 @@
             "after": ["i", "<SPACE>", "<ESC>"],
         },
     ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["s", "("],
+            "after": ["c", "(", ")", "<ESC>", "P"],
+        },
+    ],
     "vim.handleKeys": {
         "<C-b>": false,
         "<C-f>": false,
         "<C-w>": false,
         "<C-c>": false,
-        "<C-a>": false,
     },
     "vim.highlightedyank.enable": true,
     "editor.lineNumbers": "relative",
+    "editor.tabSize": 2,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "security.workspace.trust.untrustedFiles": "open",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "explorer.confirmDelete": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "redhat.telemetry.enabled": true,
 }
