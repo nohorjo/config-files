@@ -15,7 +15,7 @@ with open(script) as file:
     func_string = ""
     
     for line in lines:
-        name_match = re.match('^([\w-]*)\(\) {$', line)
+        name_match = re.match(r'^([\w-]*)\(\) {$', line)
         if name_match:
             name = name_match.groups()[0]
         elif line == '}':
