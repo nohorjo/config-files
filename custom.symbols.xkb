@@ -1,0 +1,67 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    include "gb"
+
+    name[Group1]="ArabicCustom";
+
+    key.type[Group1]="FOUR_LEVEL";
+
+    //
+    key <AE01> {[        Arabic_1,                  any,                        1,   any ]}; // 1   ١
+    key <AE02> {[        Arabic_2,                  any,                        2,   any ]}; // 2   ٢
+    key <AE03> {[        Arabic_3,                  any,                        3,   any ]}; // 3   ٣
+    key <AE04> {[        Arabic_4,                  any,                        4,   any ]}; // 4   ٤
+    key <AE05> {[        Arabic_5,                  any,                        5,   any ]}; // 5   ٥
+    key <AE06> {[        Arabic_6,                  any,                        6,   any ]}; // 6   ٦
+    key <AE07> {[        Arabic_7,                  any,                        7,   any ]}; // 7   ٧
+    key <AE08> {[        Arabic_8,                U066D,                        8,   any ]}; // 8   ٭ ٨
+    key <AE09> {[        Arabic_9,                  any,                        9,   any ]}; // 9   ٩
+    key <AE10> {[        Arabic_0,                  any,                        0,   any ]}; // 0   ٠
+
+    //
+    key <AD01> {[      Arabic_qaf,                  any,                      any,   any ]}; // q   ق 
+    key <AD02> {[      Arabic_waw,    Arabic_hamzaonwaw,                      any,   any ]}; // w   ؤ و
+    key <AD03> {[      Arabic_ain,                  any,                      any,   any ]}; // e   ع
+    key <AD04> {[       Arabic_ra,                  any,                      any,   any ]}; // r   ر
+    key <AD05> {[      Arabic_teh,           Arabic_tah,              Arabic_theh,   any ]}; // t   ث ط ت
+    key <AD06> {[      Arabic_yeh,    Arabic_hamzaonyeh,       Arabic_alefmaksura,   any ]}; // y   ى ئ ي
+    key <AD07> {[    Arabic_fatha,      Arabic_fathatan,  Arabic_superscript_alef,   any ]}; // u   فٰ فً فَ
+    key <AD08> {[    Arabic_kasra,      Arabic_kasratan,                    U0656,   any ]}; // i   كٖ كٍ كِ
+    key <AD09> {[    Arabic_damma,      Arabic_dammatan,                    U0657,   any ]}; // o   ضٗ ضٌ ضُ
+    key <AD10> {[    Arabic_sukun,        Arabic_shadda,                      any,   any ]}; // p   شّ سْ
+    
+    key <AD11> {[             any,                UFD3E,                      any,   any ]}; // {   ﴾
+    key <AD12> {[             any,                UFD3F,                      any,   any ]}; // }   ﴿
+
+    //
+    key <AC01> {[     Arabic_alef,         Arabic_hamza,       Arabic_hamzaonalef, Arabic_hamzaunderalef ]}; // a   إ أ ء ا
+    key <AC02> {[     Arabic_seen,           Arabic_sad,                      any,                 UFDFA ]}; // s   ﷺ ص س
+    key <AC03> {[      Arabic_dal,           Arabic_dad,                      any,                   any ]}; // d   ض د
+    key <AC04> {[      Arabic_feh,                  any,                      any,                   any ]}; // f   ف
+    key <AC05> {[    Arabic_ghain,          Arabic_khah,                      any,                   any ]}; // g   خ غ
+    key <AC06> {[       Arabic_ha,           Arabic_hah,        Arabic_tehmarbuta,                   any ]}; // h   ة ح ه
+    key <AC07> {[     Arabic_jeem,                  any,                      any,                 UFDFB ]}; // j   ﷻ ج
+    key <AC08> {[      Arabic_kaf,                  any,                      any,                   any ]}; // k   ك
+    key <AC09> {[      Arabic_lam,                  any,                      any,                   any ]}; // l   ل
+    
+    key <AC10> {[Arabic_semicolon,                  any,                      any,   any ]}; // :   ؛
+    key <AC11> {[             any,                  any,                      any,   any ]}; // 
+    key <AC12> {[             any,   Arabic_maddaonalef,                    U0653,   any ]}; // ~   مٓ آ
+
+    //
+    key <AB01> {[      Arabic_zain,          Arabic_zah,              Arabic_thal,   any ]}; // z   ذ ظ ز
+    key <AB02> {[     Arabic_sheen,                 any,                      any,   any ]}; // x   ش
+    key <AB03> {[      Arabic_thal,                 any,                      any,   any ]}; // c   ذ
+    key <AB04> {[Arabic_tehmarbuta,                 any,                      any, UFDF2 ]}; // v   ﷲ ة
+    key <AB05> {[       Arabic_beh,         Arabic_theh,                      any, UFDFD ]}; // b   ث ب ﷽
+    key <AB06> {[      Arabic_noon,                 any,                      any,   any ]}; // n   ن
+    key <AB07> {[      Arabic_meem,                 any,                      any,   any ]}; // m   م
+    
+    key <AB08> {[    Arabic_comma,                  any,                      any,   any ]}; // ,   ،
+    key <AB09> {[ Arabic_fullstop,                  any,                    U06DD,   any ]}; // .   ۝ ۔
+    key <AB10> {[             any, Arabic_question_mark,                      any,   any ]}; // ?   ؟
+
+    include "level3(ralt_switch)"
+};
+
