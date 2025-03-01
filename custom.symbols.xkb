@@ -22,7 +22,7 @@ xkb_symbols "basic" {
     //
     key <AD01> {[      Arabic_qaf,                  any,                      any,   any ]}; // q   ق 
     key <AD02> {[      Arabic_waw,    Arabic_hamzaonwaw,                      any,   any ]}; // w   ؤ و
-    key <AD03> {[      Arabic_ain,                  any,                      any,   any ]}; // e   ع
+    key <AD03> {[      Arabic_ain,         Arabic_hamza,                      any,   any ]}; // e   ء ع
     key <AD04> {[       Arabic_ra,                  any,                      any,   any ]}; // r   ر
     key <AD05> {[      Arabic_teh,           Arabic_tah,              Arabic_theh,   any ]}; // t   ث ط ت
     key <AD06> {[      Arabic_yeh,    Arabic_hamzaonyeh,       Arabic_alefmaksura,   any ]}; // y   ى ئ ي
@@ -35,17 +35,17 @@ xkb_symbols "basic" {
     key <AD12> {[             any,                UFD3F,                      any,   any ]}; // }   ﴿
 
     //
-    key <AC01> {[     Arabic_alef,         Arabic_hamza,       Arabic_hamzaonalef, Arabic_hamzaunderalef ]}; // a   إ أ ء ا
+    key <AC01> {[     Arabic_alef,   Arabic_hamzaonalef,    Arabic_hamzaunderalef,                   any ]}; // a   إ أ ا
     key <AC02> {[     Arabic_seen,           Arabic_sad,                      any,                 UFDFA ]}; // s   ﷺ ص س
     key <AC03> {[      Arabic_dal,           Arabic_dad,                      any,                   any ]}; // d   ض د
     key <AC04> {[      Arabic_feh,                  any,                      any,                   any ]}; // f   ف
-    key <AC05> {[    Arabic_ghain,          Arabic_khah,                      any,                   any ]}; // g   خ غ
+    key <AC05> {[    Arabic_ghain,                  any,                      any,                   any ]}; // g   غ
     key <AC06> {[       Arabic_ha,           Arabic_hah,        Arabic_tehmarbuta,                   any ]}; // h   ة ح ه
     key <AC07> {[     Arabic_jeem,                  any,                      any,                 UFDFB ]}; // j   ﷻ ج
-    key <AC08> {[      Arabic_kaf,                  any,                      any,                   any ]}; // k   ك
+    key <AC08> {[      Arabic_kaf,          Arabic_khah,                      any,                   any ]}; // k   خ ك
     key <AC09> {[      Arabic_lam,                  any,                      any,                   any ]}; // l   ل
     
-    key <AC10> {[Arabic_semicolon,                  any,                      any,   any ]}; // :   ؛
+    key <AC10> {[Arabic_semicolon,                colon,                      any,   any ]}; // :   ؛
     key <AC11> {[             any,                  any,                      any,   any ]}; // 
     key <AC12> {[             any,   Arabic_maddaonalef,                    U0653,   any ]}; // ~   مٓ آ
 
@@ -58,8 +58,8 @@ xkb_symbols "basic" {
     key <AB06> {[      Arabic_noon,                 any,                      any,   any ]}; // n   ن
     key <AB07> {[      Arabic_meem,                 any,                      any,   any ]}; // m   م
     
-    key <AB08> {[    Arabic_comma,                  any,                      any,   any ]}; // ,   ،
-    key <AB09> {[ Arabic_fullstop,                  any,                    U06DD,   any ]}; // .   ۝ ۔
+    key <AB08> {[    Arabic_comma,                  any,                      any,   U2068 ]}; // ,   ،
+    key <AB09> {[ Arabic_fullstop,                  any,                    U06DD,   U2069 ]}; // .   ۝ ۔
     key <AB10> {[             any, Arabic_question_mark,                      any,   any ]}; // ?   ؟
 
     include "level3(ralt_switch)"
