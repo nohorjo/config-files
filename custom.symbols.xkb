@@ -35,15 +35,15 @@ xkb_symbols "basic" {
     key <AD12> {[             any,                UFD3F,                      any,   any ]}; // }   ﴿
 
     //
-    key <AC01> {[     Arabic_alef,   Arabic_hamzaonalef,    Arabic_hamzaunderalef,                   any ]}; // a   إ أ ا
-    key <AC02> {[     Arabic_seen,           Arabic_sad,                      any,                 UFDFA ]}; // s   ﷺ ص س
-    key <AC03> {[      Arabic_dal,           Arabic_dad,                      any,                   any ]}; // d   ض د
-    key <AC04> {[      Arabic_feh,                  any,                      any,                   any ]}; // f   ف
-    key <AC05> {[    Arabic_ghain,                  any,                      any,                   any ]}; // g   غ
-    key <AC06> {[       Arabic_ha,           Arabic_hah,        Arabic_tehmarbuta,                   any ]}; // h   ة ح ه
-    key <AC07> {[     Arabic_jeem,                  any,                      any,                 UFDFB ]}; // j   ﷻ ج
-    key <AC08> {[      Arabic_kaf,          Arabic_khah,                      any,                   any ]}; // k   خ ك
-    key <AC09> {[      Arabic_lam,                  any,                      any,                   any ]}; // l   ل
+    key <AC01> {[     Arabic_alef,   Arabic_hamzaonalef,    Arabic_hamzaunderalef, UFDF2 ]}; // a   ﷲ إ أ ا
+    key <AC02> {[     Arabic_seen,           Arabic_sad,                      any, UFDFA ]}; // s   ﷺ ص س
+    key <AC03> {[      Arabic_dal,           Arabic_dad,                      any,   any ]}; // d   ض د
+    key <AC04> {[      Arabic_feh,                  any,                      any,   any ]}; // f   ف
+    key <AC05> {[    Arabic_ghain,                  any,                      any,   any ]}; // g   غ
+    key <AC06> {[       Arabic_ha,           Arabic_hah,        Arabic_tehmarbuta,   any ]}; // h   ة ح ه
+    key <AC07> {[     Arabic_jeem,                  any,                      any, UFDFB ]}; // j   ﷻ ج
+    key <AC08> {[      Arabic_kaf,          Arabic_khah,                      any,   any ]}; // k   خ ك
+    key <AC09> {[      Arabic_lam,                  any,                      any,   any ]}; // l   ل
     
     key <AC10> {[Arabic_semicolon,                colon,                      any,   any ]}; // :   ؛
     key <AC11> {[             any,                  any,                      any,   any ]}; // 
