@@ -50,9 +50,11 @@ local function includes(list, value)
 end
 _G.colorschemes = vim.fn.getcompletion('', 'color')
 local doNotLike = {
+  "bamboo",
   "blue",
-  "vim",
+  "shine",
   "tokyonight-day",
+  "vim",
 }
 for i, v in ipairs(_G.colorschemes) do
   if includes(doNotLike, v) then
