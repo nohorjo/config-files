@@ -15,7 +15,7 @@ local plugins = {
   { "chentoast/marks.nvim", event = "VeryLazy", opts = {}, },
   { 'andymass/vim-matchup', opts = { treesitter = { stopline = 500, } } },
   { 'numToStr/Comment.nvim', opts = { } },
-  { "nvim-tree/nvim-tree.lua", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons", }, opts = { } },
+  { 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, lazy = false, },
   { 'tpope/vim-sleuth' },
   { 'phaazon/hop.nvim', branch = 'v2', opts = {}, },
 }
