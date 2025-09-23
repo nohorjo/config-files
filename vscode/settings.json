@@ -101,7 +101,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "workbench.editorAssociations": {
         "*.md": "default"
@@ -115,4 +115,5 @@
     ],
     "editor.stickyScroll.enabled": false,
     "git.openRepositoryInParentFolders": "always",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
 }
