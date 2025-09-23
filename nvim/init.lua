@@ -114,6 +114,7 @@ map("n", "<C-h>", [[yiw:%s//gc<Left><Left><Left>\(\<<C-r>0\>\)/]], opts)
 map("n", "<C-h><C-h>", [[yiw:s//g<Left><Left>\(\<<C-r>0\>\)/]], opts)
 -- Replace in visual selection
 map("v", "<C-h>", [[y:%s//gc<Left><Left><Left>\(<C-r>0\)/]], opts)
+map("n", "*", "*N", opts)
 
 -- Center after search
 vim.keymap.set("n", "n", "nzz", opts)
