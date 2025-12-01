@@ -59,7 +59,7 @@ xkb_symbols "basic" {
     key <AB07> {[      Arabic_meem,                 any,                      any,   any ]}; // m   م
     
     key <AB08> {[    Arabic_comma,                  any,                      any,   U2068 ]}; // ,   ،
-    key <AB09> {[ Arabic_fullstop,                  any,                    U06DD,   U2069 ]}; // .   ۝ ۔
+    key <AB09> {[          period,                  any,                    U06DD,   U2069 ]}; // .   ۝ ۔
     key <AB10> {[             any, Arabic_question_mark,                      any,   any ]}; // ?   ؟
 
     include "level3(ralt_switch)"
