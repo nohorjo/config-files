@@ -1,3 +1,4 @@
+-- need: npm install -g @vtsls/language-server
 -- init.lua or in your Neovim configuration file
 
 -- Ensure lazy.nvim is installed
@@ -13,11 +14,13 @@ vim.opt.runtimepath:prepend(lazypath)
 -- Setup lazy.nvim to manage your plugins
 local plugins = {
   { "chentoast/marks.nvim", event = "VeryLazy", opts = {}, },
-  { 'andymass/vim-matchup', opts = { treesitter = { stopline = 500, } } },
+  -- { 'andymass/vim-matchup', opts = { treesitter = { stopline = 500, } } },
   { 'numToStr/Comment.nvim', opts = { } },
   { 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, lazy = false, },
   { 'tpope/vim-sleuth' },
   { 'phaazon/hop.nvim', branch = 'v2', opts = {}, },
+  { 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = false, build = ':TSUpdate'},
+  { "neovim/nvim-lspconfig", event = { "BufReadPre", "BufNewFile" }, },
 }
 for _, theme in ipairs({
   "0xstepit/flow.nvim",
@@ -52,6 +55,8 @@ _G.colorschemes = vim.fn.getcompletion('', 'color')
 local doNotLike = {
   "bamboo",
   "blue",
+  "kanagawa",
+  "onedark_dark",
   "shine",
   "tokyonight-day",
   "vim",
@@ -116,6 +121,9 @@ map("n", "<C-h><C-h>", [[yiw:s//g<Left><Left>\(\<<C-r>0\>\)/]], opts)
 map("v", "<C-h>", [[y:%s//gc<Left><Left><Left>\(<C-r>0\)/]], opts)
 map("n", "*", "*N", opts)
 
+-- folding
+map("n", "z{", "[{zf%", opts)
+
 -- Center after search
 vim.keymap.set("n", "n", "nzz", opts)
 vim.keymap.set("n", "N", "Nzz", opts)
@@ -148,6 +156,9 @@ local directions = require('hop.hint').HintDirection
 vim.keymap.set('', 'f', function()
   hop.hint_char1()
 end, {remap=true})
+vim.keymap.set('', 'w', function()
+  hop.hint_words({ direction = directions.AFTER_CURSOR })
+end, { remap = true })
 
 vim.cmd("cabbrev %% %:h")
 
@@ -191,6 +202,17 @@ vim.api.nvim_create_autocmd({ "VimEnter", "BufWinEnter" }, {
   callback = function()
     vim.wo.cursorline = true
   end,
+})
+local group = vim.api.nvim_create_augroup("Other", { clear = true })
+vim.api.nvim_create_autocmd("InsertEnter", {
+    group = group,
+    pattern = "*",
+    command = "set nonumber norelativenumber",
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+    group = group,
+    pattern = "*",
+    command = "set number relativenumber",
 })
 
 --------------------------------------------------------------------------------
@@ -307,3 +329,59 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end
 })
+
+--------------------------------------------------------------------------------
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "lua", "typescript", "javascript" },
+  highlight = { enable = true },
+}
+
+--------------------------------------------------------------------------------
+
+-- Autostart VTSLS for TypeScript / Vue files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
+  callback = function()
+    local clients = vim.lsp.get_clients({ name = "vtsls" })
+    if #clients == 0 then
+      vim.lsp.start({
+        name = "vtsls",
+        cmd = { "vtsls", "--stdio" },  -- <-- ADD THIS
+        filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" },
+        root_dir = function(fname)
+          return vim.fs.find({ "package.json", "tsconfig.json", ".git" }, { upward = true })[1]
+            and vim.fs.dirname(vim.fs.find({ "package.json", "tsconfig.json", ".git" }, { upward = true })[1])
+        end,
+        settings = {
+          vtsls = {
+            experimental = { completion = { enableServerSideFuzzyMatch = true } },
+          },
+          typescript = { preferences = { importModuleSpecifier = "non-relative" } },
+        },
+        on_attach = function(client, bufnr)
+          local opts = { buffer = bufnr, noremap = true, silent = true }
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        end,
+      })
+    end
+  end,
+})
+
+-- show virtual text and signs
+vim.diagnostic.config({
+  virtual_text = true, -- inline error text
+  signs = true,        -- show symbols in gutter
+  underline = true,    -- underline errors
+  update_in_insert = false,
+})
+
+--------------------------------------------------------------------------------
+
+-- html
+vim.keymap.set('i', '<Space><Tab>', '<ESC>vT<Space>c<<C-r>"></<C-r>"><ESC>F<i', { noremap = true })
+
+
+--------------------------------------------------------------------------------
+
